@@ -1,0 +1,12 @@
+D:\Projetos\ECG\ECG\ECG\bin\Debug\ECG.exe
+D:\Projetos\ECG\ECG\ECG\bin\Debug\ECG.pdb
+D:\Projetos\ECG\ECG\ECG\obj\Debug\ResolveAssemblyReference.cache
+D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.FAjudaSobre.resources
+D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.FConfigBancoDados.resources
+D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.FConfigRedeNeuronal.resources
+D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.FECFAbrirExame.resources
+D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.MainForm.resources
+D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.Properties.Resources.resources
+D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.csproj.GenerateResource.Cache
+D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.exe
+D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.pdb

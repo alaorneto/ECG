@@ -1,0 +1,5 @@
+D:\Projetos\ECG\ECG\ECG.Graphics\obj\Debug\ResolveAssemblyReference.cache
+D:\Projetos\ECG\ECG\ECG.Graphics\bin\Debug\ECG.Graphics.dll
+D:\Projetos\ECG\ECG\ECG.Graphics\bin\Debug\ECG.Graphics.pdb
+D:\Projetos\ECG\ECG\ECG.Graphics\obj\Debug\ECG.Graphics.dll
+D:\Projetos\ECG\ECG\ECG.Graphics\obj\Debug\ECG.Graphics.pdb

@@ -1,0 +1,5 @@
+D:\Projetos\ECG\ECG\ECG.Framework\obj\Debug\ResolveAssemblyReference.cache
+D:\Projetos\ECG\ECG\ECG.Framework\bin\Debug\ECG.Framework.dll
+D:\Projetos\ECG\ECG\ECG.Framework\bin\Debug\ECG.Framework.pdb
+D:\Projetos\ECG\ECG\ECG.Framework\obj\Debug\ECG.Framework.dll
+D:\Projetos\ECG\ECG\ECG.Framework\obj\Debug\ECG.Framework.pdb
