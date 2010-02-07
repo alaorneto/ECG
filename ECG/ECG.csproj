@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,6 +36,7 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -66,11 +68,11 @@
     <Compile Include="FConfigRedeNeuronal.Designer.cs">
       <DependentUpon>FConfigRedeNeuronal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FECFAbrirExame.cs">
+    <Compile Include="FECGAbrirExame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FECFAbrirExame.Designer.cs">
-      <DependentUpon>FECFAbrirExame.cs</DependentUpon>
+    <Compile Include="FECGAbrirExame.Designer.cs">
+      <DependentUpon>FECGAbrirExame.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -89,8 +91,8 @@
     <EmbeddedResource Include="FConfigRedeNeuronal.resx">
       <DependentUpon>FConfigRedeNeuronal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FECFAbrirExame.resx">
-      <DependentUpon>FECFAbrirExame.cs</DependentUpon>
+    <EmbeddedResource Include="FECGAbrirExame.resx">
+      <DependentUpon>FECGAbrirExame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -113,6 +115,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ECG.Framework\ECG.Framework.csproj">
+      <Project>{FEC40F77-C3AA-4532-9A32-982B814FCC7D}</Project>
+      <Name>ECG.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ECG.Graphics\ECG.Graphics.csproj">
+      <Project>{61A03748-A92F-4CED-A4FF-0B2F4F9EB9FB}</Project>
+      <Name>ECG.Graphics</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

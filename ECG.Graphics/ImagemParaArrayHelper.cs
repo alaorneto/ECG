@@ -9,15 +9,39 @@ namespace ECG.Graphics
 {
     public class ImagemParaArrayHelper
     {
-        public float[] GerarArray(Bitmap imagem)
+        bool DEBUG = true;
+        float[,] _matriz;
+        Bitmap _imagem;
+
+        public float[,] GerarArray(Bitmap imagem)
         {
-            bool DEBUG = false;
+            return GerarArray(imagem, 2);
+        }
+
+        public float[,] GerarArray(Bitmap imagem, int loops)
+        {
+            ConversaoHelper helper = new ConversaoHelper();
+
+            this._imagem = helper.Binary(imagem);
+
+            if (loops < 1)
+                throw new InvalidOperationException("Quantidade de loops precisa ser igual ou maior que 1");
             
-            float[,] matriz = new float[imagem.Width, imagem.Height];
+            ConverterParaMatriz();
 
-            imagem.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            ConverterMatrizParaInteiros();
 
-            BitmapData bmData = imagem.LockBits(new Rectangle(0, 0, imagem.Width, imagem.Height), ImageLockMode.ReadWrite, imagem.PixelFormat);
+            for(int x = 0; x < loops; x++)
+                RemoverRuidos();
+
+            return _matriz;
+        }
+
+        protected void ConverterParaMatriz()
+        {
+            _matriz = new float[this._imagem.Width, this._imagem.Height];
+
+            BitmapData bmData = _imagem.LockBits(new Rectangle(0, 0, _imagem.Width, _imagem.Height), ImageLockMode.ReadWrite, _imagem.PixelFormat);
 
             int stride = bmData.Stride;
 
@@ -27,139 +51,168 @@ namespace ECG.Graphics
             {
                 byte* p = (byte*)(void*)Scan0;
 
-                int nOffset = stride - imagem.Width * 3;
+                int nOffset = stride - _imagem.Width * 3;
 
-                for (int y = 0; y < imagem.Height; ++y)
+                for (int y = 0; y < _imagem.Height; ++y)
                 {
-                    for (int x = 0; x < imagem.Width; ++x)
+                    for (int x = 0; x < _imagem.Width; ++x)
                     {
-                        if(DEBUG)
-                            Console.Write(p[0] + " ");
-
-                        matriz[y, x] = p[0];
+                        _matriz[x, y] = p[0];
 
                         p += 3;
                     }
-                    
-                    if(DEBUG)
-                        Console.WriteLine("\nLINE " + y + "\n");
-                    
+
                     p += nOffset;
                 }
             }
 
-            imagem.UnlockBits(bmData);
+            _imagem.UnlockBits(bmData);
+        }
 
-            // Loop 1, transformando matriz de float em inteiro
-
-            for (int y = 0; y < imagem.Height; ++y)
+        protected float[,] ConverterMatrizParaInteiros()
+        {
+            for (int x = 0; x < _imagem.Width; ++x)
             {
-                for (int x = 0; x < imagem.Width; ++x)
+                for (int y = 0; y < _imagem.Height; ++y)
                 {
-                    if (matriz[y, x] == (float)0)
-                        matriz[y, x] = 1;
+                    if (_matriz[x, y] == (float)0)
+                        _matriz[x, y] = 1;
                     else
-                        matriz[y, x] = 0;
+                        _matriz[x, y] = 0;
                 }
             }
 
-            // Loop 2, removendo ruídos
+            return _matriz;
+        }
 
-            for (int y = 0; y < imagem.Height; ++y)
+        protected void RemoverRuidos()
+        {
+            for (int x = 0; x < _imagem.Width; x++)
             {
-                for (int x = 0; x < imagem.Width; ++x)
+                for (int y = 0; y < _imagem.Height; y++)
                 {
-                    float soma;
+                    float soma = 0;
 
-                    if (matriz[y, x] == 1)
+                    if (_matriz[x, y] == 1)
                     {
                         if ((x == 0) && (y == 0))
                         {
-                            soma = matriz[y, x + 1] +
-                                matriz[y + 1, x] +
-                                matriz[y + 1, x + 1];
+                            soma = _matriz[x, y + 1] +
+                                _matriz[x + 1, y] +
+                                _matriz[x + 1, y + 1];
                         }
-                        else if ((x != 0) && (x == imagem.Width - 1) && (y == 0))
+                        else if ((x == 0) && (y != 0) && (y != _imagem.Height - 1))
                         {
-                            soma = matriz[y, x - 1] +
-                                matriz[y + 1, x - 1] +
-                                matriz[y + 1, x];
+                            soma = _matriz[x, y - 1] +
+                                _matriz[x, y + 1] +
+                                _matriz[x + 1, y - 1] +
+                                _matriz[x + 1, y] +
+                                _matriz[x + 1, y + 1];
                         }
-                        else if ((x == 0) && (y != 0) && (y != imagem.Height - 1))
+
+                        else if ((x == 0) && (y == _imagem.Height - 1))
                         {
-                            soma = matriz[y - 1, x] +
-                                matriz[y - 1, x + 1] +
-                                matriz[y, x + 1];
+                            soma = _matriz[x, y - 1] +
+                                _matriz[x, y] +
+                                _matriz[x + 1, y - 1] +
+                                _matriz[x + 1, y];
                         }
-                        else if ((x == 0) && (y != 0))
+                        else if ((x != 0) && (x != (_imagem.Width - 1)) && (y != 0) && (y != (_imagem.Height - 1)))
                         {
-                            soma = matriz[y - 1, x] +
-                                matriz[y - 1, x + 1] +
-                                matriz[y, x + 1] +
-                                matriz[y + 1, x] +
-                                matriz[y + 1, x + 1];
+                            soma = _matriz[x - 1, y - 1] +
+                                _matriz[x - 1, y] +
+                                _matriz[x - 1, y + 1] +
+                                _matriz[x, y - 1] +
+                                _matriz[x, y + 1] +
+                                _matriz[x + 1, y - 1] +
+                                _matriz[x + 1, y] +
+                                _matriz[x + 1, y + 1];
                         }
-                        else if ((x != 0)  && (y == 0))
+                        else if ((x == _imagem.Width - 1) && (y == _imagem.Height - 1))
                         {
-                            soma = matriz[y, x - 1] +
-                                matriz[y, x + 1] +
-                                matriz[y + 1, x - 1] +
-                                matriz[y + 1, x] +
-                                matriz[y + 1, x + 1];
+                            soma = _matriz[x - 1, y - 1] +
+                               _matriz[x - 1, y] +
+                               _matriz[x, y - 1];
                         }
-                        else if ((x == imagem.Width - 1) && (y == imagem.Height - 1))
+                        else if ((x != 0) && (x == (_imagem.Width - 1)) && (y == 0))
                         {
-                            soma = matriz[y - 1, x - 1] +
-                               matriz[y - 1, x] +
-                               matriz[y, x - 1];
+                            soma = _matriz[x - 1, y] +
+                                _matriz[x, y] +
+                                _matriz[x - 1, y + 1] +
+                                _matriz[x, y + 1];
                         }
-                        else if ((x == imagem.Width - 1) && (y != imagem.Height - 1))
+                        else if ((x != 0) && (y == 0))
                         {
-                            soma = matriz[y - 1, x - 1] +
-                                matriz[y - 1, x] +
-                                matriz[y, x - 1] +
-                                matriz[y + 1, x - 1] +
-                                matriz[y + 1, x];
+                            soma = _matriz[x - 1, y] +
+                                _matriz[x + 1, y] +
+                                _matriz[x - 1, y + 1] +
+                                _matriz[x, y + 1] +
+                                _matriz[x + 1, y + 1];
                         }
-                        else if ((x != imagem.Width - 1) && (y == imagem.Height - 1))
+                        else if ((x == _imagem.Width - 1) && (y != _imagem.Height - 1))
                         {
-                            soma = matriz[y - 1, x - 1] +
-                               matriz[y - 1, x] +
-                               matriz[y - 1, x + 1] +
-                               matriz[y, x - 1] +
-                               matriz[y, x + 1];
+                            soma = _matriz[x - 1, y - 1] +
+                                _matriz[x - 1, y] +
+                                _matriz[x - 1, y + 1] +
+                                _matriz[x, y - 1] +
+                                _matriz[x, y + 1];
                         }
-                        else
+                        else if ((x != _imagem.Width - 1) && (y == _imagem.Height - 1))
                         {
-                            soma = matriz[y - 1, x - 1] +
-                                matriz[y - 1, x] +
-                                matriz[y - 1, x + 1] +
-                                matriz[y, x - 1] +
-                                matriz[y, x + 1] +
-                                matriz[y + 1, x - 1] +
-                                matriz[y + 1, x] +
-                                matriz[y + 1, x + 1];
+                            soma = _matriz[x - 1, y - 1] +
+                               _matriz[x, y - 1] +
+                               _matriz[x + 1, y - 1] +
+                               _matriz[x - 1, y] +
+                               _matriz[x + 1, y];
                         }
                         if (soma > 2)
-                            matriz[y, x] = 1;
+                            _matriz[x, y] = 1;
                         else
-                            matriz[y, x] = 0;
+                            _matriz[x, y] = 0;
                     }
                 }
             }
 
+        }
 
-            for (int y = imagem.Width - 1; y >= 0; --y)
+        protected void ExibirParaConsole()
+        {
+            for (int y = _imagem.Width - 1; y >= 0; --y)
             {
-                for (int x = 0; x < imagem.Height; ++x)
+                for (int x = 0; x < _imagem.Height; ++x)
                 {
-                    Console.Write(matriz[x, y]);
+                    Console.Write(_matriz[x, y]);
                 }
 
                 Console.WriteLine();
             }
+        }
 
-            return null;
+        public float[] GerarVetor(Bitmap imagem)
+        {
+            float[] vetor = new float[imagem.Width];
+
+            this.GerarArray(imagem);
+
+            for (int x = 0; x < _imagem.Width; x++)
+            {
+                int count = 0, indices = 0;
+
+                for (int y = 0; y < _imagem.Height; y++)
+                {
+                    if (_matriz[x, y] == 1)
+                    {
+                        count++;
+                        indices += _imagem.Height - y;
+                    }
+                }
+                if (count == 0)
+                    vetor[x] = 0;
+                else
+                    vetor[x] = indices / count;
+            }
+
+            return vetor;
         }
     }
 }

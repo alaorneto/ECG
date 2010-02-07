@@ -72,13 +72,14 @@
             // abrirExameToolStripMenuItem
             // 
             this.abrirExameToolStripMenuItem.Name = "abrirExameToolStripMenuItem";
-            this.abrirExameToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.abrirExameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.abrirExameToolStripMenuItem.Text = "Abrir Exame";
+            this.abrirExameToolStripMenuItem.Click += new System.EventHandler(this.abrirExameToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(137, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // sairToolStripMenuItem
             // 

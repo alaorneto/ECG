@@ -18,7 +18,14 @@ namespace ECG
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Application.Exit();
+        }
 
+        private void abrirExameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FECGAbrirExame dialog = new FECGAbrirExame();
+
+            dialog.ShowDialog();
         }
     }
 }

@@ -7,8 +7,16 @@ using System.Drawing.Imaging;
 
 namespace ECG.Graphics
 {
+    /// <summary>
+    /// Classe Helper para prover métodos auxiliares no processamento de conversões em arquivos do tipo Bitmap
+    /// </summary>
     public class ConversaoHelper
     {
+        /// <summary>
+        /// Transforma um objeto Bitmap em um correspondente na escala de cinzas, removendo informações de cores
+        /// </summary>
+        /// <param name="imagem">Objeto Bitmap correspondente a imagem a ser convertida</param>
+        /// <returns></returns>
         public Bitmap GrayScale(Bitmap imagem)
         {
             Bitmap gray = SetupGrayScale(imagem);
@@ -16,6 +24,11 @@ namespace ECG.Graphics
             return gray;
         }
 
+        /// <summary>
+        /// Método interno responsável por realizar o trabalho atribuído ao método público GrayScale
+        /// </summary>
+        /// <param name="imagem">Objeto Bitmap correspondente a imagem a ser convertida</param>
+        /// <returns></returns>
         private Bitmap SetupGrayScale(Bitmap imagem)
         {
             BitmapData bmData = imagem.LockBits(new Rectangle(0, 0, imagem.Width, imagem.Height),
@@ -56,6 +69,11 @@ namespace ECG.Graphics
             return imagem;
         }
 
+        /// <summary>
+        /// Transforma um objeto Bitmap em um correspondente no padrão binário, com informações de bit ativado ou desativado, apenas
+        /// </summary>
+        /// <param name="imagem">Objeto Bitmap correspondente a imagem a ser convertida</param>
+        /// <returns></returns>
         public Bitmap Binary(Bitmap imagem)
         {
             Bitmap binary = SetupBinary(imagem, true);
@@ -63,6 +81,12 @@ namespace ECG.Graphics
             return binary;
         }
 
+        /// <summary>
+        /// Método interno responsável por realizar o trabalho atribuído ao método público Binary
+        /// </summary>
+        /// <param name="imagem">Objeto Bitmap correspondente a imagem a ser convertida</param>
+        /// <param name="flag"></param>
+        /// <returns></returns>
         private Bitmap SetupBinary(Bitmap imagem, bool flag)
         {
             BitmapData bmData = imagem.LockBits(new Rectangle(0, 0, imagem.Width, imagem.Height),
