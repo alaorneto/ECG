@@ -64,7 +64,7 @@ namespace ECG
                 ondaChart.Series[0].Points.Add(i);
             }
 
-            for(int y = 0; y < imagem.Height; y++)
+            for (int y = 0; y < imagem.Height; y++)
             {
                 for (int x = 0; x < imagem.Width; x++)
                 {

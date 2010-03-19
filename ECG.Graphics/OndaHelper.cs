@@ -5,12 +5,23 @@ using System.Text;
 
 namespace ECG.Graphics
 {
+    /// <summary>
+    /// Classe helper com métodos de ajuda para extração de informações sobre ondas pertencentes a um
+    /// eletrocardiograma, como seus picos e seus extremos
+    /// </summary>
     public class OndaHelper
     {
         protected const int MAX_QRS = 999;
         protected const int MAX_T = 999;
         protected const int MAX_P = 999;
 
+        /// <summary>
+        /// Encontra os picos das ondas R do complexo QRS em uma onda dada
+        /// </summary>
+        /// <param name="onda">Vetor representativo da onda na qual se deseja encontrar os picos do complexo QRS</param>
+        /// <param name="xSize">O tamanho X (largura) da onda informada</param>
+        /// <param name="ySize">O tamanho Y (altura) da onda informada</param>
+        /// <returns></returns>
         public int[] PicosQRS(float[,] onda, int xSize, int ySize)
         {
             int count_picos = 0;
@@ -57,6 +68,12 @@ namespace ECG.Graphics
             return finalpicos;
         }
 
+        /// <summary>
+        /// Encontra os extremos de um complexo QRS com base na posição do pico da onda R
+        /// </summary>
+        /// <param name="onda">Vetor representativo do eletrocardiograma onde foi localizado o pico para detecção de seus extremos</param>
+        /// <param name="picoQRS">Posição onde se encontra o pico do qual se deseja encontrar os pontos extremos</param>
+        /// <returns></returns>
         public int[] ExtremosQRS(float[] onda, int picoQRS)
         {
             int[] extremos = new int[2];
@@ -132,5 +149,22 @@ namespace ECG.Graphics
 
             return extremos;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="onda"></param>
+        /// <param name="xSize"></param>
+        /// <param name="ySize"></param>
+        /// <returns></returns>
+        public int[] PicosT(float[] onda, int xSize, int ySize);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="onda"></param>
+        /// <param name="picoT"></param>
+        /// <returns></returns>
+        public int[] ExtremosT(float[] onda, int picoT);
     }
 }

@@ -7,17 +7,31 @@ using System.Drawing.Imaging;
 
 namespace ECG.Graphics
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ImagemParaArrayHelper
     {
         bool DEBUG = true;
         float[,] _matriz;
         Bitmap _imagem;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="imagem"></param>
+        /// <returns></returns>
         public float[,] GerarArray(Bitmap imagem)
         {
             return GerarArray(imagem, 2);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="imagem"></param>
+        /// <param name="loops"></param>
+        /// <returns></returns>
         public float[,] GerarArray(Bitmap imagem, int loops)
         {
             ConversaoHelper helper = new ConversaoHelper();
@@ -37,6 +51,9 @@ namespace ECG.Graphics
             return _matriz;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected void ConverterParaMatriz()
         {
             _matriz = new float[this._imagem.Width, this._imagem.Height];
@@ -69,6 +86,10 @@ namespace ECG.Graphics
             _imagem.UnlockBits(bmData);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         protected float[,] ConverterMatrizParaInteiros()
         {
             for (int x = 0; x < _imagem.Width; ++x)
@@ -85,6 +106,9 @@ namespace ECG.Graphics
             return _matriz;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected void RemoverRuidos()
         {
             for (int x = 0; x < _imagem.Width; x++)
@@ -175,6 +199,9 @@ namespace ECG.Graphics
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         protected void ExibirParaConsole()
         {
             for (int y = _imagem.Width - 1; y >= 0; --y)
@@ -188,6 +215,11 @@ namespace ECG.Graphics
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="imagem"></param>
+        /// <returns></returns>
         public float[] GerarVetor(Bitmap imagem)
         {
             float[] vetor = new float[imagem.Width];
