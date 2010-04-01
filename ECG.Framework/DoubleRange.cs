@@ -5,12 +5,15 @@ using System.Text;
 
 namespace ECG.Framework
 {
+    /// <summary>
+    /// Esta classe oferece serviços para faixas de valores do tipo double
+    /// </summary>
     class DoubleRange
     {
         private double min, max;
 
 		/// <summary>
-		/// Minimum value
+		/// Valor mínimo
 		/// </summary>
 		public double Min
 		{
@@ -19,7 +22,7 @@ namespace ECG.Framework
 		}
 
 		/// <summary>
-		/// Maximum value
+		/// Valor máximo
 		/// </summary>
 		public double Max
 		{
@@ -28,7 +31,7 @@ namespace ECG.Framework
 		}
 
 		/// <summary>
-		/// Length of the range (deffirence between maximum and minimum values)
+		/// Tamanho da faixa (diferença entre os valores máximo e mínimo)
 		/// </summary>
 		public double Length
 		{
@@ -37,57 +40,48 @@ namespace ECG.Framework
 
 		
 		/// <summary>
-		/// Initializes a new instance of the <see cref="DoubleRange"/> class
+		/// Inicializa uma nova instância da classe <see cref="DoubleRange"/>
 		/// </summary>
 		/// 
-		/// <param name="min">Minimum value of the range</param>
-		/// <param name="max">Maximum value of the range</param>
-		public DoubleRange( double min, double max )
+		/// <param name="min">Valor mínimo da faixa</param>
+		/// <param name="max">Valor máximo da faixa</param>
+		public DoubleRange(double min, double max)
 		{
 			this.min = min;
 			this.max = max;
 		}
 
 		/// <summary>
-		/// Check if the specified value is inside this range
+		/// Checa se o valor especificado está dentro desta faixa
 		/// </summary>
-		/// 
-		/// <param name="x">Value to check</param>
-		/// 
-		/// <returns><b>True</b> if the specified value is inside this range or
-		/// <b>false</b> otherwise.</returns>
-		/// 
-		public bool IsInside( double x )
+		/// <param name="x">Valor a ser checado</param>
+		/// <returns><b>true</b> se o valor especificado está dentro desta faixa
+		/// <b>false</b> caso contrário</returns>
+		public bool IsInside(double x)
 		{
-			return ( ( x >= min ) && ( x <= min ) );
+			return ((x >= min) && (x <= min));
 		}
 
 		/// <summary>
-		/// Check if the specified range is inside this range
+		/// Checa se a faixa especificada está dentro desta faixa
 		/// </summary>
-		/// 
-		/// <param name="range">Range to check</param>
-		/// 
-		/// <returns><b>True</b> if the specified range is inside this range or
-		/// <b>false</b> otherwise.</returns>
-		/// 
-		public bool IsInside( DoubleRange range )
+		/// <param name="range">Faixa a ser checada</param>
+		/// <returns><b>true</b> se a faixa especificada está dentro desta faixa ou
+		/// <b>false</b> caso contrário</returns>
+		public bool IsInside(DoubleRange range)
 		{
-			return ( ( IsInside( range.min ) ) && ( IsInside( range.max ) ) );
+			return ((IsInside(range.min)) && (IsInside(range.max)));
 		}
 
 		/// <summary>
-		/// Check if the specified range overlaps with this range
+		/// Checa se a faixa especificada ultrapassa os limites desta faixa
 		/// </summary>
-		/// 
-		/// <param name="range">Range to check for overlapping</param>
-		/// 
-		/// <returns><b>True</b> if the specified range overlaps with this range or
-		/// <b>false</b> otherwise.</returns>
-		/// 
-		public bool IsOverlapping( DoubleRange range )
+		/// <param name="range">Faixa a ser checada</param>
+		/// <returns><b>true</b> se a faixa especificada ultrapassa os limites desta faixa ou
+		/// <b>false</b> caso contrário</returns>
+		public bool IsOverlapping(DoubleRange range)
 		{
-			return ( ( IsInside( range.min ) ) || ( IsInside( range.max ) ) );
+			return ((IsInside(range.min)) || (IsInside(range.max)));
 		}
     }
 }

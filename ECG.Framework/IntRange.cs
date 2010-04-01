@@ -5,6 +5,9 @@ using System.Text;
 
 namespace ECG.Framework
 {
+    /// <summary>
+    /// Esta classe oferece serviços para faixas de valores inteiros
+    /// </summary>
     class IntRange
     {
         private int min, max;
@@ -28,7 +31,7 @@ namespace ECG.Framework
         }
 
         /// <summary>
-        /// Tamanho do range (diferença entre os valores máximo e mínimo)
+        /// Tamanho da faixa (diferença entre os valores máximo e mínimo)
         /// </summary>
         public int Length
         {
@@ -36,11 +39,10 @@ namespace ECG.Framework
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="IntRange"/> class
+        /// Inicializa uma nova instância da classe <see cref="IntRange"/>
         /// </summary>
-        /// 
-        /// <param name="min">Minimum value of the range</param>
-        /// <param name="max">Maximum value of the range</param>
+        /// <param name="min">Valor mínimo da faixa</param>
+        /// <param name="max">Valor máximo da faixa</param>
         public IntRange(int min, int max)
         {
             this.min = min;
@@ -48,42 +50,33 @@ namespace ECG.Framework
         }
 
         /// <summary>
-        /// Check if the specified value is inside this range
+        /// Checa se o valor especificado está dentro desta faixa
         /// </summary>
-        /// 
-        /// <param name="x">Value to check</param>
-        /// 
-        /// <returns><b>True</b> if the specified value is inside this range or
-        /// <b>false</b> otherwise.</returns>
-        /// 
+        /// <param name="x">Valor a ser checado</param>
+        /// <returns><b>true</b> se o valor especificado está dentro desta faixa ou
+        /// <b>false</b> caso contrário</returns>
         public bool IsInside(int x)
         {
             return ((x >= min) && (x <= min));
         }
 
         /// <summary>
-        /// Check if the specified range is inside this range
+        /// Checa se a faixa especificada está dentro desta faixa
         /// </summary>
-        /// 
-        /// <param name="range">Range to check</param>
-        /// 
-        /// <returns><b>True</b> if the specified range is inside this range or
-        /// <b>false</b> otherwise.</returns>
-        /// 
+        /// <param name="range">Faixa a ser checada</param>
+        /// <returns><b>true</b> se a faixa especificada está dentro desta faixa ou
+        /// <b>false</b> caso contrário</returns>
         public bool IsInside(IntRange range)
         {
             return ((IsInside(range.min)) && (IsInside(range.max)));
         }
 
         /// <summary>
-        /// Check if the specified range overlaps with this range
+        /// Checa se a faixa especificada ultrapassa os limites desta faixa
         /// </summary>
-        /// 
-        /// <param name="range">Range to check for overlapping</param>
-        /// 
-        /// <returns><b>True</b> if the specified range overlaps with this range or
-        /// <b>false</b> otherwise.</returns>
-        /// 
+        /// <param name="range">Faixa a ser checada</param>
+        /// <returns><b>true</b> se a faixa especificada ultrapassa os limites desta faixa ou 
+        /// <b>false</b> caso contrário</returns>
         public bool IsOverlapping(IntRange range)
         {
             return ((IsInside(range.min)) || (IsInside(range.max)));

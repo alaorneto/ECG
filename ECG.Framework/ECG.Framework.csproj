@@ -51,7 +51,6 @@
     <Compile Include="DoubleRange.cs" />
     <Compile Include="IFuncaoAtivacao.cs" />
     <Compile Include="IntRange.cs" />
-    <Compile Include="LimiarFuncaoAtivacao.cs" />
     <Compile Include="Neuronio.cs" />
     <Compile Include="NeuronioAtivacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
