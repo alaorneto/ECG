@@ -22,7 +22,7 @@ namespace ECG.Graphics
         /// <param name="xSize">O tamanho X (largura) da onda informada</param>
         /// <param name="ySize">O tamanho Y (altura) da onda informada</param>
         /// <returns></returns>
-        public int[] PicosQRS(float[,] onda, int xSize, int ySize)
+        public int[] PicosQRS(double[,] onda, int xSize, int ySize)
         {
             int count_picos = 0;
             int[] picos = new int[MAX_QRS];
@@ -74,7 +74,7 @@ namespace ECG.Graphics
         /// <param name="onda">Vetor representativo do eletrocardiograma onde foi localizado o pico para detecção de seus extremos</param>
         /// <param name="picoQRS">Posição onde se encontra o pico do qual se deseja encontrar os pontos extremos</param>
         /// <returns></returns>
-        public int[] ExtremosQRS(float[] onda, int picoQRS)
+        public int[] ExtremosQRS(double[] onda, int picoQRS)
         {
             int[] extremos = new int[2];
 
@@ -157,7 +157,10 @@ namespace ECG.Graphics
         /// <param name="xSize"></param>
         /// <param name="ySize"></param>
         /// <returns></returns>
-        public int[] PicosT(float[] onda, int xSize, int ySize);
+        public int[] PicosT(double[] onda, int xSize, int ySize)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// 
@@ -165,6 +168,9 @@ namespace ECG.Graphics
         /// <param name="onda"></param>
         /// <param name="picoT"></param>
         /// <returns></returns>
-        public int[] ExtremosT(float[] onda, int picoT);
+        public int[] ExtremosT(float[] onda, int picoT)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

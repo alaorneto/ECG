@@ -7,6 +7,6 @@ namespace ECG.Framework
 {
     public interface IFuncaoAtivacao
     {
-        float Calcular(float[] entradas, float[] pesos);
+        double Calcular(double[] entradas, double[] pesos);
     }
 }

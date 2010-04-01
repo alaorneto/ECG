@@ -7,19 +7,26 @@ using System.Drawing;
 namespace ECG.Graphics
 {
     /// <summary>
-    /// 
+    /// Esta classe encapsula um Bitmap representando a derivação do exame a ser analisada e provê funcções
+    /// úteis para a transformação dessa imagem para outras formas de representação
     /// </summary>
     public class ECGOndaBitmap
     {
-        private Bitmap _bitmap;
-
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="imagem"></param>
+        /// <param name="imagem">O objeto Bitmap com a imagem da onda a ser trabalhada</param>
         public ECGOndaBitmap(Bitmap imagem)
         {
-            this._bitmap = imagem;
+            this.Bitmap = imagem;
+        }
+
+        /// <summary>
+        /// Provê acesso ao objeto Bitmap que está sendo trabalhado nesta instância de ECGOndaBitmap
+        /// </summary>
+        public Bitmap Bitmap
+        {
+            get; set;
         }
 
         /// <summary>
@@ -29,7 +36,7 @@ namespace ECG.Graphics
         {
             ConversaoHelper helper = new ConversaoHelper();
 
-            this._bitmap = helper.Binary(this._bitmap);
+            this.Bitmap = helper.Binary(this.Bitmap);
         }
 
         /// <summary>
@@ -39,29 +46,29 @@ namespace ECG.Graphics
         {
             ConversaoHelper helper = new ConversaoHelper();
 
-            this._bitmap = helper.GrayScale(this._bitmap);
+            this.Bitmap = helper.GrayScale(this.Bitmap);
         }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public float[,] GerarArray()
+        public double[,] GerarArray()
         {
             ImagemParaArrayHelper helper = new ImagemParaArrayHelper();
 
-            return helper.GerarArray(this._bitmap);
+            return helper.GerarArray(this.Bitmap);
         }
 
         /// <summary>
         /// 
         /// </summary>
-        /// <returns></returns>
-        public float[] GerarVetor()
+        /// <returns>Retorna um vetor de uma dimensão representando a oscilação da onda no eixo X</returns>
+        public double[] GerarVetor()
         {
             ImagemParaArrayHelper helper = new ImagemParaArrayHelper();
 
-            return helper.GerarVetor(this._bitmap);
+            return helper.GerarVetor(this.Bitmap);
         }
     }
 }

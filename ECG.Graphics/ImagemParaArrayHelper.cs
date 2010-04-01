@@ -13,7 +13,7 @@ namespace ECG.Graphics
     public class ImagemParaArrayHelper
     {
         bool DEBUG = true;
-        float[,] _matriz;
+        double[,] _matriz;
         Bitmap _imagem;
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace ECG.Graphics
         /// </summary>
         /// <param name="imagem"></param>
         /// <returns></returns>
-        public float[,] GerarArray(Bitmap imagem)
+        public double[,] GerarArray(Bitmap imagem)
         {
             return GerarArray(imagem, 2);
         }
@@ -32,7 +32,7 @@ namespace ECG.Graphics
         /// <param name="imagem"></param>
         /// <param name="loops"></param>
         /// <returns></returns>
-        public float[,] GerarArray(Bitmap imagem, int loops)
+        public double[,] GerarArray(Bitmap imagem, int loops)
         {
             ConversaoHelper helper = new ConversaoHelper();
 
@@ -56,7 +56,7 @@ namespace ECG.Graphics
         /// </summary>
         protected void ConverterParaMatriz()
         {
-            _matriz = new float[this._imagem.Width, this._imagem.Height];
+            _matriz = new double[this._imagem.Width, this._imagem.Height];
 
             BitmapData bmData = _imagem.LockBits(new Rectangle(0, 0, _imagem.Width, _imagem.Height), ImageLockMode.ReadWrite, _imagem.PixelFormat);
 
@@ -90,13 +90,13 @@ namespace ECG.Graphics
         /// 
         /// </summary>
         /// <returns></returns>
-        protected float[,] ConverterMatrizParaInteiros()
+        protected double[,] ConverterMatrizParaInteiros()
         {
             for (int x = 0; x < _imagem.Width; ++x)
             {
                 for (int y = 0; y < _imagem.Height; ++y)
                 {
-                    if (_matriz[x, y] == (float)0)
+                    if (_matriz[x, y] == (double)0)
                         _matriz[x, y] = 1;
                     else
                         _matriz[x, y] = 0;
@@ -115,7 +115,7 @@ namespace ECG.Graphics
             {
                 for (int y = 0; y < _imagem.Height; y++)
                 {
-                    float soma = 0;
+                    double soma = 0;
 
                     if (_matriz[x, y] == 1)
                     {
@@ -220,9 +220,9 @@ namespace ECG.Graphics
         /// </summary>
         /// <param name="imagem"></param>
         /// <returns></returns>
-        public float[] GerarVetor(Bitmap imagem)
+        public double[] GerarVetor(Bitmap imagem)
         {
-            float[] vetor = new float[imagem.Width];
+            double[] vetor = new double[imagem.Width];
 
             this.GerarArray(imagem);
 

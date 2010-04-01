@@ -5,8 +5,9 @@ using System.Text;
 
 namespace ECG.Framework
 {
-    public class LimiarFuncaoAtivacao : IFuncaoAtivacao
+    class SigmoideFuncaoAtivacao : IFuncaoAtivacao
     {
+        private const float lambda = 6;
 
         public double Calcular(double[] entradas, double[] pesos)
         {
@@ -15,11 +16,7 @@ namespace ECG.Framework
             for (int i = 0; i < entradas.Length; i++)
                 soma = entradas[i] * pesos[i];
 
-            if (soma >= 0)
-                return 1;
-            else
-                return 0;
+            return 1 / (1 + Math.Exp(-lambda * soma));
         }
-
     }
 }

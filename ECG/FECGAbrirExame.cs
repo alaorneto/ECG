@@ -50,11 +50,11 @@ namespace ECG
 
             OndaHelper helper = new OndaHelper();
 
-            float[,] ondaArray = ecgonda.GerarArray();
+            double[,] ondaArray = ecgonda.GerarArray();
 
             int[] picosQRS = helper.PicosQRS(ecgonda.GerarArray(), imagem.Width, imagem.Height);
 
-            float[] vetor = ecgonda.GerarVetor();
+            double[] vetor = ecgonda.GerarVetor();
 
             ondaChart.Series[0].Points.Clear();
 
