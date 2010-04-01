@@ -8,7 +8,7 @@ namespace ECG.Framework
     /// <summary>
     /// Esta classe oferece serviços para faixas de valores inteiros
     /// </summary>
-    class IntRange
+    public class IntRange
     {
         private int min, max;
 

@@ -8,7 +8,7 @@ namespace ECG.Framework
     /// <summary>
     /// Esta classe oferece serviços para faixas de valores do tipo double
     /// </summary>
-    class DoubleRange
+    public class DoubleRange
     {
         private double min, max;
 
@@ -38,7 +38,6 @@ namespace ECG.Framework
 			get { return max - min; }
 		}
 
-		
 		/// <summary>
 		/// Inicializa uma nova instância da classe <see cref="DoubleRange"/>
 		/// </summary>

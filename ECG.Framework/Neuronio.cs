@@ -52,7 +52,7 @@ namespace ECG.Framework
             {
                 if (value != null)
                 {
-                    this.aleatorio = value;
+                    aleatorio = value;
                 }
             }
         }
@@ -109,7 +109,7 @@ namespace ECG.Framework
             double d = randRange.Length;
 
             for (int i = 0; i < _numeroEntradas; i++)
-                this._pesos[i] = this.aleatorio.NextDouble() * d + randRange.Min;
+                this._pesos[i] = aleatorio.NextDouble() * d + randRange.Min;
         }
     }
 }

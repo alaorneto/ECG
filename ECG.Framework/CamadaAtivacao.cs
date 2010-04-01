@@ -20,6 +20,12 @@ namespace ECG.Framework
             get { return (NeuronioAtivacao)_neuronios[index]; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="numeroEntradas"></param>
+        /// <param name="numeroNeuronios"></param>
+        /// <param name="funcaoAtivacao"></param>
         public CamadaAtivacao(int numeroEntradas, int numeroNeuronios, IFuncaoAtivacao funcaoAtivacao)
             : base(numeroEntradas, numeroNeuronios)
         {
