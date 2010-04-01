@@ -47,11 +47,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Camada.cs" />
+    <Compile Include="CamadaAtivacao.cs" />
+    <Compile Include="DoubleRange.cs" />
     <Compile Include="IFuncaoAtivacao.cs" />
+    <Compile Include="IntRange.cs" />
     <Compile Include="LimiarFuncaoAtivacao.cs" />
     <Compile Include="Neuronio.cs" />
+    <Compile Include="NeuronioAtivacao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rede.cs" />
+    <Compile Include="RedeAtivacao.cs" />
     <Compile Include="SigmoideFuncaoAtivacao.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

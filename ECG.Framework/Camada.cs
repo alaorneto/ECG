@@ -5,14 +5,37 @@ using System.Text;
 
 namespace ECG.Framework
 {
-    public class Camada
+    /// <summary>
+    /// 
+    /// </summary>
+    public abstract class Camada
     {
+        /// <summary>
+        /// 
+        /// </summary>
         protected int _numeroEntradas = 0;
+        
+        /// <summary>
+        /// 
+        /// </summary>
         protected int _numeroNeuronios = 0;
+        
+        /// <summary>
+        /// 
+        /// </summary>
         protected Neuronio[] _neuronios;
+        
+        /// <summary>
+        /// 
+        /// </summary>
         protected double[] _saida;
 
-        public Camada(int numeroEntradas, int numeroNeuronios)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="numeroEntradas"></param>
+        /// <param name="numeroNeuronios"></param>
+        protected Camada(int numeroEntradas, int numeroNeuronios)
         {
             this._numeroEntradas = Math.Max(1, numeroEntradas);
             this._numeroNeuronios = Math.Max(1, numeroNeuronios);
@@ -22,24 +45,43 @@ namespace ECG.Framework
             this._saida = new double[numeroNeuronios];
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int NumeroEntradas { 
             get { return _numeroEntradas; } 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int NumeroNeuronios { 
             get { return _numeroNeuronios; } 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public double[] Saida { 
             get { return _saida; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public Neuronio this[int index]
         {
             get { return _neuronios[index]; }
         }
 
-        public double[] Calcular(double[] entradas)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entradas"></param>
+        /// <returns></returns>
+        public virtual double[] Calcular(double[] entradas)
         {
             for (int i = 0; i < _numeroNeuronios; i++)
                 _saida[i] = _neuronios[i].Calcular(entradas);
@@ -47,7 +89,10 @@ namespace ECG.Framework
             return _saida;
         }
 
-        public void Aleatorizar()
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual void Aleatorizar()
         {
             foreach(Neuronio neuronio in _neuronios)
                 neuronio.Aleatorizar();

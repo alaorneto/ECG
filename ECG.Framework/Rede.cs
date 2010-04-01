@@ -13,6 +13,21 @@ namespace ECG.Framework
         /// <summary>
         /// 
         /// </summary>
+        protected int _numeroEntradas;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        protected int _numeroCamadas;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        protected double[] _saida;
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected Camada[] _camadas;
 
         /// <summary>
@@ -22,8 +37,8 @@ namespace ECG.Framework
         /// <param name="numeroCamadas">Número de camadas da rede</param>
         public Rede(int numeroEntradas, int numeroCamadas)
         {
-            this.NumeroEntradas = Math.Max(1, numeroEntradas);
-            this.NumeroCamadas = Math.Max(1, numeroCamadas);
+            this._numeroEntradas = Math.Max(1, numeroEntradas);
+            this._numeroCamadas = Math.Max(1, numeroCamadas);
 
             this._camadas = new Camada[this.NumeroCamadas];
         }
@@ -41,12 +56,26 @@ namespace ECG.Framework
         /// <summary>
         /// 
         /// </summary>
-        public int NumeroEntradas { get; set; }
+        public int NumeroEntradas
+        {
+            get { return this._numeroEntradas; }
+        }
 
         /// <summary>
         /// 
         /// </summary>
-        public int NumeroCamadas { get; set; }
+        public int NumeroCamadas
+        {
+            get { return this._numeroCamadas; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public double[] Saida
+        {
+            get { return this._saida; }
+        }
 
         /// <summary>
         /// 

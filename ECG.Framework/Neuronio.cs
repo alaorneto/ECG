@@ -6,11 +6,9 @@ using System.Text;
 namespace ECG.Framework
 {
     /// <summary>
-    /// Classe representativa de um neurônio artificial, composta por uma sequência de entradas,
-    /// um núcleo contendo uma função de ativação e uma saída com base no processamento das entradas
-    /// pela função de ativação
+    /// 
     /// </summary>
-    public class Neuronio
+    public abstract class Neuronio
     {
         /// <summary>
         /// 
@@ -25,7 +23,7 @@ namespace ECG.Framework
         /// <summary>
         /// 
         /// </summary>
-        protected double saida = 0;
+        protected double _saida = 0;
 
         /// <summary>
         /// 
@@ -35,19 +33,83 @@ namespace ECG.Framework
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="entradas"></param>
-        /// <returns></returns>
-        public double Calcular(double[] entradas)
+        protected static DoubleRange randRange = new DoubleRange(0.0, 1.0);
+
+        public Neuronio(int numeroEntradas)
         {
-            throw new NotImplementedException();
+            this._numeroEntradas = Math.Max(1, numeroEntradas);
+            this._pesos = new double[numeroEntradas];
+            this.Aleatorizar();
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public void Aleatorizar()
+        public static Random RandGenerator
         {
-            throw new NotImplementedException();
+            get { return aleatorio; }
+            set
+            {
+                if (value != null)
+                {
+                    this.aleatorio = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static DoubleRange RandRange
+        {
+            get { return randRange; }
+            set
+            {
+                if (value != null)
+                {
+                    randRange = value;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public int NumeroEntradas
+        {
+            get { return this._numeroEntradas; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public double Saida
+        {
+            get { return this._saida; }
+        }
+
+        public double this[int index]
+        {
+            get { return this._pesos[index]; }
+            set { this._pesos[index] = value; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="entradas"></param>
+        /// <returns></returns>
+        public abstract double Calcular(double[] entradas);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual void Aleatorizar()
+        {
+            double d = randRange.Length;
+
+            for (int i = 0; i < _numeroEntradas; i++)
+                this._pesos[i] = this.aleatorio.NextDouble() * d + randRange.Min;
         }
     }
 }
