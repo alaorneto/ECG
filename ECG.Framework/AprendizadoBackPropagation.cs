@@ -162,9 +162,64 @@ namespace ECG.Framework
         private void CalcularAtualizacoes(double[] entrada)
         {
             NeuronioAtivacao neuronio;
+            CamadaAtivacao camada, camadaAnterior;
+            double[][] atualizacaoPesosCamada;
+            double[] atualizacaoThresholdCamada;
+            double[] erros;
+            double[] atualizacaoPesoNeuronio;
+            double erro;
 
+            // 1º passo -> Calcular as atualizações para a última camada
+            camada = rede[0];
+            erros = erroNeuronio[0];
+            atualizacaoPesosCamada = atualizacaoPesos[0];
+            atualizacaoThresholdCamada = atualizacaoThreshold[0];
 
-            throw new NotImplementedException();
+            for (int i = 0; i < camada.NumeroNeuronios; i++)
+            {
+                neuronio = camada[i];
+                erro = erros[i];
+                atualizacaoPesoNeuronio = atualizacaoPesosCamada[i];
+
+                for (int j = 0; j < neuronio.NumeroEntradas; j++)
+                {
+                    atualizacaoPesoNeuronio[j] = taxaAprendizado *
+                                                (momentum * atualizacaoPesoNeuronio[j] + (1.0 - momentum) *
+                                                erro * entrada[j]);
+                }
+
+                atualizacaoThresholdCamada[i] = taxaAprendizado *
+                                                (momentum * atualizacaoThresholdCamada[i] + (1.0 - momentum) *
+                                                erro);
+            }
+
+            // 2º passo -> Calcular as atualizações para todas as outras camadas
+            for (int k = 1; k < rede.NumeroCamadas; k++)
+            {
+                camadaAnterior = rede[k - 1];
+                camada = rede[k];
+                erros = erroNeuronio[k];
+                atualizacaoPesosCamada = atualizacaoPesos[k];
+                atualizacaoThresholdCamada = atualizacaoThreshold[k];
+
+                for (int i = 0; i < camada.NumeroNeuronios; i++)
+                {
+                    neuronio = camada[i];
+                    erro = erros[i];
+                    atualizacaoPesoNeuronio = atualizacaoPesosCamada[i];
+
+                    for (int j = 0; j < neuronio.NumeroEntradas; j++)
+                    {
+                        atualizacaoPesoNeuronio[j] = taxaAprendizado * (momentum *
+                                                    atualizacaoPesoNeuronio[j] + (1.0 - momentum) *
+                                                    erro * camadaAnterior[j].Saida);
+                    }
+
+                    atualizacaoThresholdCamada[i] = taxaAprendizado * (momentum *
+                                                    atualizacaoThresholdCamada[i] + (1.0 - momentum) *
+                                                    erro);
+                }
+            }
         }
 
         /// <summary>
