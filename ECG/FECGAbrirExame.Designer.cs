@@ -125,7 +125,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(530, 372);
+            this.ClientSize = new System.Drawing.Size(530, 370);
             this.Controls.Add(this.ondaChart);
             this.Controls.Add(this.picBox);
             this.Controls.Add(this.groupBoxSelecionarArquivo);

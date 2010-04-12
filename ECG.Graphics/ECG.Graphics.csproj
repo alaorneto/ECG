@@ -48,8 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComplexoQRS.cs" />
     <Compile Include="ConversaoHelper.cs" />
-    <Compile Include="ECGOndaBitmap.cs" />
+    <Compile Include="ECGOnda.cs" />
     <Compile Include="ImagemParaArrayHelper.cs" />
     <Compile Include="OndaHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

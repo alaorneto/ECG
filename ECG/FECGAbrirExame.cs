@@ -46,46 +46,15 @@ namespace ECG
 
         private void buttonSelecionar_Click(object sender, EventArgs e)
         {
-            ECGOndaBitmap ecgonda = new ECGOndaBitmap(imagem);
-
-            OndaHelper helper = new OndaHelper();
-
-            double[,] ondaArray = ecgonda.GerarArray();
-
-            int[] picosQRS = helper.PicosQRS(ecgonda.GerarArray(), imagem.Width, imagem.Height);
-
-            double[] vetor = ecgonda.GerarVetor();
+            ECGOnda onda = new ECGOnda(imagem);
 
             ondaChart.Series[0].Points.Clear();
 
-            foreach (int i in vetor)
+            for (int i = 0; i < onda.Lenght; i++)
             {
-                Console.Write(i + "; ");
-                ondaChart.Series[0].Points.Add(i);
+                Console.Write(onda[i] + "; ");
+                ondaChart.Series[0].Points.Add(onda[i]);
             }
-
-            for (int y = 0; y < imagem.Height; y++)
-            {
-                for (int x = 0; x < imagem.Width; x++)
-                {
-                    Console.Write(ondaArray[x, y]);
-                }
-                Console.WriteLine();
-            }
-
-            for (int i = 0; i < vetor.Length; i++)
-            {
-                Console.WriteLine(i + " -> " + vetor[i]); 
-            }
-
-            for (int i = 0; i < picosQRS.Length; i++)
-            {
-                Console.WriteLine("QRS em " + i + " -> " + picosQRS[i]);
-            }
-
-            int[] extremos = helper.ExtremosQRS(vetor, picosQRS[0]);
-
-            Console.WriteLine("Início de QRS em {0} e fim em {1}", extremos[0], extremos[1]);
         }
     }
 }
