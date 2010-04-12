@@ -227,7 +227,31 @@ namespace ECG.Framework
         /// </summary>
         private void AtualizarRede()
         {
-            throw new NotImplementedException();
+            NeuronioAtivacao neuronio;
+            CamadaAtivacao camada;
+            double[][] atualizacaoPesosCamada;
+            double[] atualizacaoThresholdCamada;
+            double[] atualizacaoPesoNeuronio;
+
+            for (int i = 0; i < rede.NumeroCamadas; i++)
+            {
+                camada = rede[i];
+                atualizacaoPesosCamada = atualizacaoPesos[i];
+                atualizacaoThresholdCamada = atualizacaoThreshold[i];
+
+                for (int j = 0; j < camada.NumeroNeuronios; j++)
+                {
+                    neuronio = camada[j];
+                    atualizacaoPesoNeuronio = atualizacaoPesosCamada[j];
+
+                    for (int k = 0; k < neuronio.NumeroEntradas; k++)
+                    {
+                        neuronio[k] += atualizacaoPesoNeuronio[k];
+                    }
+
+                    neuronio.Threshold += atualizacaoThresholdCamada[j];
+                }
+            }
         }
     }
 }
