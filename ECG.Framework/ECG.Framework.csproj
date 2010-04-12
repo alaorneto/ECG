@@ -46,9 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AprendizadoBackPropagation.cs" />
     <Compile Include="Camada.cs" />
     <Compile Include="CamadaAtivacao.cs" />
     <Compile Include="DoubleRange.cs" />
+    <Compile Include="IAprendizadoSupervisionado.cs" />
     <Compile Include="IFuncaoAtivacao.cs" />
     <Compile Include="IntRange.cs" />
     <Compile Include="Neuronio.cs" />

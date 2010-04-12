@@ -13,22 +13,22 @@ namespace ECG.Framework
         /// <summary>
         /// 
         /// </summary>
-        protected int _numeroEntradas = 0;
+        protected int numeroEntradas = 0;
         
         /// <summary>
         /// 
         /// </summary>
-        protected int _numeroNeuronios = 0;
+        protected int numeroNeuronios = 0;
         
         /// <summary>
         /// 
         /// </summary>
-        protected Neuronio[] _neuronios;
+        protected Neuronio[] neuronios;
         
         /// <summary>
         /// 
         /// </summary>
-        protected double[] _saida;
+        protected double[] saida;
 
         /// <summary>
         /// 
@@ -37,33 +37,33 @@ namespace ECG.Framework
         /// <param name="numeroNeuronios"></param>
         protected Camada(int numeroEntradas, int numeroNeuronios)
         {
-            this._numeroEntradas = Math.Max(1, numeroEntradas);
-            this._numeroNeuronios = Math.Max(1, numeroNeuronios);
+            this.numeroEntradas = Math.Max(1, numeroEntradas);
+            this.numeroNeuronios = Math.Max(1, numeroNeuronios);
 
-            this._neuronios = new Neuronio[numeroNeuronios];
+            neuronios = new Neuronio[numeroNeuronios];
 
-            this._saida = new double[numeroNeuronios];
+            saida = new double[numeroNeuronios];
         }
 
         /// <summary>
         /// 
         /// </summary>
         public int NumeroEntradas { 
-            get { return _numeroEntradas; } 
+            get { return numeroEntradas; } 
         }
 
         /// <summary>
         /// 
         /// </summary>
         public int NumeroNeuronios { 
-            get { return _numeroNeuronios; } 
+            get { return numeroNeuronios; } 
         }
 
         /// <summary>
         /// 
         /// </summary>
         public double[] Saida { 
-            get { return _saida; }
+            get { return saida; }
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace ECG.Framework
         /// <returns></returns>
         public Neuronio this[int index]
         {
-            get { return _neuronios[index]; }
+            get { return neuronios[index]; }
         }
 
         /// <summary>
@@ -83,10 +83,10 @@ namespace ECG.Framework
         /// <returns></returns>
         public virtual double[] Calcular(double[] entradas)
         {
-            for (int i = 0; i < _numeroNeuronios; i++)
-                _saida[i] = _neuronios[i].Calcular(entradas);
+            for (int i = 0; i < numeroNeuronios; i++)
+                saida[i] = neuronios[i].Calcular(entradas);
 
-            return _saida;
+            return saida;
         }
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace ECG.Framework
         /// </summary>
         public virtual void Aleatorizar()
         {
-            foreach(Neuronio neuronio in _neuronios)
+            foreach(Neuronio neuronio in neuronios)
                 neuronio.Aleatorizar();
         }
     }

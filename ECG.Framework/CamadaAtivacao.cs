@@ -17,7 +17,7 @@ namespace ECG.Framework
         /// <returns></returns>
         public new NeuronioAtivacao this[int index]
         {
-            get { return (NeuronioAtivacao)_neuronios[index]; }
+            get { return (NeuronioAtivacao)neuronios[index]; }
         }
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace ECG.Framework
             : base(numeroEntradas, numeroNeuronios)
         {
             for (int i = 0; i < numeroNeuronios; i++)
-                this._neuronios[i] = new NeuronioAtivacao(numeroEntradas, funcaoAtivacao);
+                this.neuronios[i] = new NeuronioAtivacao(numeroEntradas, funcaoAtivacao);
         }
     }
 }
