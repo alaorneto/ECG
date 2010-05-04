@@ -53,6 +53,7 @@
     <Compile Include="ECGOnda.cs" />
     <Compile Include="ImagemParaArrayHelper.cs" />
     <Compile Include="OndaHelper.cs" />
+    <Compile Include="OndaT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

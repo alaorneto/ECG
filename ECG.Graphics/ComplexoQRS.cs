@@ -10,19 +10,23 @@ namespace ECG.Graphics
     {
         OndaHelper helper;
         double[][] qrs;
+        public int[] picosQRS;
 
         /// <summary>
-        /// 
+        /// Cria uma nova instância de um objeto do tipo ComplexoQRS, recebendo uma imagem Bitmap como parâmetro,
+        /// para fornecer informações sobre os complexos QRS que existem dentro da onda informada
         /// </summary>
-        /// <param name="imagem"></param>
+        /// <param name="imagem">Bitmap representativo da onda a ser analisada</param>
         public ComplexoQRS(Bitmap imagem)
         {
+            // Cria o helper que ajudará na construção do objeto
             helper = new OndaHelper(imagem);
 
-            int[] picosQRS = helper.PicosQRS();
-
+            // Descobre os picos dos complexos QRS na onda informada
+            picosQRS = helper.PicosQRS();
             qrs = new double[picosQRS.Length][];
 
+            // Para cada pico descoberto devemos localizar os complexos QRS
             for(int i = 0; i < picosQRS.Length; i++)
             {
                 int inicio, fim;
@@ -41,6 +45,11 @@ namespace ECG.Graphics
         public double[] this[int index]
         {
             get { return qrs[index]; }
+        }
+
+        public int Length
+        {
+            get { return picosQRS.Length; }
         }
     }
 }

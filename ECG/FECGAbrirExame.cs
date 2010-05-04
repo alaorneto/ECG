@@ -55,6 +55,8 @@ namespace ECG
                 Console.Write(onda[i] + "; ");
                 ondaChart.Series[0].Points.Add(onda[i]);
             }
+
+
         }
     }
 }

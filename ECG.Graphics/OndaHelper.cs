@@ -13,6 +13,7 @@ namespace ECG.Graphics
     public class OndaHelper
     {
         private Bitmap bitmap;
+        private double[] vetor;
         protected const int MAX_QRS = 999;
         protected const int MAX_T = 999;
         protected const int MAX_P = 999;
@@ -20,6 +21,8 @@ namespace ECG.Graphics
         public OndaHelper(Bitmap imagem)
         {
             this.bitmap = imagem;
+
+            vetor = this.GerarVetor();
         }
 
         /// <summary>
@@ -70,7 +73,11 @@ namespace ECG.Graphics
         {
             ImagemParaArrayHelper helper = new ImagemParaArrayHelper();
 
-            return helper.GerarVetor(this.Bitmap);
+            vetor = helper.GerarVetor(this.Bitmap);
+
+            AjustarZero();
+
+            return vetor;
         }
 
         /// <summary>
@@ -82,48 +89,63 @@ namespace ECG.Graphics
         /// <returns></returns>
         public int[] PicosQRS()
         {
-            double[,] onda = GerarArray();
-            int xSize = bitmap.Width;
-            int ySize = bitmap.Height;
-            int count_picos = 0;
             int[] picos = new int[MAX_QRS];
-            bool finish = false;
+            int count_picos = 0;
+            int length = vetor.Length;
+            int index_max = 0;
+            double top = 0;
+            double max = 0;
 
-            for (int y = 0; y < ySize; y++ )
+            // Encontra o primeiro pico QRS
+            for (int i = 0; i < length; i++)
             {
-                int count = 0;
-                int index_soma = 0;
-                bool found = false;
-
-                for (int x = 0; x < xSize; x++)
+                if (vetor[i] > max)
                 {
-                    if (onda[x, y] == 1)
-                    {
-                        index_soma += x;
-                        count++;
-                        found = true;
-                        finish = true;
-                    }
-                    if (onda[x, y] == 0)
-                    {
-                        if (found == true)
-                        {
-                            picos[count_picos++] += index_soma / count;
-
-                            index_soma = 0;
-                            count = 0;
-                            found = false;
-                        }
-                    }
+                    max = vetor[i];
+                    top = max;
+                    index_max = i;
                 }
-
-                if (finish)
-                    break;
             }
 
-            int[] finalpicos = new int[count_picos];
+            picos[count_picos++] = index_max;
 
-            for (int i = 0; i < count_picos; i++)
+            int[] extremos = ExtremosQRS(picos[0]);
+
+            // Procura outro pico QRS à esqueda do primeiro pico
+            index_max = 0;
+            max = 0;
+
+            for (int i = 0; i < extremos[0]; i++)
+            {
+                if ((vetor[i] > top * .8) && (vetor[i] > max))
+                {
+                    max = vetor[i];
+                    index_max = i;
+                }
+            }
+
+            if (index_max != 0)
+                picos[count_picos++] = index_max;
+
+            // Procura outro pico QRS à direita do primeiro pico
+            index_max = 0;
+            max = 0;
+
+            for (int i = extremos[1]; i < length; i++)
+            {
+                if ((vetor[i] > top * .8) && (vetor[i] > max))
+                {
+                    max = vetor[i];
+                    index_max = i;
+                }
+            }
+
+            if (index_max != 0)
+                picos[count_picos++] = index_max;
+
+            int[] finalpicos = new int[count_picos]; 
+            
+            for (int i = 0; i < count_picos; i++) 
                 finalpicos[i] = picos[i];
 
             return finalpicos;
@@ -267,6 +289,54 @@ namespace ECG.Graphics
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Ajusta os valores do vetor, atribuindo valores próximos a zero para as áreas do ECG
+        /// sem atividade cardíaca
+        /// </summary>
+        public void AjustarZero()
+        {
+            int length = vetor.Length;
+            double soma = 0, media = 0;
 
+            for (int i = 0; i < length; i++)
+            {
+                if ((i > 10) && (i < length - 10))
+                {
+                    soma = vetor[i - 10] +
+                        vetor[i - 9] +
+                        vetor[i - 8] +
+                        vetor[i - 7] +
+                        vetor[i - 6] +
+                        vetor[i - 5] +
+                        vetor[i - 4] +
+                        vetor[i - 3] +
+                        vetor[i - 2] +
+                        vetor[i - 1] +
+                        vetor[i] +
+                        vetor[i + 1] +
+                        vetor[i + 2] +
+                        vetor[i + 3] +
+                        vetor[i + 4] +
+                        vetor[i + 5] +
+                        vetor[i + 6] +
+                        vetor[i + 7] +
+                        vetor[i + 8] +
+                        vetor[i + 9] +
+                        vetor[i + 10];
+
+                    media = soma / 21;
+
+                    if ((vetor[i] > media * 0.8) && (vetor[i] < media * 1.2))
+                    {
+                        break;
+                    }
+                }
+            }
+
+            for (int i = 0; i < length; i++)
+            {
+                vetor[i] = vetor[i] - media;
+            }
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace ECG.Graphics
     public class ECGOnda
     {
         public ComplexoQRS ComplexoQRS;
+        public OndaT OndaT;
         private OndaHelper helper;
         private Bitmap bitmap;
         private double[] vetor;
@@ -30,21 +31,37 @@ namespace ECG.Graphics
             vetor = helper.GerarVetor();
 
             ComplexoQRS = new ComplexoQRS(imagem);
+
+            for (int i = 0; i < ComplexoQRS.Length; i++)
+                Console.WriteLine("Pico {0} em {1}", i, ComplexoQRS.picosQRS[i]);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public double this[int index]
         {
             get { return vetor[index]; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int Lenght
         {
             get { return vetor.Length; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Bitmap Bitmap
         {
             get { return this.bitmap; }
         }
+
+
     }
 }
