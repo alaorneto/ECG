@@ -32,6 +32,7 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBoxSelecionarArquivo = new System.Windows.Forms.GroupBox();
+            this.SalvarButton = new System.Windows.Forms.Button();
             this.buttonSelecionar = new System.Windows.Forms.Button();
             this.buttonAbrir = new System.Windows.Forms.Button();
             this.textBoxArquivo = new System.Windows.Forms.TextBox();
@@ -47,6 +48,7 @@
             // 
             this.groupBoxSelecionarArquivo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxSelecionarArquivo.Controls.Add(this.SalvarButton);
             this.groupBoxSelecionarArquivo.Controls.Add(this.buttonSelecionar);
             this.groupBoxSelecionarArquivo.Controls.Add(this.buttonAbrir);
             this.groupBoxSelecionarArquivo.Controls.Add(this.textBoxArquivo);
@@ -57,6 +59,16 @@
             this.groupBoxSelecionarArquivo.TabIndex = 0;
             this.groupBoxSelecionarArquivo.TabStop = false;
             this.groupBoxSelecionarArquivo.Text = "Selecionar arquivo";
+            // 
+            // SalvarButton
+            // 
+            this.SalvarButton.Location = new System.Drawing.Point(344, 51);
+            this.SalvarButton.Name = "SalvarButton";
+            this.SalvarButton.Size = new System.Drawing.Size(75, 23);
+            this.SalvarButton.TabIndex = 3;
+            this.SalvarButton.Text = "Salvar";
+            this.SalvarButton.UseVisualStyleBackColor = true;
+            this.SalvarButton.Click += new System.EventHandler(this.SalvarButton_Click);
             // 
             // buttonSelecionar
             // 
@@ -125,7 +137,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(530, 370);
+            this.ClientSize = new System.Drawing.Size(530, 372);
             this.Controls.Add(this.ondaChart);
             this.Controls.Add(this.picBox);
             this.Controls.Add(this.groupBoxSelecionarArquivo);
@@ -150,5 +162,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.Button buttonSelecionar;
         private System.Windows.Forms.DataVisualization.Charting.Chart ondaChart;
+        private System.Windows.Forms.Button SalvarButton;
     }
 }

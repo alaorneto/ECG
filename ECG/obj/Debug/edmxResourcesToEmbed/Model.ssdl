@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+  <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="ONDA" EntityType="DatabaseModel.Store.ONDA" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="ONDA">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="vetor" Type="ntext" Nullable="false" />
+    <Property Name="length" Type="int" Nullable="false" />
+  </EntityType>
+</Schema>

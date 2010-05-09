@@ -1,5 +1,0 @@
-D:\Projetos\ECG\ECG\ECG.Graphics\obj\Release\ResolveAssemblyReference.cache
-D:\Projetos\ECG\ECG\ECG.Graphics\bin\Release\ECG.Graphics.dll
-D:\Projetos\ECG\ECG\ECG.Graphics\bin\Release\ECG.Graphics.pdb
-D:\Projetos\ECG\ECG\ECG.Graphics\obj\Release\ECG.Graphics.dll
-D:\Projetos\ECG\ECG\ECG.Graphics\obj\Release\ECG.Graphics.pdb

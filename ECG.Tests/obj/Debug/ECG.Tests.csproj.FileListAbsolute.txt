@@ -1,7 +1,7 @@
-D:\Projetos\ECG\ECG\ECG.Tests\obj\Debug\ResolveAssemblyReference.cache
 D:\Projetos\ECG\ECG\ECG.Tests\bin\Debug\ECG.Tests.exe
 D:\Projetos\ECG\ECG\ECG.Tests\bin\Debug\ECG.Tests.pdb
 D:\Projetos\ECG\ECG\ECG.Tests\bin\Debug\ECG.Framework.dll
 D:\Projetos\ECG\ECG\ECG.Tests\bin\Debug\ECG.Framework.pdb
+D:\Projetos\ECG\ECG\ECG.Tests\obj\Debug\ResolveAssemblyReference.cache
 D:\Projetos\ECG\ECG\ECG.Tests\obj\Debug\ECG.Tests.exe
 D:\Projetos\ECG\ECG\ECG.Tests\obj\Debug\ECG.Tests.pdb

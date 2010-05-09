@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+  <EntityContainer Name="DatabaseEntities">
+    <EntitySet Name="ONDA" EntityType="DatabaseModel.ONDA" />
+  </EntityContainer>
+  <EntityType Name="ONDA">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vetor" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="length" Type="Int32" Nullable="false" />
+  </EntityType>
+</Schema>

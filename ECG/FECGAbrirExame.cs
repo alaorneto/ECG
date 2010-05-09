@@ -6,13 +6,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using ECG.Graphics;
+using ECG.Framework;
+using ECG.Framework.Graphics;
 
 namespace ECG
 {
     public partial class FECGAbrirExame : Form
     {
         Bitmap imagem;
+        Onda onda;
 
         public FECGAbrirExame()
         {
@@ -33,7 +35,7 @@ namespace ECG
             }
             else
             {
-                MessageBox.Show("Por favor, escolha um arquivo válido");
+                MessageBox.Show("Por favor, escolha um arquivo válido.");
 
                 return;
             }
@@ -46,17 +48,29 @@ namespace ECG
 
         private void buttonSelecionar_Click(object sender, EventArgs e)
         {
-            ECGOnda onda = new ECGOnda(imagem);
+            onda = new Onda(imagem);
 
             ondaChart.Series[0].Points.Clear();
 
-            for (int i = 0; i < onda.Lenght; i++)
+            for (int i = 0; i < onda.Length; i++)
             {
-                Console.Write(onda[i] + "; ");
-                ondaChart.Series[0].Points.Add(onda[i]);
+                ondaChart.Series[0].Points.Add(onda.Vetor[i]);
             }
 
+            Console.WriteLine(" -->> {0} complexos QRS encontrado(s)", onda.ComplexosQRS.Length);
 
+        }
+
+        private void SalvarButton_Click(object sender, EventArgs e)
+        {
+            try { 
+                onda.Salvar();
+                MessageBox.Show("Onda salva com sucesso!");
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("Erro encontrado: " + ex);
+            }
         }
     }
 }

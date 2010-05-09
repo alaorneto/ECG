@@ -1,5 +1,0 @@
-D:\Projetos\ECG\ECG\ECG.Framework\bin\Release\ECG.Framework.dll
-D:\Projetos\ECG\ECG\ECG.Framework\bin\Release\ECG.Framework.pdb
-D:\Projetos\ECG\ECG\ECG.Framework\obj\Release\ResolveAssemblyReference.cache
-D:\Projetos\ECG\ECG\ECG.Framework\obj\Release\ECG.Framework.dll
-D:\Projetos\ECG\ECG\ECG.Framework\obj\Release\ECG.Framework.pdb

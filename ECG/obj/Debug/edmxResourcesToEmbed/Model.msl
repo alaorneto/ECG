@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+    <EntitySetMapping Name="ONDA">
+      <EntityTypeMapping TypeName="DatabaseModel.ONDA">
+        <MappingFragment StoreEntitySet="ONDA">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="vetor" ColumnName="vetor" />
+          <ScalarProperty Name="length" ColumnName="length" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

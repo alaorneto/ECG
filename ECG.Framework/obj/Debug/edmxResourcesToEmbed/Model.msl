@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+    <EntitySetMapping Name="ONDA">
+      <EntityTypeMapping TypeName="DatabaseModel.ONDA">
+        <MappingFragment StoreEntitySet="ONDA">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="vetor" ColumnName="vetor" />
+          <ScalarProperty Name="length" ColumnName="length" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="QRS">
+      <EntityTypeMapping TypeName="DatabaseModel.QRS">
+        <MappingFragment StoreEntitySet="QRS">
+          <ScalarProperty Name="diag" ColumnName="diag" />
+          <ScalarProperty Name="length" ColumnName="length" />
+          <ScalarProperty Name="vetor" ColumnName="vetor" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REDE">
+      <EntityTypeMapping TypeName="DatabaseModel.REDE">
+        <MappingFragment StoreEntitySet="REDE">
+          <ScalarProperty Name="pesos" ColumnName="pesos" />
+          <ScalarProperty Name="neuronios" ColumnName="neuronios" />
+          <ScalarProperty Name="camadas" ColumnName="camadas" />
+          <ScalarProperty Name="onda" ColumnName="onda" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T">
+      <EntityTypeMapping TypeName="DatabaseModel.T">
+        <MappingFragment StoreEntitySet="T">
+          <ScalarProperty Name="diag" ColumnName="diag" />
+          <ScalarProperty Name="length" ColumnName="length" />
+          <ScalarProperty Name="vetor" ColumnName="vetor" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

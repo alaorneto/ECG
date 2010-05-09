@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="DatabaseModelStoreContainer">
+          <EntitySet Name="ONDA" EntityType="DatabaseModel.Store.ONDA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="QRS" EntityType="DatabaseModel.Store.QRS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="REDE" EntityType="DatabaseModel.Store.REDE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="T" EntityType="DatabaseModel.Store.T" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="ONDA">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vetor" Type="ntext" Nullable="false" />
+          <Property Name="length" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QRS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vetor" Type="ntext" Nullable="false" />
+          <Property Name="length" Type="int" Nullable="false" />
+          <Property Name="diag" Type="nvarchar" MaxLength="5" />
+          <Property Name="onda" Type="bigint" />
+        </EntityType>
+        <EntityType Name="REDE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="onda" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="camadas" Type="int" Nullable="false" />
+          <Property Name="neuronios" Type="ntext" Nullable="false" />
+          <Property Name="pesos" Type="ntext" />
+        </EntityType>
+        <EntityType Name="T">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="vetor" Type="ntext" Nullable="false" />
+          <Property Name="length" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="diag" Type="nvarchar" MaxLength="10" />
+          <Property Name="onda" Type="bigint" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="DatabaseEntities">
+          <EntitySet Name="ONDA" EntityType="DatabaseModel.ONDA" />
+          <EntitySet Name="QRS" EntityType="DatabaseModel.QRS" />
+          <EntitySet Name="REDE" EntityType="DatabaseModel.REDE" />
+          <EntitySet Name="T" EntityType="DatabaseModel.T" />
+        </EntityContainer>
+        <EntityType Name="ONDA">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vetor" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="length" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="QRS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="vetor" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="length" Nullable="false" />
+          <Property Type="String" Name="diag" MaxLength="5" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="REDE">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="onda" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="camadas" Nullable="false" />
+          <Property Type="String" Name="neuronios" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="pesos" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="T">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int64" Name="id" Nullable="false" />
+          <Property Type="String" Name="vetor" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="length" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="diag" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="DatabaseEntities">
+          <EntitySetMapping Name="ONDA"><EntityTypeMapping TypeName="DatabaseModel.ONDA"><MappingFragment StoreEntitySet="ONDA">
+            <ScalarProperty Name="id" ColumnName="id" />
+            <ScalarProperty Name="vetor" ColumnName="vetor" />
+            <ScalarProperty Name="length" ColumnName="length" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="QRS">
+            <EntityTypeMapping TypeName="DatabaseModel.QRS">
+              <MappingFragment StoreEntitySet="QRS">
+                <ScalarProperty Name="diag" ColumnName="diag" />
+                <ScalarProperty Name="length" ColumnName="length" />
+                <ScalarProperty Name="vetor" ColumnName="vetor" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REDE">
+            <EntityTypeMapping TypeName="DatabaseModel.REDE">
+              <MappingFragment StoreEntitySet="REDE">
+                <ScalarProperty Name="pesos" ColumnName="pesos" />
+                <ScalarProperty Name="neuronios" ColumnName="neuronios" />
+                <ScalarProperty Name="camadas" ColumnName="camadas" />
+                <ScalarProperty Name="onda" ColumnName="onda" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T">
+            <EntityTypeMapping TypeName="DatabaseModel.T">
+              <MappingFragment StoreEntitySet="T">
+                <ScalarProperty Name="diag" ColumnName="diag" />
+                <ScalarProperty Name="length" ColumnName="length" />
+                <ScalarProperty Name="vetor" ColumnName="vetor" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model">
+        <EntityTypeShape EntityType="DatabaseModel.ONDA" Width="1.5" PointX="0.75" PointY="0.75" Height="1.59568359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.QRS" Width="1.5" PointX="3.875" PointY="3" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="DatabaseModel.REDE" Width="1.5" PointX="5.75" PointY="0.625" Height="1.9802864583333322" />
+        <EntityTypeShape EntityType="DatabaseModel.T" Width="1.5" PointX="0.625" PointY="4.125" Height="1.9802864583333335" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
