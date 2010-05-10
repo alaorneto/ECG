@@ -7,6 +7,9 @@ namespace ECG.Framework
 {
     public class OndaT
     {
+        public OndaT()
+        { }
+
         public OndaT(double[] valores)
         {
             Length = valores.Length;
@@ -15,7 +18,28 @@ namespace ECG.Framework
 
         public OndaT(long id)
         {
+            DatabaseEntities entities = new DatabaseEntities();
+            OndaT dbonda = new OndaT();
 
+            var o = from onda in entities.T
+                    where onda.id == id
+                    select onda;
+            
+            dbonda = (OndaT)o;
+            
+            if (o == null)
+                throw new Exception("Onda não encontrada");
+
+            this.Id = dbonda.Id;
+            this.Vetor = dbonda.Vetor;
+            this.Length = dbonda.Length;
+            this.Diagnostico = dbonda.Diagnostico;
+        }
+
+        public long Id
+        {
+            get;
+            set;
         }
 
         public ONDA Onda

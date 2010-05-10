@@ -102,6 +102,12 @@
     <Compile Include="FECGAbrirExame.Designer.cs">
       <DependentUpon>FECGAbrirExame.cs</DependentUpon>
     </Compile>
+    <Compile Include="FECGSalvarExame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FECGSalvarExame.Designer.cs">
+      <DependentUpon>FECGSalvarExame.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FECGAbrirExame.resx">
       <DependentUpon>FECGAbrirExame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FECGSalvarExame.resx">
+      <DependentUpon>FECGSalvarExame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

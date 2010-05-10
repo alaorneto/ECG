@@ -12,6 +12,9 @@ namespace ECG.Framework
     {
         OndaHelper helper;
 
+        public Onda()
+        { }
+
         public Onda(Bitmap imagem)
         {
             ComplexosQRS = null;

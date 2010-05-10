@@ -71,6 +71,10 @@ namespace ECG
             {
                 MessageBox.Show("Erro encontrado: " + ex);
             }
+
+            FECGSalvarExame fsalvar = new FECGSalvarExame();
+            
+            fsalvar.ShowDialog();
         }
     }
 }

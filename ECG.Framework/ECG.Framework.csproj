@@ -89,6 +89,7 @@
     <Compile Include="Onda.cs" />
     <Compile Include="OndaHelper.cs" />
     <Compile Include="OndaT.cs" />
+    <Compile Include="Patologias.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IA\Rede.cs" />
     <Compile Include="IA\RedeAtivacao.cs" />

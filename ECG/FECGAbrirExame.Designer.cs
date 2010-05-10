@@ -53,18 +53,18 @@
             this.groupBoxSelecionarArquivo.Controls.Add(this.buttonAbrir);
             this.groupBoxSelecionarArquivo.Controls.Add(this.textBoxArquivo);
             this.groupBoxSelecionarArquivo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxSelecionarArquivo.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxSelecionarArquivo.Location = new System.Drawing.Point(14, 14);
             this.groupBoxSelecionarArquivo.Name = "groupBoxSelecionarArquivo";
-            this.groupBoxSelecionarArquivo.Size = new System.Drawing.Size(506, 86);
+            this.groupBoxSelecionarArquivo.Size = new System.Drawing.Size(590, 99);
             this.groupBoxSelecionarArquivo.TabIndex = 0;
             this.groupBoxSelecionarArquivo.TabStop = false;
             this.groupBoxSelecionarArquivo.Text = "Selecionar arquivo";
             // 
             // SalvarButton
             // 
-            this.SalvarButton.Location = new System.Drawing.Point(344, 51);
+            this.SalvarButton.Location = new System.Drawing.Point(401, 59);
             this.SalvarButton.Name = "SalvarButton";
-            this.SalvarButton.Size = new System.Drawing.Size(75, 23);
+            this.SalvarButton.Size = new System.Drawing.Size(87, 27);
             this.SalvarButton.TabIndex = 3;
             this.SalvarButton.Text = "Salvar";
             this.SalvarButton.UseVisualStyleBackColor = true;
@@ -74,9 +74,9 @@
             // 
             this.buttonSelecionar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSelecionar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSelecionar.Location = new System.Drawing.Point(425, 51);
+            this.buttonSelecionar.Location = new System.Drawing.Point(496, 59);
             this.buttonSelecionar.Name = "buttonSelecionar";
-            this.buttonSelecionar.Size = new System.Drawing.Size(75, 23);
+            this.buttonSelecionar.Size = new System.Drawing.Size(87, 27);
             this.buttonSelecionar.TabIndex = 2;
             this.buttonSelecionar.Text = "Selecionar";
             this.buttonSelecionar.UseVisualStyleBackColor = true;
@@ -85,9 +85,9 @@
             // buttonAbrir
             // 
             this.buttonAbrir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAbrir.Location = new System.Drawing.Point(425, 22);
+            this.buttonAbrir.Location = new System.Drawing.Point(496, 25);
             this.buttonAbrir.Name = "buttonAbrir";
-            this.buttonAbrir.Size = new System.Drawing.Size(75, 23);
+            this.buttonAbrir.Size = new System.Drawing.Size(87, 27);
             this.buttonAbrir.TabIndex = 1;
             this.buttonAbrir.Text = "Abrir...";
             this.buttonAbrir.UseVisualStyleBackColor = true;
@@ -97,16 +97,16 @@
             // 
             this.textBoxArquivo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxArquivo.Location = new System.Drawing.Point(6, 21);
+            this.textBoxArquivo.Location = new System.Drawing.Point(7, 24);
             this.textBoxArquivo.Name = "textBoxArquivo";
-            this.textBoxArquivo.Size = new System.Drawing.Size(413, 23);
+            this.textBoxArquivo.Size = new System.Drawing.Size(481, 23);
             this.textBoxArquivo.TabIndex = 0;
             // 
             // picBox
             // 
-            this.picBox.Location = new System.Drawing.Point(4, 104);
+            this.picBox.Location = new System.Drawing.Point(5, 120);
             this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(522, 107);
+            this.picBox.Size = new System.Drawing.Size(609, 123);
             this.picBox.TabIndex = 1;
             this.picBox.TabStop = false;
             // 
@@ -121,28 +121,32 @@
             legend1.Enabled = false;
             legend1.Name = "Legend1";
             this.ondaChart.Legends.Add(legend1);
-            this.ondaChart.Location = new System.Drawing.Point(4, 217);
+            this.ondaChart.Location = new System.Drawing.Point(5, 250);
             this.ondaChart.Name = "ondaChart";
             series1.ChartArea = "OndaChartArea";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
             series1.Name = "OndaSeries";
             this.ondaChart.Series.Add(series1);
-            this.ondaChart.Size = new System.Drawing.Size(514, 143);
+            this.ondaChart.Size = new System.Drawing.Size(600, 165);
             this.ondaChart.TabIndex = 2;
             this.ondaChart.Text = "Onda";
             // 
             // FECGAbrirExame
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(530, 372);
+            this.ClientSize = new System.Drawing.Size(618, 429);
             this.Controls.Add(this.ondaChart);
             this.Controls.Add(this.picBox);
             this.Controls.Add(this.groupBoxSelecionarArquivo);
-            this.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FECGAbrirExame";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Abrir Exame";
             this.groupBoxSelecionarArquivo.ResumeLayout(false);

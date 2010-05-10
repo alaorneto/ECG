@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStripECG = new System.Windows.Forms.MenuStrip();
             this.ecgCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.abrirExameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,7 +121,7 @@
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sobreToolStripMenuItem.Text = "Sobre";
             // 
             // statusStripECG
@@ -157,6 +158,7 @@
             this.Controls.Add(this.statusStripECG);
             this.Controls.Add(this.menuStripECG);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStripECG;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
