@@ -11,7 +11,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 
 // Original file name:
-// Generation date: 09/05/2010 11:57:31
+// Generation date: 10/05/2010 22:28:11
 namespace ECG.Framework
 {
     
@@ -407,14 +407,16 @@ namespace ECG.Framework
         /// <param name="onda">Initial value of onda.</param>
         /// <param name="camadas">Initial value of camadas.</param>
         /// <param name="neuronios">Initial value of neuronios.</param>
+        /// <param name="entradas">Initial value of entradas.</param>
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
-        public static REDE CreateREDE(long id, string onda, int camadas, string neuronios)
+        public static REDE CreateREDE(long id, string onda, int camadas, string neuronios, int entradas)
         {
             REDE rEDE = new REDE();
             rEDE.id = id;
             rEDE.onda = onda;
             rEDE.camadas = camadas;
             rEDE.neuronios = neuronios;
+            rEDE.entradas = entradas;
             return rEDE;
         }
         /// <summary>
@@ -552,6 +554,60 @@ namespace ECG.Framework
         partial void OnpesosChanging(string value);
         [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
         partial void OnpesosChanged();
+        /// <summary>
+        /// There are no comments for property descricao in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute()]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public string descricao
+        {
+            get
+            {
+                return this._descricao;
+            }
+            set
+            {
+                this.OndescricaoChanging(value);
+                this.ReportPropertyChanging("descricao");
+                this._descricao = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value, true);
+                this.ReportPropertyChanged("descricao");
+                this.OndescricaoChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private string _descricao;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OndescricaoChanging(string value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OndescricaoChanged();
+        /// <summary>
+        /// There are no comments for property entradas in the schema.
+        /// </summary>
+        [global::System.Data.Objects.DataClasses.EdmScalarPropertyAttribute(IsNullable=false)]
+        [global::System.Runtime.Serialization.DataMemberAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        public int entradas
+        {
+            get
+            {
+                return this._entradas;
+            }
+            set
+            {
+                this.OnentradasChanging(value);
+                this.ReportPropertyChanging("entradas");
+                this._entradas = global::System.Data.Objects.DataClasses.StructuralObject.SetValidValue(value);
+                this.ReportPropertyChanged("entradas");
+                this.OnentradasChanged();
+            }
+        }
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        private int _entradas;
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnentradasChanging(int value);
+        [global::System.CodeDom.Compiler.GeneratedCode("System.Data.Entity.Design.EntityClassGenerator", "4.0.0.0")]
+        partial void OnentradasChanged();
     }
     /// <summary>
     /// There are no comments for DatabaseModel.T in the schema.

@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBoxQRS = new System.Windows.Forms.GroupBox();
+            this.comboBoxQRS = new System.Windows.Forms.ComboBox();
+            this.textBoxQRS = new System.Windows.Forms.TextBox();
+            this.labelQRSReal = new System.Windows.Forms.Label();
+            this.labelQRSSugerido = new System.Windows.Forms.Label();
             this.groupBoxT = new System.Windows.Forms.GroupBox();
+            this.comboBoxT = new System.Windows.Forms.ComboBox();
+            this.textBoxT = new System.Windows.Forms.TextBox();
+            this.labelTReal = new System.Windows.Forms.Label();
+            this.labelTSugerido = new System.Windows.Forms.Label();
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
-            this.labelQRSSugerido = new System.Windows.Forms.Label();
-            this.labelTSugerido = new System.Windows.Forms.Label();
-            this.labelQRSReal = new System.Windows.Forms.Label();
-            this.textBoxQRS = new System.Windows.Forms.TextBox();
-            this.comboBoxQRS = new System.Windows.Forms.ComboBox();
-            this.labelTReal = new System.Windows.Forms.Label();
-            this.textBoxT = new System.Windows.Forms.TextBox();
-            this.comboBoxT = new System.Windows.Forms.ComboBox();
             this.groupBoxQRS.SuspendLayout();
             this.groupBoxT.SuspendLayout();
             this.SuspendLayout();
@@ -58,6 +58,41 @@
             this.groupBoxQRS.TabStop = false;
             this.groupBoxQRS.Text = "Diagnóstico do Complexo QRS";
             // 
+            // comboBoxQRS
+            // 
+            this.comboBoxQRS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxQRS.FormattingEnabled = true;
+            this.comboBoxQRS.Location = new System.Drawing.Point(253, 47);
+            this.comboBoxQRS.Name = "comboBoxQRS";
+            this.comboBoxQRS.Size = new System.Drawing.Size(220, 23);
+            this.comboBoxQRS.TabIndex = 3;
+            // 
+            // textBoxQRS
+            // 
+            this.textBoxQRS.Location = new System.Drawing.Point(9, 47);
+            this.textBoxQRS.Name = "textBoxQRS";
+            this.textBoxQRS.ReadOnly = true;
+            this.textBoxQRS.Size = new System.Drawing.Size(220, 23);
+            this.textBoxQRS.TabIndex = 2;
+            // 
+            // labelQRSReal
+            // 
+            this.labelQRSReal.AutoSize = true;
+            this.labelQRSReal.Location = new System.Drawing.Point(250, 29);
+            this.labelQRSReal.Name = "labelQRSReal";
+            this.labelQRSReal.Size = new System.Drawing.Size(102, 15);
+            this.labelQRSReal.TabIndex = 1;
+            this.labelQRSReal.Text = "Diagnóstico Real:";
+            // 
+            // labelQRSSugerido
+            // 
+            this.labelQRSSugerido.AutoSize = true;
+            this.labelQRSSugerido.Location = new System.Drawing.Point(6, 29);
+            this.labelQRSSugerido.Name = "labelQRSSugerido";
+            this.labelQRSSugerido.Size = new System.Drawing.Size(126, 15);
+            this.labelQRSSugerido.TabIndex = 0;
+            this.labelQRSSugerido.Text = "Diagnóstico Sugerido:";
+            // 
             // groupBoxT
             // 
             this.groupBoxT.Controls.Add(this.comboBoxT);
@@ -71,67 +106,22 @@
             this.groupBoxT.TabStop = false;
             this.groupBoxT.Text = "Diagnóstico da Onda T";
             // 
-            // buttonSalvar
+            // comboBoxT
             // 
-            this.buttonSalvar.Location = new System.Drawing.Point(419, 224);
-            this.buttonSalvar.Name = "buttonSalvar";
-            this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
-            this.buttonSalvar.TabIndex = 2;
-            this.buttonSalvar.Text = "Salvar";
-            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.comboBoxT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxT.FormattingEnabled = true;
+            this.comboBoxT.Location = new System.Drawing.Point(253, 47);
+            this.comboBoxT.Name = "comboBoxT";
+            this.comboBoxT.Size = new System.Drawing.Size(220, 23);
+            this.comboBoxT.TabIndex = 3;
             // 
-            // buttonCancelar
+            // textBoxT
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(338, 224);
-            this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 3;
-            this.buttonCancelar.Text = "Cancelar";
-            this.buttonCancelar.UseVisualStyleBackColor = true;
-            // 
-            // labelQRSSugerido
-            // 
-            this.labelQRSSugerido.AutoSize = true;
-            this.labelQRSSugerido.Location = new System.Drawing.Point(6, 29);
-            this.labelQRSSugerido.Name = "labelQRSSugerido";
-            this.labelQRSSugerido.Size = new System.Drawing.Size(126, 15);
-            this.labelQRSSugerido.TabIndex = 0;
-            this.labelQRSSugerido.Text = "Diagnóstico Sugerido:";
-            // 
-            // labelTSugerido
-            // 
-            this.labelTSugerido.AutoSize = true;
-            this.labelTSugerido.Location = new System.Drawing.Point(6, 29);
-            this.labelTSugerido.Name = "labelTSugerido";
-            this.labelTSugerido.Size = new System.Drawing.Size(126, 15);
-            this.labelTSugerido.TabIndex = 0;
-            this.labelTSugerido.Text = "Diagnóstico Sugerido:";
-            // 
-            // labelQRSReal
-            // 
-            this.labelQRSReal.AutoSize = true;
-            this.labelQRSReal.Location = new System.Drawing.Point(250, 29);
-            this.labelQRSReal.Name = "labelQRSReal";
-            this.labelQRSReal.Size = new System.Drawing.Size(102, 15);
-            this.labelQRSReal.TabIndex = 1;
-            this.labelQRSReal.Text = "Diagnóstico Real:";
-            // 
-            // textBoxQRS
-            // 
-            this.textBoxQRS.Location = new System.Drawing.Point(9, 47);
-            this.textBoxQRS.Name = "textBoxQRS";
-            this.textBoxQRS.ReadOnly = true;
-            this.textBoxQRS.Size = new System.Drawing.Size(220, 23);
-            this.textBoxQRS.TabIndex = 2;
-            // 
-            // comboBoxQRS
-            // 
-            this.comboBoxQRS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxQRS.FormattingEnabled = true;
-            this.comboBoxQRS.Location = new System.Drawing.Point(253, 47);
-            this.comboBoxQRS.Name = "comboBoxQRS";
-            this.comboBoxQRS.Size = new System.Drawing.Size(220, 23);
-            this.comboBoxQRS.TabIndex = 3;
+            this.textBoxT.Location = new System.Drawing.Point(9, 47);
+            this.textBoxT.Name = "textBoxT";
+            this.textBoxT.ReadOnly = true;
+            this.textBoxT.Size = new System.Drawing.Size(220, 23);
+            this.textBoxT.TabIndex = 2;
             // 
             // labelTReal
             // 
@@ -142,22 +132,34 @@
             this.labelTReal.TabIndex = 1;
             this.labelTReal.Text = "Diagnóstico Real:";
             // 
-            // textBoxT
+            // labelTSugerido
             // 
-            this.textBoxT.Location = new System.Drawing.Point(9, 47);
-            this.textBoxT.Name = "textBoxT";
-            this.textBoxT.ReadOnly = true;
-            this.textBoxT.Size = new System.Drawing.Size(220, 23);
-            this.textBoxT.TabIndex = 2;
+            this.labelTSugerido.AutoSize = true;
+            this.labelTSugerido.Location = new System.Drawing.Point(6, 29);
+            this.labelTSugerido.Name = "labelTSugerido";
+            this.labelTSugerido.Size = new System.Drawing.Size(126, 15);
+            this.labelTSugerido.TabIndex = 0;
+            this.labelTSugerido.Text = "Diagnóstico Sugerido:";
             // 
-            // comboBoxT
+            // buttonSalvar
             // 
-            this.comboBoxT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxT.FormattingEnabled = true;
-            this.comboBoxT.Location = new System.Drawing.Point(253, 47);
-            this.comboBoxT.Name = "comboBoxT";
-            this.comboBoxT.Size = new System.Drawing.Size(220, 23);
-            this.comboBoxT.TabIndex = 3;
+            this.buttonSalvar.Location = new System.Drawing.Point(419, 224);
+            this.buttonSalvar.Name = "buttonSalvar";
+            this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
+            this.buttonSalvar.TabIndex = 2;
+            this.buttonSalvar.Text = "Salvar";
+            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
+            // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Location = new System.Drawing.Point(338, 224);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.TabIndex = 3;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // FECGSalvarExame
             // 

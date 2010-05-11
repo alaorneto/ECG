@@ -28,5 +28,15 @@ namespace ECG
             foreach (string p in patologias.patologiasT.Values)
                 comboBoxT.Items.Add(p);
         }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonSalvar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

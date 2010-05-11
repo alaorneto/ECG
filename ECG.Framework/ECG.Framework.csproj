@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AprendizadoSupervisionadoServices.cs" />
     <Compile Include="ComplexoQRS.cs" />
     <Compile Include="ConversaoHelper.cs" />
     <Compile Include="Graphics\ImagemParaArrayHelper.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="IA\IntRange.cs" />
     <Compile Include="IA\Neuronio.cs" />
     <Compile Include="IA\NeuronioAtivacao.cs" />
+    <Compile Include="IA\RedeServices.cs" />
     <Compile Include="Model.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -94,6 +96,7 @@
     <Compile Include="IA\Rede.cs" />
     <Compile Include="IA\RedeAtivacao.cs" />
     <Compile Include="IA\SigmoideFuncaoAtivacao.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

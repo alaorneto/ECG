@@ -21,13 +21,13 @@ namespace ECG.Framework
             DatabaseEntities entities = new DatabaseEntities();
             OndaT dbonda = new OndaT();
 
-            var o = from onda in entities.T
-                    where onda.id == id
-                    select onda;
+            var onda = from o in entities.T
+                    where o.id == id
+                    select o;
             
-            dbonda = (OndaT)o;
+            dbonda = (OndaT)onda;
             
-            if (o == null)
+            if (onda == null)
                 throw new Exception("Onda não encontrada");
 
             this.Id = dbonda.Id;

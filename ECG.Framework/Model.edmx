@@ -34,7 +34,9 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="descricao" Type="nvarchar" MaxLength="50" />
           <Property Name="onda" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="entradas" Type="int" Nullable="false" />
           <Property Name="camadas" Type="int" Nullable="false" />
           <Property Name="neuronios" Type="ntext" Nullable="false" />
           <Property Name="pesos" Type="ntext" />
@@ -85,6 +87,8 @@
           <Property Type="Int32" Name="camadas" Nullable="false" />
           <Property Type="String" Name="neuronios" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="pesos" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="descricao" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="entradas" Nullable="false" />
         </EntityType>
         <EntityType Name="T">
           <Key>
@@ -119,6 +123,8 @@
           <EntitySetMapping Name="REDE">
             <EntityTypeMapping TypeName="DatabaseModel.REDE">
               <MappingFragment StoreEntitySet="REDE">
+                <ScalarProperty Name="entradas" ColumnName="entradas" />
+                <ScalarProperty Name="descricao" ColumnName="descricao" />
                 <ScalarProperty Name="pesos" ColumnName="pesos" />
                 <ScalarProperty Name="neuronios" ColumnName="neuronios" />
                 <ScalarProperty Name="camadas" ColumnName="camadas" />
@@ -159,7 +165,7 @@
     <Diagrams>
       <Diagram Name="Model">
         <EntityTypeShape EntityType="DatabaseModel.ONDA" Width="1.5" PointX="0.75" PointY="0.75" Height="1.59568359375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.QRS" Width="1.5" PointX="3.875" PointY="3" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="DatabaseModel.QRS" Width="1.5" PointX="3.25" PointY="3" Height="1.7879850260416665" />
         <EntityTypeShape EntityType="DatabaseModel.REDE" Width="1.5" PointX="5.75" PointY="0.625" Height="1.9802864583333322" />
         <EntityTypeShape EntityType="DatabaseModel.T" Width="1.5" PointX="0.625" PointY="4.125" Height="1.9802864583333335" />
       </Diagram>
