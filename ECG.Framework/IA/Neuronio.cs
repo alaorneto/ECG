@@ -88,6 +88,11 @@ namespace ECG.Framework.IA
             get { return this._saida; }
         }
 
+        /// <summary>
+        /// Peso
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns>O peso associado à entrada</returns>
         public double this[int index]
         {
             get { return this._pesos[index]; }

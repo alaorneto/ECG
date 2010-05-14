@@ -27,5 +27,11 @@ namespace ECG
 
             dialog.ShowDialog();
         }
+
+        private void redeNeuronalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FConfigRedeNeuronal fconf = new FConfigRedeNeuronal();
+            fconf.ShowDialog();
+        }
     }
 }

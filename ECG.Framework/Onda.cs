@@ -27,6 +27,7 @@ namespace ECG.Framework
             Length = Vetor.Length;
 
             ComplexosQRS = helper.ComplexosQRS();
+            PicosQRS = helper.PicosQRS();
             //OndasT = helper.OndasT();
         }
 
@@ -48,6 +49,12 @@ namespace ECG.Framework
         }
 
         public int Length
+        {
+            get;
+            set;
+        }
+
+        public int[] PicosQRS
         {
             get;
             set;

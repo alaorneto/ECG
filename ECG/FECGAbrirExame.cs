@@ -41,9 +41,6 @@ namespace ECG
             }
             
             imagem = new Bitmap(file);
-            picBox.Width = imagem.Width;
-            picBox.Height = imagem.Height;
-            picBox.Image = imagem;
         }
 
         private void buttonSelecionar_Click(object sender, EventArgs e)
@@ -58,6 +55,12 @@ namespace ECG
             }
 
             Console.WriteLine(" -->> {0} complexos QRS encontrado(s)", onda.ComplexosQRS.Length);
+
+            int[] picos = onda.PicosQRS;
+            double freq = 1500 / ((picos[1] - picos[0]) / 8);
+
+            labelFreqResult.Text = freq.ToString("000") + " bpm";
+
 
         }
 

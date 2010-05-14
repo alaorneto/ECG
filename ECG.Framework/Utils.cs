@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using ECG.Framework.IA;
 
 namespace ECG.Framework
 {
@@ -10,9 +11,9 @@ namespace ECG.Framework
         public static int[] StringToInt(string entradas)
         {
             string[] strings = entradas.Split(';');
-            int[] ints = new int[strings.Length];
+            int[] ints = new int[strings.Length - 1];
 
-            for (int i = 0; i < strings.Length; i++)
+            for (int i = 0; i < strings.Length - 1; i++)
                 ints[i] = int.Parse(strings[i]);
 
             return ints;
@@ -21,9 +22,9 @@ namespace ECG.Framework
         public static double[] StringToDouble(string entradas)
         {
             string[] strings = entradas.Split(';');
-            double[] doubs = new double[strings.Length];
+            double[] doubs = new double[strings.Length - 1];
 
-            for (int i = 0; i < strings.Length; i++)
+            for (int i = 0; i < strings.Length - 1; i++)
                 doubs[i] = int.Parse(strings[i]);
 
             return doubs;
@@ -47,6 +48,56 @@ namespace ECG.Framework
                 s = entradas[i] + ";";
 
             return s;
+        }
+
+        public static string NeuroniosToString(Rede rede)
+        {
+            string output = "";
+
+            for (int i = 0; i < rede.NumeroCamadas; i++)
+            {
+                output += rede[i].NumeroNeuronios + ";";
+
+            }
+
+            return output;
+        }
+
+        public static string PesosParaString(RedeAtivacao rede)
+        {
+            string output = "";
+
+            for (int i = 0; i < rede.NumeroCamadas; i++)
+            {
+                for (int j = 0; j < rede[i].NumeroNeuronios; j++)
+                {
+                    for (int k = 0; k < rede[i][j].NumeroEntradas; k++)
+                    {
+                        output += rede[i][j][k] + ";";
+                    }
+                }
+            }
+
+            return output;
+        }
+
+        public static RedeAtivacao SetupPesos(RedeAtivacao rede, string pesos)
+        {
+            int count = 0;
+            double[] pesosarr = StringToDouble(pesos);
+
+            for (int i = 0; i < rede.NumeroCamadas; i++)
+            {
+                for (int j = 0; j < rede[i].NumeroNeuronios; j++)
+                {
+                    for (int k = 0; k < rede[i][j].NumeroEntradas; k++)
+                    {
+                        rede[i][j][k] = pesosarr[count++];
+                    }
+                }
+            }
+
+            return rede;
         }
 
 

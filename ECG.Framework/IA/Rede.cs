@@ -13,6 +13,11 @@ namespace ECG.Framework.IA
         /// <summary>
         /// 
         /// </summary>
+        protected string _descricao;
+
+        /// <summary>
+        /// 
+        /// </summary>
         protected int _numeroEntradas;
 
         /// <summary>
@@ -48,9 +53,15 @@ namespace ECG.Framework.IA
         /// </summary>
         /// <param name="index">Índice referente a camada desejada</param>
         /// <returns></returns>
-        protected Camada this[int index]
+        public Camada this[int index]
         {
             get { return this._camadas[index]; }
+        }
+
+        public string Descricao
+        {
+            get { return this._descricao; }
+            set { this._descricao = value; }
         }
 
         /// <summary>

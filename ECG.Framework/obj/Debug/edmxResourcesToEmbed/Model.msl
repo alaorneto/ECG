@@ -23,6 +23,8 @@
     <EntitySetMapping Name="REDE">
       <EntityTypeMapping TypeName="DatabaseModel.REDE">
         <MappingFragment StoreEntitySet="REDE">
+          <ScalarProperty Name="entradas" ColumnName="entradas" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
           <ScalarProperty Name="pesos" ColumnName="pesos" />
           <ScalarProperty Name="neuronios" ColumnName="neuronios" />
           <ScalarProperty Name="camadas" ColumnName="camadas" />

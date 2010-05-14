@@ -29,7 +29,9 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="descricao" Type="nvarchar" MaxLength="50" />
     <Property Name="onda" Type="nvarchar" Nullable="false" MaxLength="10" />
+    <Property Name="entradas" Type="int" Nullable="false" />
     <Property Name="camadas" Type="int" Nullable="false" />
     <Property Name="neuronios" Type="ntext" Nullable="false" />
     <Property Name="pesos" Type="ntext" />

@@ -6,11 +6,20 @@
     <edmx:StorageModels>
     <Schema Namespace="DatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
         <EntityContainer Name="DatabaseModelStoreContainer">
+          <EntitySet Name="CONFIG" EntityType="DatabaseModel.Store.CONFIG" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="ONDA" EntityType="DatabaseModel.Store.ONDA" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="QRS" EntityType="DatabaseModel.Store.QRS" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="REDE" EntityType="DatabaseModel.Store.REDE" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="T" EntityType="DatabaseModel.Store.T" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
+        <EntityType Name="CONFIG">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="descr" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="onda" Type="nvarchar" Nullable="false" MaxLength="10" />
+        </EntityType>
         <EntityType Name="ONDA">
           <Key>
             <PropertyRef Name="id" />
@@ -60,6 +69,7 @@
           <EntitySet Name="QRS" EntityType="DatabaseModel.QRS" />
           <EntitySet Name="REDE" EntityType="DatabaseModel.REDE" />
           <EntitySet Name="T" EntityType="DatabaseModel.T" />
+          <EntitySet Name="CONFIG" EntityType="DatabaseModel.CONFIG" />
         </EntityContainer>
         <EntityType Name="ONDA">
           <Key>
@@ -98,6 +108,14 @@
           <Property Type="String" Name="vetor" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="length" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="diag" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CONFIG">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int64" Name="id" Nullable="false" />
+          <Property Type="String" Name="descr" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="onda" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -143,6 +161,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="CONFIG">
+            <EntityTypeMapping TypeName="DatabaseModel.CONFIG">
+              <MappingFragment StoreEntitySet="CONFIG">
+                <ScalarProperty Name="onda" ColumnName="onda" />
+                <ScalarProperty Name="descr" ColumnName="descr" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -168,6 +195,7 @@
         <EntityTypeShape EntityType="DatabaseModel.QRS" Width="1.5" PointX="3.25" PointY="3" Height="1.7879850260416665" />
         <EntityTypeShape EntityType="DatabaseModel.REDE" Width="1.5" PointX="5.75" PointY="0.625" Height="1.9802864583333322" />
         <EntityTypeShape EntityType="DatabaseModel.T" Width="1.5" PointX="0.625" PointY="4.125" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="DatabaseModel.CONFIG" Width="1.5" PointX="5.375" PointY="3.75" Height="1.5956835937499996" />
       </Diagram>
     </Diagrams>
   </Designer>

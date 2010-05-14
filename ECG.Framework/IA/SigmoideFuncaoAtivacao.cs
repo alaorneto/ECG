@@ -8,7 +8,7 @@ namespace ECG.Framework.IA
     /// <summary>
     /// 
     /// </summary>
-    class SigmoideFuncaoAtivacao : IFuncaoAtivacao
+    public class SigmoideFuncaoAtivacao : IFuncaoAtivacao
     {
         /// <summary>
         /// 

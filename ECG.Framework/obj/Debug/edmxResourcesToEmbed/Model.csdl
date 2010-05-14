@@ -32,6 +32,8 @@
     <Property Type="Int32" Name="camadas" Nullable="false" />
     <Property Type="String" Name="neuronios" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="pesos" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="descricao" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="entradas" Nullable="false" />
   </EntityType>
   <EntityType Name="T">
     <Key>

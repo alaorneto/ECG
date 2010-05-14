@@ -1,21 +1,22 @@
 ECG - SISTEMA PARA DETECÇÃO DE PATOLOGIAS EM ELETROCARDIOGRAMAS
 Universidade Candido Mendes Campos - RJ
-Ciência da Computação
+Ciencia da Computacao
 Alaor Barroso de Carvalho Neto
 
 *****************************************************************************************
 
-Convenções:
+Convencoes:
 
-1) Códigos para Patologias do complexo QRS
+1) Codigos para Patologias do complexo QRS
 
-	Patologia								Código
-	------------------------------------	----------------
-	Normal									NORMAL
+	Patologia								Codigo				Padrao
+	------------------------------------	----------------	-------------
+	Normal									NORMAL				0 - 0 - 0 - 1
 
-2) Códigos para Patologias da onda T
+2) Codigos para Patologias da onda T
 
-	Patologia								Código
-	------------------------------------	----------------
-	Normal									NORMAL
+	Patologia								Codigo				Padrao
+	------------------------------------	----------------	-------------
+	Normal									NORMAL				0 - 0 - 0 - 1
 
+	Frequencia Cardiaca: Dividir por 8

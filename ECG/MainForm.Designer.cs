@@ -73,19 +73,19 @@
             // abrirExameToolStripMenuItem
             // 
             this.abrirExameToolStripMenuItem.Name = "abrirExameToolStripMenuItem";
-            this.abrirExameToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.abrirExameToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.abrirExameToolStripMenuItem.Text = "Abrir Exame";
             this.abrirExameToolStripMenuItem.Click += new System.EventHandler(this.abrirExameToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(137, 6);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -109,6 +109,7 @@
             this.redeNeuronalToolStripMenuItem.Name = "redeNeuronalToolStripMenuItem";
             this.redeNeuronalToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.redeNeuronalToolStripMenuItem.Text = "Rede Neuronal";
+            this.redeNeuronalToolStripMenuItem.Click += new System.EventHandler(this.redeNeuronalToolStripMenuItem_Click);
             // 
             // ajudaToolStripMenuItem
             // 
@@ -121,7 +122,7 @@
             // sobreToolStripMenuItem
             // 
             this.sobreToolStripMenuItem.Name = "sobreToolStripMenuItem";
-            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.sobreToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.sobreToolStripMenuItem.Text = "Sobre";
             // 
             // statusStripECG

@@ -29,31 +29,31 @@
         private void InitializeComponent()
         {
             this.groupBoxQRS = new System.Windows.Forms.GroupBox();
-            this.groupBoxT = new System.Windows.Forms.GroupBox();
-            this.buttonQRSCarregar = new System.Windows.Forms.Button();
-            this.buttonTCarregar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.labelTSalvas = new System.Windows.Forms.Label();
-            this.labelQRSSalvas = new System.Windows.Forms.Label();
-            this.labelQRSConfig = new System.Windows.Forms.Label();
-            this.labelQRSDesc = new System.Windows.Forms.Label();
-            this.labelQRSEntradas = new System.Windows.Forms.Label();
-            this.labelQRSNeuronios = new System.Windows.Forms.Label();
-            this.textBoxQRSDesc = new System.Windows.Forms.TextBox();
-            this.textBoxQRSCamadas = new System.Windows.Forms.TextBox();
-            this.textBoxQRSNeuronios = new System.Windows.Forms.TextBox();
             this.buttonQRSSalvar = new System.Windows.Forms.Button();
-            this.buttonOK = new System.Windows.Forms.Button();
-            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.textBoxQRSNeuronios = new System.Windows.Forms.TextBox();
+            this.textBoxQRSEntradas = new System.Windows.Forms.TextBox();
+            this.textBoxQRSDesc = new System.Windows.Forms.TextBox();
+            this.labelQRSNeuronios = new System.Windows.Forms.Label();
+            this.labelQRSEntradas = new System.Windows.Forms.Label();
+            this.labelQRSDesc = new System.Windows.Forms.Label();
+            this.labelQRSConfig = new System.Windows.Forms.Label();
+            this.labelQRSSalvas = new System.Windows.Forms.Label();
+            this.comboBoxQRS = new System.Windows.Forms.ComboBox();
+            this.buttonQRSCarregar = new System.Windows.Forms.Button();
+            this.groupBoxT = new System.Windows.Forms.GroupBox();
             this.buttonTSalvar = new System.Windows.Forms.Button();
             this.textBoxTNeuronios = new System.Windows.Forms.TextBox();
-            this.textBoxTCamadas = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBoxTEntradas = new System.Windows.Forms.TextBox();
+            this.textBoxTDesc = new System.Windows.Forms.TextBox();
             this.labelTNeuronios = new System.Windows.Forms.Label();
             this.labelTEntradas = new System.Windows.Forms.Label();
             this.labelTDesc = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.labelTSalvas = new System.Windows.Forms.Label();
+            this.comboBoxT = new System.Windows.Forms.ComboBox();
+            this.buttonTCarregar = new System.Windows.Forms.Button();
+            this.buttonOK = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
             this.groupBoxQRS.SuspendLayout();
             this.groupBoxT.SuspendLayout();
             this.SuspendLayout();
@@ -62,14 +62,14 @@
             // 
             this.groupBoxQRS.Controls.Add(this.buttonQRSSalvar);
             this.groupBoxQRS.Controls.Add(this.textBoxQRSNeuronios);
-            this.groupBoxQRS.Controls.Add(this.textBoxQRSCamadas);
+            this.groupBoxQRS.Controls.Add(this.textBoxQRSEntradas);
             this.groupBoxQRS.Controls.Add(this.textBoxQRSDesc);
             this.groupBoxQRS.Controls.Add(this.labelQRSNeuronios);
             this.groupBoxQRS.Controls.Add(this.labelQRSEntradas);
             this.groupBoxQRS.Controls.Add(this.labelQRSDesc);
             this.groupBoxQRS.Controls.Add(this.labelQRSConfig);
             this.groupBoxQRS.Controls.Add(this.labelQRSSalvas);
-            this.groupBoxQRS.Controls.Add(this.comboBox1);
+            this.groupBoxQRS.Controls.Add(this.comboBoxQRS);
             this.groupBoxQRS.Controls.Add(this.buttonQRSCarregar);
             this.groupBoxQRS.Location = new System.Drawing.Point(12, 12);
             this.groupBoxQRS.Name = "groupBoxQRS";
@@ -78,79 +78,63 @@
             this.groupBoxQRS.TabStop = false;
             this.groupBoxQRS.Text = "Redes do Complexo QRS";
             // 
-            // groupBoxT
+            // buttonQRSSalvar
             // 
-            this.groupBoxT.Controls.Add(this.buttonTSalvar);
-            this.groupBoxT.Controls.Add(this.textBoxTNeuronios);
-            this.groupBoxT.Controls.Add(this.textBoxTCamadas);
-            this.groupBoxT.Controls.Add(this.textBox6);
-            this.groupBoxT.Controls.Add(this.labelTNeuronios);
-            this.groupBoxT.Controls.Add(this.labelTEntradas);
-            this.groupBoxT.Controls.Add(this.labelTDesc);
-            this.groupBoxT.Controls.Add(this.label4);
-            this.groupBoxT.Controls.Add(this.labelTSalvas);
-            this.groupBoxT.Controls.Add(this.comboBox2);
-            this.groupBoxT.Controls.Add(this.buttonTCarregar);
-            this.groupBoxT.Location = new System.Drawing.Point(12, 183);
-            this.groupBoxT.Name = "groupBoxT";
-            this.groupBoxT.Size = new System.Drawing.Size(520, 165);
-            this.groupBoxT.TabIndex = 1;
-            this.groupBoxT.TabStop = false;
-            this.groupBoxT.Text = "Redes da Onda T";
+            this.buttonQRSSalvar.Location = new System.Drawing.Point(438, 125);
+            this.buttonQRSSalvar.Name = "buttonQRSSalvar";
+            this.buttonQRSSalvar.Size = new System.Drawing.Size(75, 23);
+            this.buttonQRSSalvar.TabIndex = 10;
+            this.buttonQRSSalvar.Text = "Salvar";
+            this.buttonQRSSalvar.UseVisualStyleBackColor = true;
+            this.buttonQRSSalvar.Click += new System.EventHandler(this.buttonQRSSalvar_Click);
             // 
-            // buttonQRSCarregar
+            // textBoxQRSNeuronios
             // 
-            this.buttonQRSCarregar.Location = new System.Drawing.Point(438, 36);
-            this.buttonQRSCarregar.Name = "buttonQRSCarregar";
-            this.buttonQRSCarregar.Size = new System.Drawing.Size(75, 23);
-            this.buttonQRSCarregar.TabIndex = 0;
-            this.buttonQRSCarregar.Text = "Carregar";
-            this.buttonQRSCarregar.UseVisualStyleBackColor = true;
+            this.textBoxQRSNeuronios.Location = new System.Drawing.Point(345, 96);
+            this.textBoxQRSNeuronios.Name = "textBoxQRSNeuronios";
+            this.textBoxQRSNeuronios.Size = new System.Drawing.Size(168, 23);
+            this.textBoxQRSNeuronios.TabIndex = 9;
             // 
-            // buttonTCarregar
+            // textBoxQRSEntradas
             // 
-            this.buttonTCarregar.Location = new System.Drawing.Point(438, 37);
-            this.buttonTCarregar.Name = "buttonTCarregar";
-            this.buttonTCarregar.Size = new System.Drawing.Size(75, 23);
-            this.buttonTCarregar.TabIndex = 0;
-            this.buttonTCarregar.Text = "Carregar";
-            this.buttonTCarregar.UseVisualStyleBackColor = true;
+            this.textBoxQRSEntradas.Location = new System.Drawing.Point(208, 96);
+            this.textBoxQRSEntradas.Name = "textBoxQRSEntradas";
+            this.textBoxQRSEntradas.Size = new System.Drawing.Size(131, 23);
+            this.textBoxQRSEntradas.TabIndex = 8;
             // 
-            // comboBox1
+            // textBoxQRSDesc
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(9, 37);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(423, 23);
-            this.comboBox1.TabIndex = 1;
+            this.textBoxQRSDesc.Location = new System.Drawing.Point(9, 96);
+            this.textBoxQRSDesc.Name = "textBoxQRSDesc";
+            this.textBoxQRSDesc.Size = new System.Drawing.Size(193, 23);
+            this.textBoxQRSDesc.TabIndex = 7;
             // 
-            // comboBox2
+            // labelQRSNeuronios
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(9, 38);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(423, 23);
-            this.comboBox2.TabIndex = 1;
+            this.labelQRSNeuronios.AutoSize = true;
+            this.labelQRSNeuronios.Location = new System.Drawing.Point(342, 78);
+            this.labelQRSNeuronios.Name = "labelQRSNeuronios";
+            this.labelQRSNeuronios.Size = new System.Drawing.Size(171, 15);
+            this.labelQRSNeuronios.TabIndex = 6;
+            this.labelQRSNeuronios.Text = "Neurônios (separados por \";\")";
             // 
-            // labelTSalvas
+            // labelQRSEntradas
             // 
-            this.labelTSalvas.AutoSize = true;
-            this.labelTSalvas.Location = new System.Drawing.Point(6, 19);
-            this.labelTSalvas.Name = "labelTSalvas";
-            this.labelTSalvas.Size = new System.Drawing.Size(119, 15);
-            this.labelTSalvas.TabIndex = 2;
-            this.labelTSalvas.Text = "Redes Armazenadas:";
+            this.labelQRSEntradas.AutoSize = true;
+            this.labelQRSEntradas.Location = new System.Drawing.Point(205, 78);
+            this.labelQRSEntradas.Name = "labelQRSEntradas";
+            this.labelQRSEntradas.Size = new System.Drawing.Size(59, 15);
+            this.labelQRSEntradas.TabIndex = 5;
+            this.labelQRSEntradas.Text = "Entradas:";
             // 
-            // labelQRSSalvas
+            // labelQRSDesc
             // 
-            this.labelQRSSalvas.AutoSize = true;
-            this.labelQRSSalvas.Location = new System.Drawing.Point(6, 19);
-            this.labelQRSSalvas.Name = "labelQRSSalvas";
-            this.labelQRSSalvas.Size = new System.Drawing.Size(119, 15);
-            this.labelQRSSalvas.TabIndex = 2;
-            this.labelQRSSalvas.Text = "Redes Armazenadas:";
+            this.labelQRSDesc.AutoSize = true;
+            this.labelQRSDesc.Location = new System.Drawing.Point(6, 78);
+            this.labelQRSDesc.Name = "labelQRSDesc";
+            this.labelQRSDesc.Size = new System.Drawing.Size(65, 15);
+            this.labelQRSDesc.TabIndex = 4;
+            this.labelQRSDesc.Text = "Descrição:";
             // 
             // labelQRSConfig
             // 
@@ -162,81 +146,53 @@
             this.labelQRSConfig.TabIndex = 3;
             this.labelQRSConfig.Text = "Nova Configuração";
             // 
-            // labelQRSDesc
+            // labelQRSSalvas
             // 
-            this.labelQRSDesc.AutoSize = true;
-            this.labelQRSDesc.Location = new System.Drawing.Point(6, 78);
-            this.labelQRSDesc.Name = "labelQRSDesc";
-            this.labelQRSDesc.Size = new System.Drawing.Size(65, 15);
-            this.labelQRSDesc.TabIndex = 4;
-            this.labelQRSDesc.Text = "Descrição:";
+            this.labelQRSSalvas.AutoSize = true;
+            this.labelQRSSalvas.Location = new System.Drawing.Point(6, 19);
+            this.labelQRSSalvas.Name = "labelQRSSalvas";
+            this.labelQRSSalvas.Size = new System.Drawing.Size(119, 15);
+            this.labelQRSSalvas.TabIndex = 2;
+            this.labelQRSSalvas.Text = "Redes Armazenadas:";
             // 
-            // labelQRSEntradas
+            // comboBoxQRS
             // 
-            this.labelQRSEntradas.AutoSize = true;
-            this.labelQRSEntradas.Location = new System.Drawing.Point(205, 78);
-            this.labelQRSEntradas.Name = "labelQRSEntradas";
-            this.labelQRSEntradas.Size = new System.Drawing.Size(59, 15);
-            this.labelQRSEntradas.TabIndex = 5;
-            this.labelQRSEntradas.Text = "Entradas:";
+            this.comboBoxQRS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxQRS.FormattingEnabled = true;
+            this.comboBoxQRS.Location = new System.Drawing.Point(9, 37);
+            this.comboBoxQRS.Name = "comboBoxQRS";
+            this.comboBoxQRS.Size = new System.Drawing.Size(423, 23);
+            this.comboBoxQRS.TabIndex = 1;
             // 
-            // labelQRSNeuronios
+            // buttonQRSCarregar
             // 
-            this.labelQRSNeuronios.AutoSize = true;
-            this.labelQRSNeuronios.Location = new System.Drawing.Point(342, 78);
-            this.labelQRSNeuronios.Name = "labelQRSNeuronios";
-            this.labelQRSNeuronios.Size = new System.Drawing.Size(171, 15);
-            this.labelQRSNeuronios.TabIndex = 6;
-            this.labelQRSNeuronios.Text = "Neurônios (separados por \";\")";
+            this.buttonQRSCarregar.Location = new System.Drawing.Point(438, 36);
+            this.buttonQRSCarregar.Name = "buttonQRSCarregar";
+            this.buttonQRSCarregar.Size = new System.Drawing.Size(75, 23);
+            this.buttonQRSCarregar.TabIndex = 0;
+            this.buttonQRSCarregar.Text = "Carregar";
+            this.buttonQRSCarregar.UseVisualStyleBackColor = true;
+            this.buttonQRSCarregar.Click += new System.EventHandler(this.buttonQRSCarregar_Click);
             // 
-            // textBoxQRSDesc
+            // groupBoxT
             // 
-            this.textBoxQRSDesc.Location = new System.Drawing.Point(9, 96);
-            this.textBoxQRSDesc.Name = "textBoxQRSDesc";
-            this.textBoxQRSDesc.Size = new System.Drawing.Size(193, 23);
-            this.textBoxQRSDesc.TabIndex = 7;
-            // 
-            // textBoxQRSCamadas
-            // 
-            this.textBoxQRSCamadas.Location = new System.Drawing.Point(208, 96);
-            this.textBoxQRSCamadas.Name = "textBoxQRSCamadas";
-            this.textBoxQRSCamadas.Size = new System.Drawing.Size(131, 23);
-            this.textBoxQRSCamadas.TabIndex = 8;
-            // 
-            // textBoxQRSNeuronios
-            // 
-            this.textBoxQRSNeuronios.Location = new System.Drawing.Point(345, 96);
-            this.textBoxQRSNeuronios.Name = "textBoxQRSNeuronios";
-            this.textBoxQRSNeuronios.Size = new System.Drawing.Size(168, 23);
-            this.textBoxQRSNeuronios.TabIndex = 9;
-            // 
-            // buttonQRSSalvar
-            // 
-            this.buttonQRSSalvar.Location = new System.Drawing.Point(438, 125);
-            this.buttonQRSSalvar.Name = "buttonQRSSalvar";
-            this.buttonQRSSalvar.Size = new System.Drawing.Size(75, 23);
-            this.buttonQRSSalvar.TabIndex = 10;
-            this.buttonQRSSalvar.Text = "Salvar";
-            this.buttonQRSSalvar.UseVisualStyleBackColor = true;
-            // 
-            // buttonOK
-            // 
-            this.buttonOK.Location = new System.Drawing.Point(456, 361);
-            this.buttonOK.Name = "buttonOK";
-            this.buttonOK.Size = new System.Drawing.Size(75, 23);
-            this.buttonOK.TabIndex = 2;
-            this.buttonOK.Text = "OK";
-            this.buttonOK.UseVisualStyleBackColor = true;
-            // 
-            // buttonCancelar
-            // 
-            this.buttonCancelar.Location = new System.Drawing.Point(375, 361);
-            this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 3;
-            this.buttonCancelar.Text = "Cancelar";
-            this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            this.groupBoxT.Controls.Add(this.buttonTSalvar);
+            this.groupBoxT.Controls.Add(this.textBoxTNeuronios);
+            this.groupBoxT.Controls.Add(this.textBoxTEntradas);
+            this.groupBoxT.Controls.Add(this.textBoxTDesc);
+            this.groupBoxT.Controls.Add(this.labelTNeuronios);
+            this.groupBoxT.Controls.Add(this.labelTEntradas);
+            this.groupBoxT.Controls.Add(this.labelTDesc);
+            this.groupBoxT.Controls.Add(this.label4);
+            this.groupBoxT.Controls.Add(this.labelTSalvas);
+            this.groupBoxT.Controls.Add(this.comboBoxT);
+            this.groupBoxT.Controls.Add(this.buttonTCarregar);
+            this.groupBoxT.Location = new System.Drawing.Point(12, 183);
+            this.groupBoxT.Name = "groupBoxT";
+            this.groupBoxT.Size = new System.Drawing.Size(520, 165);
+            this.groupBoxT.TabIndex = 1;
+            this.groupBoxT.TabStop = false;
+            this.groupBoxT.Text = "Redes da Onda T";
             // 
             // buttonTSalvar
             // 
@@ -246,6 +202,7 @@
             this.buttonTSalvar.TabIndex = 18;
             this.buttonTSalvar.Text = "Salvar";
             this.buttonTSalvar.UseVisualStyleBackColor = true;
+            this.buttonTSalvar.Click += new System.EventHandler(this.buttonTSalvar_Click);
             // 
             // textBoxTNeuronios
             // 
@@ -254,19 +211,19 @@
             this.textBoxTNeuronios.Size = new System.Drawing.Size(168, 23);
             this.textBoxTNeuronios.TabIndex = 17;
             // 
-            // textBoxTCamadas
+            // textBoxTEntradas
             // 
-            this.textBoxTCamadas.Location = new System.Drawing.Point(209, 97);
-            this.textBoxTCamadas.Name = "textBoxTCamadas";
-            this.textBoxTCamadas.Size = new System.Drawing.Size(131, 23);
-            this.textBoxTCamadas.TabIndex = 16;
+            this.textBoxTEntradas.Location = new System.Drawing.Point(209, 97);
+            this.textBoxTEntradas.Name = "textBoxTEntradas";
+            this.textBoxTEntradas.Size = new System.Drawing.Size(131, 23);
+            this.textBoxTEntradas.TabIndex = 16;
             // 
-            // textBox6
+            // textBoxTDesc
             // 
-            this.textBox6.Location = new System.Drawing.Point(10, 97);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(193, 23);
-            this.textBox6.TabIndex = 15;
+            this.textBoxTDesc.Location = new System.Drawing.Point(10, 97);
+            this.textBoxTDesc.Name = "textBoxTDesc";
+            this.textBoxTDesc.Size = new System.Drawing.Size(193, 23);
+            this.textBoxTDesc.TabIndex = 15;
             // 
             // labelTNeuronios
             // 
@@ -305,6 +262,53 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Nova Configuração";
             // 
+            // labelTSalvas
+            // 
+            this.labelTSalvas.AutoSize = true;
+            this.labelTSalvas.Location = new System.Drawing.Point(6, 19);
+            this.labelTSalvas.Name = "labelTSalvas";
+            this.labelTSalvas.Size = new System.Drawing.Size(119, 15);
+            this.labelTSalvas.TabIndex = 2;
+            this.labelTSalvas.Text = "Redes Armazenadas:";
+            // 
+            // comboBoxT
+            // 
+            this.comboBoxT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxT.FormattingEnabled = true;
+            this.comboBoxT.Location = new System.Drawing.Point(9, 38);
+            this.comboBoxT.Name = "comboBoxT";
+            this.comboBoxT.Size = new System.Drawing.Size(423, 23);
+            this.comboBoxT.TabIndex = 1;
+            // 
+            // buttonTCarregar
+            // 
+            this.buttonTCarregar.Location = new System.Drawing.Point(438, 37);
+            this.buttonTCarregar.Name = "buttonTCarregar";
+            this.buttonTCarregar.Size = new System.Drawing.Size(75, 23);
+            this.buttonTCarregar.TabIndex = 0;
+            this.buttonTCarregar.Text = "Carregar";
+            this.buttonTCarregar.UseVisualStyleBackColor = true;
+            this.buttonTCarregar.Click += new System.EventHandler(this.buttonTCarregar_Click);
+            // 
+            // buttonOK
+            // 
+            this.buttonOK.Location = new System.Drawing.Point(456, 361);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(75, 23);
+            this.buttonOK.TabIndex = 2;
+            this.buttonOK.Text = "OK";
+            this.buttonOK.UseVisualStyleBackColor = true;
+            // 
+            // buttonCancelar
+            // 
+            this.buttonCancelar.Location = new System.Drawing.Point(375, 361);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
+            this.buttonCancelar.TabIndex = 3;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            // 
             // FConfigRedeNeuronal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -322,6 +326,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configurações de Rede Neuronal";
+            this.Load += new System.EventHandler(this.FConfigRedeNeuronal_Load);
             this.groupBoxQRS.ResumeLayout(false);
             this.groupBoxQRS.PerformLayout();
             this.groupBoxT.ResumeLayout(false);
@@ -334,15 +339,15 @@
 
         private System.Windows.Forms.GroupBox groupBoxQRS;
         private System.Windows.Forms.Label labelQRSSalvas;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxQRS;
         private System.Windows.Forms.Button buttonQRSCarregar;
         private System.Windows.Forms.GroupBox groupBoxT;
         private System.Windows.Forms.Label labelTSalvas;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBoxT;
         private System.Windows.Forms.Button buttonTCarregar;
         private System.Windows.Forms.Button buttonQRSSalvar;
         private System.Windows.Forms.TextBox textBoxQRSNeuronios;
-        private System.Windows.Forms.TextBox textBoxQRSCamadas;
+        private System.Windows.Forms.TextBox textBoxQRSEntradas;
         private System.Windows.Forms.TextBox textBoxQRSDesc;
         private System.Windows.Forms.Label labelQRSNeuronios;
         private System.Windows.Forms.Label labelQRSEntradas;
@@ -352,8 +357,8 @@
         private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonTSalvar;
         private System.Windows.Forms.TextBox textBoxTNeuronios;
-        private System.Windows.Forms.TextBox textBoxTCamadas;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBoxTEntradas;
+        private System.Windows.Forms.TextBox textBoxTDesc;
         private System.Windows.Forms.Label labelTNeuronios;
         private System.Windows.Forms.Label labelTEntradas;
         private System.Windows.Forms.Label labelTDesc;
