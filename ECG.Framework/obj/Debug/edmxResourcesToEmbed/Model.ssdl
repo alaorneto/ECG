@@ -1,11 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="DatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
   <EntityContainer Name="DatabaseModelStoreContainer">
+    <EntitySet Name="CONFIG" EntityType="DatabaseModel.Store.CONFIG" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="ONDA" EntityType="DatabaseModel.Store.ONDA" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="QRS" EntityType="DatabaseModel.Store.QRS" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="REDE" EntityType="DatabaseModel.Store.REDE" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="T" EntityType="DatabaseModel.Store.T" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
+  <EntityType Name="CONFIG">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="descr" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="onda" Type="nvarchar" Nullable="false" MaxLength="10" />
+  </EntityType>
   <EntityType Name="ONDA">
     <Key>
       <PropertyRef Name="id" />

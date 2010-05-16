@@ -25,7 +25,7 @@ namespace ECG.Framework
             double[] doubs = new double[strings.Length - 1];
 
             for (int i = 0; i < strings.Length - 1; i++)
-                doubs[i] = int.Parse(strings[i]);
+                doubs[i] = double.Parse(strings[i]);
 
             return doubs;
         }

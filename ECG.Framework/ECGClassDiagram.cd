@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ECG.Framework.IA.AprendizadoBackPropagation">
+    <Position X="6.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAhAAAABAAEgAAARIEAAAAAAABAAAAAABAAAACAAACA=</HashCode>
+      <FileName>IA\AprendizadoBackPropagation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ECG.Framework.IA.SigmoideFuncaoAtivacao" BaseTypeListCollapsed="true">
+    <Position X="9" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAIAIAA=</HashCode>
+      <FileName>IA\SigmoideFuncaoAtivacao.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ECG.Framework.IA.Camada">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAEAAQACAgAAAAIAQAAEAQAAAAAAAQAAAA=</HashCode>
+      <FileName>IA\Camada.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECG.Framework.IA.CamadaAtivacao">
+    <Position X="3.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IA\CamadaAtivacao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECG.Framework.IA.DoubleRange">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAABAQAAAAEAAAAEBAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>IA\DoubleRange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECG.Framework.IA.IntRange">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAABAQAAAAEAAAAEBAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>IA\IntRange.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECG.Framework.IA.Neuronio">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgBAAAAAQACAggAAAAAAAAEAAAASEACAAAAAA=</HashCode>
+      <FileName>IA\Neuronio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECG.Framework.IA.NeuronioAtivacao">
+    <Position X="5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAgAAAAAAAAAAAAAAAAAAAAEAAAACggAAAAAAA=</HashCode>
+      <FileName>IA\NeuronioAtivacao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECG.Framework.IA.Rede">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAABAAQECAgAAAAAAAAAEAAAAaAAQAAAEAA=</HashCode>
+      <FileName>IA\Rede.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECG.Framework.IA.RedeAtivacao">
+    <Position X="1.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IA\RedeAtivacao.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ECG.Framework.IA.RedeServices">
+    <Position X="10.75" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="ECG.Framework.IA.RedeServices.Tipo" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>IA\RedeServices.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IA\RedeServices.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ECG.Framework.IA.IAprendizadoSupervisionado">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IA\IAprendizadoSupervisionado.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ECG.Framework.IA.IFuncaoAtivacao">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAIAA=</HashCode>
+      <FileName>IA\IFuncaoAtivacao.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

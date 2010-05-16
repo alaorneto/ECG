@@ -21,6 +21,9 @@ namespace ECG.Framework.IA
                        where r.descricao == descricao
                        select r;
 
+            if (entities.REDE.Count(r => r.descricao == descricao) == 0)
+                return null;
+
             fromdb = (REDE)query.First();
 
             int entradas = fromdb.entradas;
@@ -43,7 +46,7 @@ namespace ECG.Framework.IA
                        where r.descricao == rede.Descricao
                        select r;
 
-            if (query.Count() == 0)
+            if (entities.REDE.Count(r => r.descricao == rede.Descricao) == 0)
             {
                 fromdb = new REDE();
                 entities.AddToREDE(fromdb);
@@ -63,9 +66,5 @@ namespace ECG.Framework.IA
             entities.SaveChanges();
         }
 
-        public Rede Rede
-        {
-            get { return this._rede; }
-        }
     }
 }

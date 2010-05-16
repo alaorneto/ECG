@@ -36,6 +36,11 @@ namespace ECG.Framework
             this.Diagnostico = dbonda.Diagnostico;
         }
 
+        public OndaT(T t)
+        {
+
+        }
+
         public long Id
         {
             get;

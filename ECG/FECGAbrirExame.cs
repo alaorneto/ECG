@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ECG.Framework;
+using ECG.Framework.IA;
 using ECG.Framework.Graphics;
 
 namespace ECG
@@ -56,10 +57,18 @@ namespace ECG
 
             Console.WriteLine(" -->> {0} complexos QRS encontrado(s)", onda.ComplexosQRS.Length);
 
+            // Determinar a frequência cardíaca
             int[] picos = onda.PicosQRS;
             double freq = 1500 / ((picos[1] - picos[0]) / 8);
 
             labelFreqResult.Text = freq.ToString("000") + " bpm";
+
+            // Calcular o resultado do padrão da onda
+            RedeAtivacao qrs = ECGConfig.RedeQRS();
+
+            double[] saidaqrs = qrs.Calcular(onda.ComplexosQRS[0].Vetor);
+
+            Console.WriteLine("Saída do 1º Complexo QRS: {0}", saidaqrs);
 
 
         }

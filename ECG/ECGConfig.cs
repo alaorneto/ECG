@@ -9,39 +9,44 @@ namespace ECG
 {
     public static class ECGConfig
     {
-        public RedeAtivacao RedeQRS
+        public static RedeAtivacao RedeQRS()
         {
-            get
-            {
-                DatabaseEntities entities = new DatabaseEntities();
-                RedeServices services = new RedeServices();
+            DatabaseEntities entities = new DatabaseEntities();
+            RedeServices services = new RedeServices();
 
-                var query = from q in entities.CONFIG
-                            where q.descr == "QRS"
-                            select q;
+            var query = from q in entities.CONFIG
+                        where q.onda == "QRS"
+                        select q;
 
-                string descr = query.FirstOrDefault().ToString();
+            if (entities.CONFIG.Count(q => q.onda == "QRS") == 0)
+                return null;
 
-                return services.Setup(descr, RedeServices.Tipo.Ativacao);
-            }
+            CONFIG conf = (CONFIG)query.First();
+
+            string descr = conf.descr;
+
+            RedeAtivacao a = services.Setup(descr, RedeServices.Tipo.Ativacao);
+
+            return a;
         }
 
-        public RedeAtivacao RedeT
+        public static RedeAtivacao RedeT()
         {
-            get
-            {
-                DatabaseEntities entities = new DatabaseEntities();
-                RedeServices services = new RedeServices();
+            DatabaseEntities entities = new DatabaseEntities();
+            RedeServices services = new RedeServices();
 
-                var query = from q in entities.CONFIG
-                            where q.descr == "T"
-                            select q;
+            var query = from q in entities.CONFIG
+                        where q.onda == "T"
+                        select q;
 
-                string descr = query.FirstOrDefault().ToString();
+            if (entities.CONFIG.Count(q => q.onda == "T") == 0)
+                return null;
 
-                return services.Setup(descr, RedeServices.Tipo.Ativacao);
-            }
+            CONFIG conf = (CONFIG)query.First();
+
+            string descr = conf.descr;
+
+            return services.Setup(descr, RedeServices.Tipo.Ativacao);
         }
-
     }
 }

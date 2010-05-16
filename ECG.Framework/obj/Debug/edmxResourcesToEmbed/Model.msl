@@ -43,5 +43,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CONFIG">
+      <EntityTypeMapping TypeName="DatabaseModel.CONFIG">
+        <MappingFragment StoreEntitySet="CONFIG">
+          <ScalarProperty Name="onda" ColumnName="onda" />
+          <ScalarProperty Name="descr" ColumnName="descr" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

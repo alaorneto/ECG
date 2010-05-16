@@ -7,23 +7,24 @@ namespace ECG.Framework
 {
     public class Patologias
     {
-        private Dictionary<string, string> _patologiasQRS = new Dictionary<string, string>();
-        private Dictionary<string, string> _patologiasT = new Dictionary<string, string>();
+
+        private Dictionary<double[], string> _patologiasQRS = new Dictionary<double[], string>();
+        private Dictionary<double[], string> _patologiasT = new Dictionary<double[], string>();
 
         public Patologias()
         {
-            _patologiasQRS.Add("NORMAL", "Normal");
-            _patologiasQRS.Add("HIPERCALEM", "Hipercalemia");
+            _patologiasQRS.Add(new double[4] { 0, 0, 0, 1 }, "Normal");
+            _patologiasQRS.Add(new double[4] { 0, 0, 1, 0 }, "Extra-Sístole Ventricular");
 
-            _patologiasT.Add("NORMAL", "Normal");
+            _patologiasT.Add(new double[4] { 0, 0, 0, 1 }, "Normal");
         }
 
-        public Dictionary<string, string> patologiasQRS
+        public Dictionary<double[], string> patologiasQRS
         {
             get { return _patologiasQRS; }
         }
 
-        public Dictionary<string, string> patologiasT
+        public Dictionary<double[], string> patologiasT
         {
             get { return _patologiasT; }
         }

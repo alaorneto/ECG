@@ -8,7 +8,7 @@ namespace ECG.Framework.IA
     /// <summary>
     /// 
     /// </summary>
-    class AprendizadoBackPropagation
+    public class AprendizadoBackPropagation : IAprendizadoSupervisionado
     {
         private RedeAtivacao rede;
 
@@ -21,6 +21,11 @@ namespace ECG.Framework.IA
         private double[][][] atualizacaoPesos = null;
 
         private double[][] atualizacaoThreshold = null;
+
+        public RedeAtivacao Rede
+        {
+            get { return this.rede; }
+        }
 
         /// <summary>
         /// 

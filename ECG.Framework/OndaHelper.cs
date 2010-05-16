@@ -144,10 +144,18 @@ namespace ECG.Framework
             if (index_max != 0)
                 picos[count_picos++] = index_max;
 
-            int[] finalpicos = new int[count_picos]; 
-            
-            for (int i = 0; i < count_picos; i++) 
-                finalpicos[i] = picos[i];
+            int[] finalpicos = new int[count_picos];
+
+            if ((picos[0] > picos[1]))
+            {
+                finalpicos[0] = picos[1];
+                finalpicos[1] = picos[0];
+            }
+            else
+            {
+                finalpicos[0] = picos[0];
+                finalpicos[1] = picos[1];
+            }
 
             return finalpicos;
         }

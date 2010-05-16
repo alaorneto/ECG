@@ -53,7 +53,6 @@
             this.comboBoxT = new System.Windows.Forms.ComboBox();
             this.buttonTCarregar = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
-            this.buttonCancelar = new System.Windows.Forms.Button();
             this.groupBoxQRS.SuspendLayout();
             this.groupBoxT.SuspendLayout();
             this.SuspendLayout();
@@ -298,23 +297,13 @@
             this.buttonOK.TabIndex = 2;
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
-            // 
-            // buttonCancelar
-            // 
-            this.buttonCancelar.Location = new System.Drawing.Point(375, 361);
-            this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
-            this.buttonCancelar.TabIndex = 3;
-            this.buttonCancelar.Text = "Cancelar";
-            this.buttonCancelar.UseVisualStyleBackColor = true;
-            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
             // 
             // FConfigRedeNeuronal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(543, 394);
-            this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.groupBoxT);
             this.Controls.Add(this.groupBoxQRS);
@@ -354,7 +343,6 @@
         private System.Windows.Forms.Label labelQRSDesc;
         private System.Windows.Forms.Label labelQRSConfig;
         private System.Windows.Forms.Button buttonOK;
-        private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.Button buttonTSalvar;
         private System.Windows.Forms.TextBox textBoxTNeuronios;
         private System.Windows.Forms.TextBox textBoxTEntradas;
