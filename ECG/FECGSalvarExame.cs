@@ -13,20 +13,30 @@ namespace ECG
 {
     public partial class FECGSalvarExame : Form
     {
-        public FECGSalvarExame()
+        Patologias patologias = new Patologias();
+        Onda onda;
+        double[] patQRS;
+        double[] patT;
+
+        public FECGSalvarExame(Onda onda, double[] patQRS, double[] patT)
         {
+            this.onda = onda;
+            this.patQRS = patQRS;
+            this.patT = patT;
+
             InitializeComponent();
         }
 
         private void FECGSalvarExame_Load(object sender, EventArgs e)
         {
-            Patologias patologias = new Patologias();
-
             foreach(string p in patologias.patologiasQRS.Values)
                 comboBoxQRS.Items.Add(p);
 
             foreach (string p in patologias.patologiasT.Values)
                 comboBoxT.Items.Add(p);
+
+            textBoxQRS.Text = patologias.EncontrarNomePorSaida(patQRS, "QRS");
+            textBoxT.Text = patologias.EncontrarNomePorSaida(patT, "T");
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
@@ -36,7 +46,30 @@ namespace ECG
 
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                onda.Salvar();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
+            foreach (ComplexoQRS qrs in onda.ComplexosQRS)
+            {
+                qrs.Diagnostico = patologias.EncontrarSaidaPorNome(comboBoxQRS.SelectedItem.ToString(), "QRS");
+                qrs.Salvar(onda.Id);
+            }
 
+            MessageBox.Show("Onda salva com sucesso!");
+
+            this.Close();
+
+            /*
+            foreach (OndaT t in onda.OndasT)
+            {
+                t.Diagnostico = patologias.EncontrarSaidaPorNome(comboBoxT.SelectedItem.ToString(), "T");
+            }*/
         }
     }
 }

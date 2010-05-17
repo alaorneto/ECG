@@ -7,38 +7,19 @@ namespace ECG.Framework
 {
     public class OndaT
     {
-        public OndaT()
-        { }
+        const int TSize = 30;
+        double[] vetor = new double[TSize];
 
         public OndaT(double[] valores)
         {
-            Length = valores.Length;
             Vetor = valores;
-        }
-
-        public OndaT(long id)
-        {
-            DatabaseEntities entities = new DatabaseEntities();
-            OndaT dbonda = new OndaT();
-
-            var onda = from o in entities.T
-                    where o.id == id
-                    select o;
-            
-            dbonda = (OndaT)onda;
-            
-            if (onda == null)
-                throw new Exception("Onda não encontrada");
-
-            this.Id = dbonda.Id;
-            this.Vetor = dbonda.Vetor;
-            this.Length = dbonda.Length;
-            this.Diagnostico = dbonda.Diagnostico;
         }
 
         public OndaT(T t)
         {
-
+            this.Id = t.id;
+            this.Vetor = Utils.StringToDouble(t.vetor);
+            this.Diagnostico = Utils.StringToDouble(t.diag);
         }
 
         public long Id
@@ -47,7 +28,7 @@ namespace ECG.Framework
             set;
         }
 
-        public ONDA Onda
+        public long Onda
         {
             get;
             set;
@@ -55,27 +36,64 @@ namespace ECG.Framework
 
         public int Length
         {
-            get;
-            set;
+            get { 
+                return TSize; 
+            }
         }
 
         public double[] Vetor
         {
-            get;
-            set;
+            get
+            {
+                return this.vetor;
+            }
+            set
+            {
+                int count = 0;
+                int sobra = (int)((TSize - value.Length) / 2);
+
+                for (int i = 0; i < sobra; i++)
+                {
+                    vetor[count++] = 0;
+                }
+
+                for (int j = 0; j < value.Length; j++)
+                {
+                    vetor[count++] = value[j];
+                }
+
+                for (int k = sobra + value.Length; k < TSize; k++)
+                {
+                    vetor[count++] = 0;
+                }
+            }
         }
 
-        public string Diagnostico
+        public double[] Diagnostico
         {
             get;
             set;
         }
 
-        public void Salvar()
+        public void Salvar(long ondaId)
         {
             DatabaseEntities entities = new DatabaseEntities();
             OndaT ondat = this;
-            T t = new T();
+            T t;
+
+            var query = from f in entities.T
+                        where f.id == ondat.Id
+                        select f;
+
+            if (query.Count(q => q.id == ondat.Id) != 0)
+            {
+                t = query.FirstOrDefault<T>();
+            }
+            else
+            {
+                t = new T();
+                entities.AddToT(t);
+            }
 
             string vetor = "";
 
@@ -84,10 +102,10 @@ namespace ECG.Framework
                 vetor += d + ";";
             }
 
+            t.onda = ondaId;
             t.vetor = vetor;
             t.length = ondat.Length;
-
-            entities.AddToT(t);
+            t.diag = Utils.DoubleToString(ondat.Diagnostico);
 
             try
             {

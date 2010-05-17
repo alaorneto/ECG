@@ -2,10 +2,10 @@
 <Schema Namespace="DatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
   <EntityContainer Name="DatabaseEntities">
     <EntitySet Name="ONDA" EntityType="DatabaseModel.ONDA" />
-    <EntitySet Name="QRS" EntityType="DatabaseModel.QRS" />
     <EntitySet Name="REDE" EntityType="DatabaseModel.REDE" />
-    <EntitySet Name="T" EntityType="DatabaseModel.T" />
     <EntitySet Name="CONFIG" EntityType="DatabaseModel.CONFIG" />
+    <EntitySet Name="QRS" EntityType="DatabaseModel.QRS" />
+    <EntitySet Name="T" EntityType="DatabaseModel.T" />
   </EntityContainer>
   <EntityType Name="ONDA">
     <Key>
@@ -14,15 +14,6 @@
     <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="vetor" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="length" Type="Int32" Nullable="false" />
-  </EntityType>
-  <EntityType Name="QRS">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="vetor" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="length" Nullable="false" />
-    <Property Type="String" Name="diag" MaxLength="5" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="REDE">
     <Key>
@@ -36,15 +27,6 @@
     <Property Type="String" Name="descricao" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="entradas" Nullable="false" />
   </EntityType>
-  <EntityType Name="T">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Type="Int64" Name="id" Nullable="false" />
-    <Property Type="String" Name="vetor" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Type="Int32" Name="length" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Type="String" Name="diag" MaxLength="10" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="CONFIG">
     <Key>
       <PropertyRef Name="id" />
@@ -52,5 +34,25 @@
     <Property Type="Int64" Name="id" Nullable="false" />
     <Property Type="String" Name="descr" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="onda" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="QRS">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="vetor" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="length" Nullable="false" />
+    <Property Type="String" Name="diag" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="onda" />
+  </EntityType>
+  <EntityType Name="T">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" />
+    <Property Type="String" Name="vetor" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="length" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="diag" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="onda" />
   </EntityType>
 </Schema>

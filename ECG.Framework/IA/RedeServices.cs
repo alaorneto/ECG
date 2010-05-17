@@ -29,7 +29,7 @@ namespace ECG.Framework.IA
             int entradas = fromdb.entradas;
             int[] neuronios = Utils.StringToInt(fromdb.neuronios);
 
-            ativacao = new RedeAtivacao(new SigmoideFuncaoAtivacao(), entradas, neuronios);
+            ativacao = new RedeAtivacao(new BipolarSigmoideFuncaoAtivacao(), entradas, neuronios);
 
             ativacao = Utils.SetupPesos(ativacao, fromdb.pesos);
             ativacao.Descricao = descricao;

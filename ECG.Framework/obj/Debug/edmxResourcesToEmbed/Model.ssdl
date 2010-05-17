@@ -30,7 +30,7 @@
     <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="vetor" Type="ntext" Nullable="false" />
     <Property Name="length" Type="int" Nullable="false" />
-    <Property Name="diag" Type="nvarchar" MaxLength="5" />
+    <Property Name="diag" Type="ntext" />
     <Property Name="onda" Type="bigint" />
   </EntityType>
   <EntityType Name="REDE">
@@ -52,7 +52,7 @@
     <Property Name="id" Type="bigint" Nullable="false" />
     <Property Name="vetor" Type="ntext" Nullable="false" />
     <Property Name="length" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-    <Property Name="diag" Type="nvarchar" MaxLength="10" />
+    <Property Name="diag" Type="ntext" />
     <Property Name="onda" Type="bigint" />
   </EntityType>
 </Schema>

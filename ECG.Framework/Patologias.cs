@@ -28,5 +28,65 @@ namespace ECG.Framework
         {
             get { return _patologiasT; }
         }
+
+        public double[] EncontrarSaidaPorNome(string nome, string onda)
+        {
+            double[] saida = new double[4];
+
+            if (onda == "QRS")
+            {
+                foreach (var pair in _patologiasQRS)
+                {
+                    if (pair.Value == nome)
+                        saida = pair.Key;
+                }
+            }
+
+            else if (onda == "T")
+            {
+                foreach (var pair in _patologiasT)
+                {
+                    if (pair.Value == nome)
+                        saida = pair.Key;
+                }
+            }
+
+            return saida;
+
+        }
+
+        public string EncontrarNomePorSaida(double[] saida, string onda)
+        {
+            string nome = "Não localizado";
+
+            if (onda == "QRS")
+            {
+                foreach (var pair in _patologiasQRS)
+                {
+                    double[] target = pair.Key;
+                    bool igual = true;
+
+                    for (int i = 0; i < target.Length; i++)
+                    {
+                        if (target[i] != saida[i])
+                            igual = false;
+                    }
+
+                    if (igual)
+                        nome = pair.Value;
+                }
+            }
+
+            else if (onda == "T")
+            {
+                foreach (var pair in _patologiasT)
+                {
+                    if (pair.Key == saida)
+                        nome = pair.Value;
+                }
+            }
+
+            return nome;
+        }
     }
 }

@@ -12,9 +12,6 @@ namespace ECG.Framework
     {
         OndaHelper helper;
 
-        public Onda()
-        { }
-
         public Onda(Bitmap imagem)
         {
             ComplexosQRS = null;
@@ -27,6 +24,7 @@ namespace ECG.Framework
             Length = Vetor.Length;
 
             ComplexosQRS = helper.ComplexosQRS();
+
             PicosQRS = helper.PicosQRS();
             //OndasT = helper.OndasT();
         }
@@ -94,13 +92,9 @@ namespace ECG.Framework
             {
                 entities.SaveChanges();
 
+                this.Id = o.id;
+
                 Console.WriteLine("Onda inserida com o id {0}", o.id);
-                
-                foreach (ComplexoQRS qrs in onda.ComplexosQRS)
-                {
-                    qrs.Onda = o;
-                    qrs.Salvar();
-                }
             }
             catch (Exception ex)
             {

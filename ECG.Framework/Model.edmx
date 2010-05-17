@@ -35,7 +35,7 @@
           <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="vetor" Type="ntext" Nullable="false" />
           <Property Name="length" Type="int" Nullable="false" />
-          <Property Name="diag" Type="nvarchar" MaxLength="5" />
+          <Property Name="diag" Type="ntext" />
           <Property Name="onda" Type="bigint" />
         </EntityType>
         <EntityType Name="REDE">
@@ -57,7 +57,7 @@
           <Property Name="id" Type="bigint" Nullable="false" />
           <Property Name="vetor" Type="ntext" Nullable="false" />
           <Property Name="length" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="diag" Type="nvarchar" MaxLength="10" />
+          <Property Name="diag" Type="ntext" />
           <Property Name="onda" Type="bigint" />
         </EntityType>
       </Schema></edmx:StorageModels>
@@ -66,10 +66,10 @@
       <Schema Namespace="DatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
         <EntityContainer Name="DatabaseEntities">
           <EntitySet Name="ONDA" EntityType="DatabaseModel.ONDA" />
-          <EntitySet Name="QRS" EntityType="DatabaseModel.QRS" />
           <EntitySet Name="REDE" EntityType="DatabaseModel.REDE" />
-          <EntitySet Name="T" EntityType="DatabaseModel.T" />
           <EntitySet Name="CONFIG" EntityType="DatabaseModel.CONFIG" />
+          <EntitySet Name="QRS" EntityType="DatabaseModel.QRS" />
+          <EntitySet Name="T" EntityType="DatabaseModel.T" />
         </EntityContainer>
         <EntityType Name="ONDA">
           <Key>
@@ -78,15 +78,6 @@
           <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="vetor" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="length" Type="Int32" Nullable="false" />
-        </EntityType>
-        <EntityType Name="QRS">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="vetor" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="length" Nullable="false" />
-          <Property Type="String" Name="diag" MaxLength="5" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="REDE">
           <Key>
@@ -100,15 +91,6 @@
           <Property Type="String" Name="descricao" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Int32" Name="entradas" Nullable="false" />
         </EntityType>
-        <EntityType Name="T">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Type="Int64" Name="id" Nullable="false" />
-          <Property Type="String" Name="vetor" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Type="Int32" Name="length" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="diag" MaxLength="10" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="CONFIG">
           <Key>
             <PropertyRef Name="id" />
@@ -116,6 +98,26 @@
           <Property Type="Int64" Name="id" Nullable="false" />
           <Property Type="String" Name="descr" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="String" Name="onda" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="QRS">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int64" Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="vetor" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="length" Nullable="false" />
+          <Property Type="String" Name="diag" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="onda" />
+        </EntityType>
+        <EntityType Name="T">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Type="Int64" Name="id" Nullable="false" />
+          <Property Type="String" Name="vetor" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="length" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="diag" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int64" Name="onda" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -128,16 +130,6 @@
             <ScalarProperty Name="vetor" ColumnName="vetor" />
             <ScalarProperty Name="length" ColumnName="length" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="QRS">
-            <EntityTypeMapping TypeName="DatabaseModel.QRS">
-              <MappingFragment StoreEntitySet="QRS">
-                <ScalarProperty Name="diag" ColumnName="diag" />
-                <ScalarProperty Name="length" ColumnName="length" />
-                <ScalarProperty Name="vetor" ColumnName="vetor" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="REDE">
             <EntityTypeMapping TypeName="DatabaseModel.REDE">
               <MappingFragment StoreEntitySet="REDE">
@@ -151,9 +143,19 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="T">
-            <EntityTypeMapping TypeName="DatabaseModel.T">
-              <MappingFragment StoreEntitySet="T">
+          <EntitySetMapping Name="CONFIG">
+            <EntityTypeMapping TypeName="DatabaseModel.CONFIG">
+              <MappingFragment StoreEntitySet="CONFIG">
+                <ScalarProperty Name="onda" ColumnName="onda" />
+                <ScalarProperty Name="descr" ColumnName="descr" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QRS">
+            <EntityTypeMapping TypeName="DatabaseModel.QRS">
+              <MappingFragment StoreEntitySet="QRS">
+                <ScalarProperty Name="onda" ColumnName="onda" />
                 <ScalarProperty Name="diag" ColumnName="diag" />
                 <ScalarProperty Name="length" ColumnName="length" />
                 <ScalarProperty Name="vetor" ColumnName="vetor" />
@@ -161,11 +163,13 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="CONFIG">
-            <EntityTypeMapping TypeName="DatabaseModel.CONFIG">
-              <MappingFragment StoreEntitySet="CONFIG">
+          <EntitySetMapping Name="T">
+            <EntityTypeMapping TypeName="DatabaseModel.T">
+              <MappingFragment StoreEntitySet="T">
                 <ScalarProperty Name="onda" ColumnName="onda" />
-                <ScalarProperty Name="descr" ColumnName="descr" />
+                <ScalarProperty Name="diag" ColumnName="diag" />
+                <ScalarProperty Name="length" ColumnName="length" />
+                <ScalarProperty Name="vetor" ColumnName="vetor" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -192,10 +196,10 @@
     <Diagrams>
       <Diagram Name="Model">
         <EntityTypeShape EntityType="DatabaseModel.ONDA" Width="1.5" PointX="0.75" PointY="0.75" Height="1.59568359375" IsExpanded="true" />
-        <EntityTypeShape EntityType="DatabaseModel.QRS" Width="1.5" PointX="3.25" PointY="3" Height="1.7879850260416665" />
         <EntityTypeShape EntityType="DatabaseModel.REDE" Width="1.5" PointX="5.75" PointY="0.625" Height="1.9802864583333322" />
-        <EntityTypeShape EntityType="DatabaseModel.T" Width="1.5" PointX="0.625" PointY="4.125" Height="1.9802864583333335" />
         <EntityTypeShape EntityType="DatabaseModel.CONFIG" Width="1.5" PointX="5.375" PointY="3.75" Height="1.5956835937499996" />
+        <EntityTypeShape EntityType="DatabaseModel.QRS" Width="1.5" PointX="0.75" PointY="3.75" Height="1.9802864583333322" />
+        <EntityTypeShape EntityType="DatabaseModel.T" Width="1.5" PointX="2.75" PointY="3.75" Height="1.9802864583333317" />
       </Diagram>
     </Diagrams>
   </Designer>

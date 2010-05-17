@@ -29,7 +29,7 @@ namespace ECG.Framework
             set;
         }
 
-        public ONDA Onda
+        public long Onda
         {
             get;
             set;
@@ -78,18 +78,18 @@ namespace ECG.Framework
             set;
         }
 
-        public void Salvar()
+        public void Salvar(long ondaId)
         {
             DatabaseEntities entities = new DatabaseEntities();
             ComplexoQRS qrs = this;
             QRS q;
 
-            if (qrs.Id != null)
-            {
-                var query = from f in entities.QRS
+            var query = from f in entities.QRS
                             where f.id == qrs.Id
                             select f;
 
+            if (query.Count(t => t.id == qrs.Id) != 0)
+            {
                 q = query.FirstOrDefault<QRS>();
             }
             else
@@ -105,8 +105,10 @@ namespace ECG.Framework
                 vetor += d + ";";
             }
 
+            q.onda = ondaId;
             q.vetor = vetor;
             q.length = qrs.Length;
+            q.diag = Utils.DoubleToString(qrs.Diagnostico);
 
             try
             {

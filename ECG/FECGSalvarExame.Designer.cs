@@ -192,7 +192,6 @@
         private System.Windows.Forms.GroupBox groupBoxQRS;
         private System.Windows.Forms.GroupBox groupBoxT;
         private System.Windows.Forms.Button buttonSalvar;
-        private System.Windows.Forms.Button buttonCancelar;
         private System.Windows.Forms.ComboBox comboBoxQRS;
         private System.Windows.Forms.TextBox textBoxQRS;
         private System.Windows.Forms.Label labelQRSReal;
@@ -201,5 +200,6 @@
         private System.Windows.Forms.TextBox textBoxT;
         private System.Windows.Forms.Label labelTReal;
         private System.Windows.Forms.Label labelTSugerido;
+        private System.Windows.Forms.Button buttonCancelar;
     }
 }

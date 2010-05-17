@@ -45,7 +45,9 @@ namespace ECG.Framework.IA
         /// <returns></returns>
         public double Funcao(double x)
         {
-            return (1 / (1 + Math.Exp(-_alfa * x)));
+            double exp = Math.Exp(-_alfa * x);
+            double saida = (1 / (1 + exp));
+            return saida;
         }
 
         /// <summary>

@@ -16,6 +16,8 @@ namespace ECG
     {
         Bitmap imagem;
         Onda onda;
+        double[] patQRS;
+        double[] patT;
 
         public FECGAbrirExame()
         {
@@ -63,28 +65,22 @@ namespace ECG
 
             labelFreqResult.Text = freq.ToString("000") + " bpm";
 
+            Patologias patologias = new Patologias();
+
             // Calcular o resultado do padrão da onda
             RedeAtivacao qrs = ECGConfig.RedeQRS();
 
-            double[] saidaqrs = qrs.Calcular(onda.ComplexosQRS[0].Vetor);
+            patQRS = Utils.AproximarDiagnostico(qrs.Calcular(onda.ComplexosQRS[0].Vetor));
 
-            Console.WriteLine("Saída do 1º Complexo QRS: {0}", saidaqrs);
+            Console.WriteLine("Saída do 1º Complexo QRS: {0}-{1}-{2}-{3}", patQRS[0], patQRS[1], patQRS[2], patQRS[3]);
 
+            labelDiagQRSResult.Text = patologias.EncontrarNomePorSaida(patQRS, "QRS");
 
         }
 
         private void SalvarButton_Click(object sender, EventArgs e)
         {
-            try { 
-                onda.Salvar();
-                MessageBox.Show("Onda salva com sucesso!");
-            }
-            catch (Exception ex) 
-            {
-                MessageBox.Show("Erro encontrado: " + ex);
-            }
-
-            FECGSalvarExame fsalvar = new FECGSalvarExame();
+            FECGSalvarExame fsalvar = new FECGSalvarExame(onda, patQRS, patT);
             
             fsalvar.ShowDialog();
         }

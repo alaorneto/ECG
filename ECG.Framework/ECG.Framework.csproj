@@ -74,6 +74,7 @@
     <Compile Include="ConversaoHelper.cs" />
     <Compile Include="Graphics\ImagemParaArrayHelper.cs" />
     <Compile Include="IA\AprendizadoBackPropagation.cs" />
+    <Compile Include="IA\BipolarSigmoideFuncaoAtivacao.cs" />
     <Compile Include="IA\Camada.cs" />
     <Compile Include="IA\CamadaAtivacao.cs" />
     <Compile Include="IA\DoubleRange.cs" />

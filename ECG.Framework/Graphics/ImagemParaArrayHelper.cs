@@ -227,7 +227,7 @@ namespace ECG.Framework.Graphics
 
             for (int x = 0; x < _imagem.Width; x++)
             {
-                int count = 0, indices = 0;
+                double count = 0, indices = 0;
 
                 for (int y = 0; y < _imagem.Height; y++)
                 {
@@ -240,7 +240,7 @@ namespace ECG.Framework.Graphics
                 if (count == 0)
                     vetor[x] = 0;
                 else
-                    vetor[x] = indices / count;
+                    vetor[x] = (indices / count)/50;
             }
 
             return vetor;
