@@ -19,6 +19,8 @@ namespace ECG.Framework
 
             helper = new OndaHelper(imagem);
 
+            //helper.ExbibirParaConsole();
+
             Vetor = helper.GerarVetor();
 
             Length = Vetor.Length;

@@ -201,13 +201,15 @@ namespace ECG.Framework.Graphics
         /// <summary>
         /// 
         /// </summary>
-        protected void ExibirParaConsole()
+        public void ExibirParaConsole(Bitmap imagem)
         {
-            for (int y = _imagem.Width - 1; y >= 0; --y)
+            GerarArray(imagem);
+
+            for (int x = 0; x < _imagem.Height; ++x)
             {
-                for (int x = 0; x < _imagem.Height; ++x)
+                for (int y = _imagem.Width - 1; y >= 0; --y)
                 {
-                    Console.Write(_matriz[x, y]);
+                    Console.Write(_matriz[y, x]);
                 }
 
                 Console.WriteLine();

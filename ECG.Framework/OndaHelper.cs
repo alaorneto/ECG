@@ -19,11 +19,13 @@ namespace ECG.Framework
         protected const int MAX_T = 999;
         protected const int MAX_P = 999;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="imagem"></param>
         public OndaHelper(Bitmap imagem)
         {
             this.bitmap = imagem;
-
-            vetor = this.GerarVetor();
         }
 
         /// <summary>
@@ -291,23 +293,76 @@ namespace ECG.Framework
         /// 
         /// </summary>
         /// <param name="onda"></param>
-        /// <param name="xSize"></param>
-        /// <param name="ySize"></param>
-        /// <returns></returns>
-        public int[] PicosT(double[] onda, int xSize, int ySize)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="onda"></param>
         /// <param name="picoT"></param>
         /// <returns></returns>
-        public int[] ExtremosT(float[] onda, int picoT)
+        public int[] ExtremosT(double[] onda, int picoQRS)
         {
-            throw new NotImplementedException();
+            int[] extremosQRS = ExtremosQRS(picoQRS);
+            int[] extremosT = new int[2];
+            int length = onda.Length;
+            int cursor = extremosQRS[1];
+            int inicio = cursor;
+            int fim = onda.Length;
+            double media = 0.0;
+            double proxcount = 0.0;
+            int count = 0;
+            int flag = 0;
+
+            while (onda[cursor] < 0)
+            {
+                cursor++;
+            }
+
+            inicio = cursor;
+
+            // Calcular a média dos pontos após o complexo QRS para tentar detectar
+            // a presença de uma onda T
+            while (count < 50)
+            {
+                if ((cursor + 1) > length)
+                    break;
+
+                proxcount += onda[cursor++];
+                count++;
+            }
+
+            media = proxcount / count;
+
+            // Checar se existe onda T positiva ou negativa, ou ainda se a onda
+            // T é inexistente, comparando-se a média dos pontos após o fim do complexo QRS
+            if ((media > -0.15) && (media < 0.15))
+            {
+                flag = 0;
+            }
+            else if (media > 0.15)
+            {
+                flag = 1;
+            }
+            else if(media < -0.15)
+            {
+                flag = -1;
+            }
+
+            // FLAG 0 => Onda T INEXISTENTE, retorna os próximos 40 pontos sem qualquer 
+            // tratamento de início ou fim
+            if (flag == 0)
+            {
+                fim = inicio + 39;
+                extremosT[0] = inicio;
+                extremosT[1] = fim;
+            }
+
+            // FLAG 1 => Onda T existe e é POSITIVA, precisa-se encontrar seu início e fim
+            if (flag == 1)
+            {
+            }
+
+            // FLAG -1 => Onda T existe e é NEGATIVA, precisa-se encontrar seu início e fim
+            if (flag == 1)
+            {
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -360,9 +415,33 @@ namespace ECG.Framework
             }
         }
 
-        internal OndaT[] OndasT()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public OndaT[] OndasT()
         {
-            throw new NotImplementedException();
+            int[] picos = PicosQRS();
+            OndaT[] ondasT = new OndaT[picos.Length];
+
+            for (int i = 0; i < picos.Length; i++)
+            {
+                int[] extremos = ExtremosT(GerarVetor(), picos[i]);
+                OndaT t = new OndaT(SubVetor(extremos[0], extremos[1]));
+                ondasT[i] = t;
+            }
+
+            return ondasT;
+        }
+
+        /// <summary>
+        /// Exibe a onda em formato binário para o Console
+        /// </summary>
+        public void ExbibirParaConsole()
+        {
+            ImagemParaArrayHelper helper = new ImagemParaArrayHelper();
+
+            helper.ExibirParaConsole(this.Bitmap);
         }
     }
 }

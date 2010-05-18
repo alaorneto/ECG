@@ -19,3 +19,4 @@ D:\Projetos\ECG\ECG\ECG\obj\Debug\ResGen.read.1.tlog
 D:\Projetos\ECG\ECG\ECG\obj\Debug\ResGen.write.1.tlog
 D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.exe
 D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.pdb
+D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.FDetalhaOndas.resources

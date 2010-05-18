@@ -14,6 +14,9 @@ namespace ECG
 {
     public partial class FECGIniciarTreinamento : Form
     {
+        public delegate void AtualizarChartDelegate(double taxaErro);
+        public AtualizarChartDelegate chartDelegate;
+
         public FECGIniciarTreinamento()
         {
             InitializeComponent();
@@ -26,6 +29,8 @@ namespace ECG
 
         private void FECGIniciarTreinamento_Load(object sender, EventArgs e)
         {
+            chartDelegate = new AtualizarChartDelegate(AtualizarChart);
+
             comboBoxOnda.SelectedItem = "Complexo QRS";
         }
 
@@ -33,9 +38,9 @@ namespace ECG
         {
             if (comboBoxOnda.SelectedItem == "Complexo QRS")
             {
-                TreinarQRS();
-                /*Thread worker = new Thread(new ThreadStart(TreinarQRS));
-                worker.Start();*/
+                //TreinarQRS();
+                Thread worker = new Thread(new ThreadStart(TreinarQRS));
+                worker.Start();
             }
             if (comboBoxOnda.SelectedItem == "Onda T")
             {
@@ -71,7 +76,9 @@ namespace ECG
                     count++;
 
                     coeficiente = erro / count;
-                    treinamentoChart.Series[0].Points.Add(coeficiente);
+
+                    treinamentoChart.Invoke(this.chartDelegate, coeficiente);
+                    
                     Console.WriteLine("Coeficiente: {0}", coeficiente);
                 }
             }
@@ -94,10 +101,9 @@ namespace ECG
         {
         }
 
-        private void AtualizarChart()
+        private void AtualizarChart(double taxaErro)
         {
-
-
+            treinamentoChart.Series[0].Points.Add(taxaErro);
         }
     }
 }

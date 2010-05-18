@@ -102,37 +102,10 @@ namespace ECG.Framework
 
         public static double[] AproximarDiagnostico(double[] resultado)
         {
-            //double[] saida = resultado;
-            //double maxvalue = 0;
-            //int maxindex = 0;
-            
             for(int i = 0; i < resultado.Length; i++)
             {
                 resultado[i] = Math.Round(resultado[i], 0);
             }
-
-            /*for (int i = 0; i < resultado.Length; i++)
-            {
-                if (resultado[i] > maxvalue)
-                {
-                    Console.WriteLine(Math.Round(resultado[i], 2));
-                    maxvalue = resultado[i];
-                    maxindex = i;
-                }
-            }
-
-            for (int i = 0; i < saida.Length; i++)
-            {
-                if (i != maxindex)
-                {
-                    saida[i] = 0;
-                }
-                else
-                {
-                    saida[i] = 1;
-                }
-            }
-            */
 
             return resultado;
         }

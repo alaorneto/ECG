@@ -11,11 +11,19 @@ namespace ECG.Framework
         const int QRSSize = 50;
         double[] vetor = new double[QRSSize];
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="valores"></param>
         public ComplexoQRS(double[] valores)
         {
             Vetor = valores;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="qrs"></param>
         public ComplexoQRS(QRS qrs)
         {
             this.Id = qrs.id;
@@ -23,18 +31,27 @@ namespace ECG.Framework
             this.Diagnostico = Utils.StringToDouble(qrs.diag);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public long Id
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public long Onda
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int Length
         {
             get
@@ -43,6 +60,9 @@ namespace ECG.Framework
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public double[] Vetor
         {
             get
@@ -72,12 +92,19 @@ namespace ECG.Framework
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public double[] Diagnostico
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ondaId"></param>
         public void Salvar(long ondaId)
         {
             DatabaseEntities entities = new DatabaseEntities();

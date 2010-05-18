@@ -99,6 +99,12 @@
     <Compile Include="FConfigRedeNeuronal.Designer.cs">
       <DependentUpon>FConfigRedeNeuronal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FDetalhaOndas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FDetalhaOndas.Designer.cs">
+      <DependentUpon>FDetalhaOndas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FECGAbrirExame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FConfigRedeNeuronal.resx">
       <DependentUpon>FConfigRedeNeuronal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FDetalhaOndas.resx">
+      <DependentUpon>FDetalhaOndas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FECGAbrirExame.resx">
       <DependentUpon>FECGAbrirExame.cs</DependentUpon>

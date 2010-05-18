@@ -10,11 +10,19 @@ namespace ECG.Framework
         const int TSize = 30;
         double[] vetor = new double[TSize];
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="valores"></param>
         public OndaT(double[] valores)
         {
             Vetor = valores;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="t"></param>
         public OndaT(T t)
         {
             this.Id = t.id;
@@ -22,18 +30,27 @@ namespace ECG.Framework
             this.Diagnostico = Utils.StringToDouble(t.diag);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public long Id
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public long Onda
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int Length
         {
             get { 
@@ -41,6 +58,9 @@ namespace ECG.Framework
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public double[] Vetor
         {
             get
@@ -69,12 +89,19 @@ namespace ECG.Framework
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public double[] Diagnostico
         {
             get;
             set;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ondaId"></param>
         public void Salvar(long ondaId)
         {
             DatabaseEntities entities = new DatabaseEntities();

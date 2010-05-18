@@ -84,5 +84,12 @@ namespace ECG
             
             fsalvar.ShowDialog();
         }
+
+        private void buttonDetalhar_Click(object sender, EventArgs e)
+        {
+            FDetalhaOndas dialog = new FDetalhaOndas(onda.ComplexosQRS[0].Vetor, onda.ComplexosQRS[1].Vetor, onda.OndasT[0].Vetor, onda.OndasT[1].Vetor);
+
+            dialog.ShowDialog();
+        }
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBoxSelecionarArquivo = new System.Windows.Forms.GroupBox();
             this.SalvarButton = new System.Windows.Forms.Button();
             this.buttonSelecionar = new System.Windows.Forms.Button();
@@ -40,12 +40,13 @@
             this.ondaChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBoxExame = new System.Windows.Forms.GroupBox();
             this.groupBoxDados = new System.Windows.Forms.GroupBox();
-            this.labelFreqCard = new System.Windows.Forms.Label();
-            this.labelFreqResult = new System.Windows.Forms.Label();
-            this.labelDiagQRS = new System.Windows.Forms.Label();
-            this.labelDiagQRSResult = new System.Windows.Forms.Label();
-            this.labelDiagT = new System.Windows.Forms.Label();
             this.labelDiagTResult = new System.Windows.Forms.Label();
+            this.labelDiagT = new System.Windows.Forms.Label();
+            this.labelDiagQRSResult = new System.Windows.Forms.Label();
+            this.labelDiagQRS = new System.Windows.Forms.Label();
+            this.labelFreqResult = new System.Windows.Forms.Label();
+            this.labelFreqCard = new System.Windows.Forms.Label();
+            this.buttonDetalhar = new System.Windows.Forms.Button();
             this.groupBoxSelecionarArquivo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ondaChart)).BeginInit();
             this.groupBoxExame.SuspendLayout();
@@ -56,6 +57,7 @@
             // 
             this.groupBoxSelecionarArquivo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBoxSelecionarArquivo.Controls.Add(this.buttonDetalhar);
             this.groupBoxSelecionarArquivo.Controls.Add(this.SalvarButton);
             this.groupBoxSelecionarArquivo.Controls.Add(this.buttonSelecionar);
             this.groupBoxSelecionarArquivo.Controls.Add(this.buttonAbrir);
@@ -116,18 +118,18 @@
             // 
             // ondaChart
             // 
-            chartArea2.Name = "OndaChartArea";
-            this.ondaChart.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.ondaChart.Legends.Add(legend2);
+            chartArea1.Name = "OndaChartArea";
+            this.ondaChart.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.ondaChart.Legends.Add(legend1);
             this.ondaChart.Location = new System.Drawing.Point(6, 22);
             this.ondaChart.Name = "ondaChart";
-            series2.ChartArea = "OndaChartArea";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "OndaSeries";
-            this.ondaChart.Series.Add(series2);
+            series1.ChartArea = "OndaChartArea";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "OndaSeries";
+            this.ondaChart.Series.Add(series1);
             this.ondaChart.Size = new System.Drawing.Size(577, 124);
             this.ondaChart.TabIndex = 2;
             this.ondaChart.Text = "Onda";
@@ -157,41 +159,14 @@
             this.groupBoxDados.TabStop = false;
             this.groupBoxDados.Text = "Dados";
             // 
-            // labelFreqCard
+            // labelDiagTResult
             // 
-            this.labelFreqCard.AutoSize = true;
-            this.labelFreqCard.Location = new System.Drawing.Point(6, 19);
-            this.labelFreqCard.Name = "labelFreqCard";
-            this.labelFreqCard.Size = new System.Drawing.Size(123, 15);
-            this.labelFreqCard.TabIndex = 0;
-            this.labelFreqCard.Text = "Frequência Cardíaca:";
-            // 
-            // labelFreqResult
-            // 
-            this.labelFreqResult.AutoSize = true;
-            this.labelFreqResult.Location = new System.Drawing.Point(197, 23);
-            this.labelFreqResult.Name = "labelFreqResult";
-            this.labelFreqResult.Size = new System.Drawing.Size(41, 15);
-            this.labelFreqResult.TabIndex = 1;
-            this.labelFreqResult.Text = "0 bpm";
-            // 
-            // labelDiagQRS
-            // 
-            this.labelDiagQRS.AutoSize = true;
-            this.labelDiagQRS.Location = new System.Drawing.Point(6, 44);
-            this.labelDiagQRS.Name = "labelDiagQRS";
-            this.labelDiagQRS.Size = new System.Drawing.Size(157, 15);
-            this.labelDiagQRS.TabIndex = 2;
-            this.labelDiagQRS.Text = "Diagnóstico Complexo QRS:";
-            // 
-            // labelDiagQRSResult
-            // 
-            this.labelDiagQRSResult.AutoSize = true;
-            this.labelDiagQRSResult.Location = new System.Drawing.Point(197, 44);
-            this.labelDiagQRSResult.Name = "labelDiagQRSResult";
-            this.labelDiagQRSResult.Size = new System.Drawing.Size(11, 15);
-            this.labelDiagQRSResult.TabIndex = 3;
-            this.labelDiagQRSResult.Text = "-";
+            this.labelDiagTResult.AutoSize = true;
+            this.labelDiagTResult.Location = new System.Drawing.Point(197, 69);
+            this.labelDiagTResult.Name = "labelDiagTResult";
+            this.labelDiagTResult.Size = new System.Drawing.Size(11, 15);
+            this.labelDiagTResult.TabIndex = 5;
+            this.labelDiagTResult.Text = "-";
             // 
             // labelDiagT
             // 
@@ -202,14 +177,51 @@
             this.labelDiagT.TabIndex = 4;
             this.labelDiagT.Text = "Diagnóstico Onda T:";
             // 
-            // labelDiagTResult
+            // labelDiagQRSResult
             // 
-            this.labelDiagTResult.AutoSize = true;
-            this.labelDiagTResult.Location = new System.Drawing.Point(197, 69);
-            this.labelDiagTResult.Name = "labelDiagTResult";
-            this.labelDiagTResult.Size = new System.Drawing.Size(11, 15);
-            this.labelDiagTResult.TabIndex = 5;
-            this.labelDiagTResult.Text = "-";
+            this.labelDiagQRSResult.AutoSize = true;
+            this.labelDiagQRSResult.Location = new System.Drawing.Point(197, 44);
+            this.labelDiagQRSResult.Name = "labelDiagQRSResult";
+            this.labelDiagQRSResult.Size = new System.Drawing.Size(11, 15);
+            this.labelDiagQRSResult.TabIndex = 3;
+            this.labelDiagQRSResult.Text = "-";
+            // 
+            // labelDiagQRS
+            // 
+            this.labelDiagQRS.AutoSize = true;
+            this.labelDiagQRS.Location = new System.Drawing.Point(6, 44);
+            this.labelDiagQRS.Name = "labelDiagQRS";
+            this.labelDiagQRS.Size = new System.Drawing.Size(157, 15);
+            this.labelDiagQRS.TabIndex = 2;
+            this.labelDiagQRS.Text = "Diagnóstico Complexo QRS:";
+            // 
+            // labelFreqResult
+            // 
+            this.labelFreqResult.AutoSize = true;
+            this.labelFreqResult.Location = new System.Drawing.Point(197, 23);
+            this.labelFreqResult.Name = "labelFreqResult";
+            this.labelFreqResult.Size = new System.Drawing.Size(41, 15);
+            this.labelFreqResult.TabIndex = 1;
+            this.labelFreqResult.Text = "0 bpm";
+            // 
+            // labelFreqCard
+            // 
+            this.labelFreqCard.AutoSize = true;
+            this.labelFreqCard.Location = new System.Drawing.Point(6, 19);
+            this.labelFreqCard.Name = "labelFreqCard";
+            this.labelFreqCard.Size = new System.Drawing.Size(123, 15);
+            this.labelFreqCard.TabIndex = 0;
+            this.labelFreqCard.Text = "Frequência Cardíaca:";
+            // 
+            // buttonDetalhar
+            // 
+            this.buttonDetalhar.Location = new System.Drawing.Point(9, 59);
+            this.buttonDetalhar.Name = "buttonDetalhar";
+            this.buttonDetalhar.Size = new System.Drawing.Size(87, 27);
+            this.buttonDetalhar.TabIndex = 4;
+            this.buttonDetalhar.Text = "Detalhar";
+            this.buttonDetalhar.UseVisualStyleBackColor = true;
+            this.buttonDetalhar.Click += new System.EventHandler(this.buttonDetalhar_Click);
             // 
             // FECGAbrirExame
             // 
@@ -255,5 +267,6 @@
         private System.Windows.Forms.Label labelDiagT;
         private System.Windows.Forms.Label labelDiagQRSResult;
         private System.Windows.Forms.Label labelDiagQRS;
+        private System.Windows.Forms.Button buttonDetalhar;
     }
 }
