@@ -28,7 +28,7 @@ namespace ECG.Framework
             ComplexosQRS = helper.ComplexosQRS();
 
             PicosQRS = helper.PicosQRS();
-            //OndasT = helper.OndasT();
+            OndasT = helper.OndasT();
         }
 
         public Onda(long id)

@@ -30,7 +30,7 @@ namespace ECG
                 chartT1.Series[0].Points.Add(t1[i]);
             }
 
-            for (int i = 0; i < qrs1.Length; i++)
+            for (int i = 0; i < t2.Length; i++)
             {
                 chartT2.Series[0].Points.Add(t2[i]);
             }

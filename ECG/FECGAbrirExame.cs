@@ -58,6 +58,7 @@ namespace ECG
             }
 
             Console.WriteLine(" -->> {0} complexos QRS encontrado(s)", onda.ComplexosQRS.Length);
+            Console.WriteLine(" -->> {0} ondas T encontrada(s)", onda.OndasT.Length);
 
             // Determinar a frequência cardíaca
             int[] picos = onda.PicosQRS;
@@ -68,6 +69,8 @@ namespace ECG
             Patologias patologias = new Patologias();
 
             // Calcular o resultado do padrão da onda
+
+            // Resultado do Complexo QRS
             RedeAtivacao qrs = ECGConfig.RedeQRS();
 
             patQRS = Utils.AproximarDiagnostico(qrs.Calcular(onda.ComplexosQRS[0].Vetor));
@@ -76,6 +79,14 @@ namespace ECG
 
             labelDiagQRSResult.Text = patologias.EncontrarNomePorSaida(patQRS, "QRS");
 
+            // Resultado da Onda T
+            RedeAtivacao t = ECGConfig.RedeT();
+
+            patT = Utils.AproximarDiagnostico(t.Calcular(onda.OndasT[0].Vetor));
+
+            Console.WriteLine("Saída da 1ª Onda T: {0}-{1}-{2}-{3}", patT[0], patT[1], patT[2], patT[3]);
+
+            labelDiagTResult.Text = patologias.EncontrarNomePorSaida(patT, "T");
         }
 
         private void SalvarButton_Click(object sender, EventArgs e)

@@ -17,6 +17,9 @@ namespace ECG.Framework
             _patologiasQRS.Add(new double[4] { 0, 0, 1, 0 }, "Extra-Sístole Ventricular");
 
             _patologiasT.Add(new double[4] { 0, 0, 0, 1 }, "Normal");
+            _patologiasT.Add(new double[4] { 0, 0, 1, 0 }, "Inexistente");
+            _patologiasT.Add(new double[4] { 0, 1, 0, 0 }, "Hipercalemia");
+            _patologiasT.Add(new double[4] { 1, 0, 0, 0 }, "Isquemia");
         }
 
         public Dictionary<double[], string> patologiasQRS
@@ -81,7 +84,16 @@ namespace ECG.Framework
             {
                 foreach (var pair in _patologiasT)
                 {
-                    if (pair.Key == saida)
+                    double[] target = pair.Key;
+                    bool igual = true;
+
+                    for (int i = 0; i < target.Length; i++)
+                    {
+                        if (target[i] != saida[i])
+                            igual = false;
+                    }
+
+                    if (igual)
                         nome = pair.Value;
                 }
             }

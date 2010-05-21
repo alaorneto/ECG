@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBoxQRS1 = new System.Windows.Forms.GroupBox();
             this.groupBoxQRS2 = new System.Windows.Forms.GroupBox();
             this.groupBoxT2 = new System.Windows.Forms.GroupBox();
@@ -111,72 +111,72 @@
             // 
             // chartQRS1
             // 
-            chartArea1.Name = "OndaChartArea";
-            this.chartQRS1.ChartAreas.Add(chartArea1);
-            legend1.Enabled = false;
-            legend1.Name = "Legend1";
-            this.chartQRS1.Legends.Add(legend1);
+            chartArea5.Name = "OndaChartArea";
+            this.chartQRS1.ChartAreas.Add(chartArea5);
+            legend5.Enabled = false;
+            legend5.Name = "Legend1";
+            this.chartQRS1.Legends.Add(legend5);
             this.chartQRS1.Location = new System.Drawing.Point(6, 22);
             this.chartQRS1.Name = "chartQRS1";
-            series1.ChartArea = "OndaChartArea";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series1.Legend = "Legend1";
-            series1.Name = "OndaSeries";
-            this.chartQRS1.Series.Add(series1);
+            series5.ChartArea = "OndaChartArea";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series5.Legend = "Legend1";
+            series5.Name = "OndaSeries";
+            this.chartQRS1.Series.Add(series5);
             this.chartQRS1.Size = new System.Drawing.Size(288, 172);
             this.chartQRS1.TabIndex = 4;
             this.chartQRS1.Text = "Treinamento";
             // 
             // chartQRS2
             // 
-            chartArea2.Name = "OndaChartArea";
-            this.chartQRS2.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.chartQRS2.Legends.Add(legend2);
+            chartArea6.Name = "OndaChartArea";
+            this.chartQRS2.ChartAreas.Add(chartArea6);
+            legend6.Enabled = false;
+            legend6.Name = "Legend1";
+            this.chartQRS2.Legends.Add(legend6);
             this.chartQRS2.Location = new System.Drawing.Point(6, 22);
             this.chartQRS2.Name = "chartQRS2";
-            series2.ChartArea = "OndaChartArea";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "OndaSeries";
-            this.chartQRS2.Series.Add(series2);
+            series6.ChartArea = "OndaChartArea";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series6.Legend = "Legend1";
+            series6.Name = "OndaSeries";
+            this.chartQRS2.Series.Add(series6);
             this.chartQRS2.Size = new System.Drawing.Size(288, 172);
             this.chartQRS2.TabIndex = 5;
             this.chartQRS2.Text = "Treinamento";
             // 
             // chartT1
             // 
-            chartArea4.Name = "OndaChartArea";
-            this.chartT1.ChartAreas.Add(chartArea4);
-            legend4.Enabled = false;
-            legend4.Name = "Legend1";
-            this.chartT1.Legends.Add(legend4);
+            chartArea7.Name = "OndaChartArea";
+            this.chartT1.ChartAreas.Add(chartArea7);
+            legend7.Enabled = false;
+            legend7.Name = "Legend1";
+            this.chartT1.Legends.Add(legend7);
             this.chartT1.Location = new System.Drawing.Point(6, 22);
             this.chartT1.Name = "chartT1";
-            series4.ChartArea = "OndaChartArea";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series4.Legend = "Legend1";
-            series4.Name = "OndaSeries";
-            this.chartT1.Series.Add(series4);
+            series7.ChartArea = "OndaChartArea";
+            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series7.Legend = "Legend1";
+            series7.Name = "OndaSeries";
+            this.chartT1.Series.Add(series7);
             this.chartT1.Size = new System.Drawing.Size(288, 172);
             this.chartT1.TabIndex = 5;
             this.chartT1.Text = "Treinamento";
             // 
             // chartT2
             // 
-            chartArea3.Name = "OndaChartArea";
-            this.chartT2.ChartAreas.Add(chartArea3);
-            legend3.Enabled = false;
-            legend3.Name = "Legend1";
-            this.chartT2.Legends.Add(legend3);
+            chartArea8.Name = "OndaChartArea";
+            this.chartT2.ChartAreas.Add(chartArea8);
+            legend8.Enabled = false;
+            legend8.Name = "Legend1";
+            this.chartT2.Legends.Add(legend8);
             this.chartT2.Location = new System.Drawing.Point(6, 22);
             this.chartT2.Name = "chartT2";
-            series3.ChartArea = "OndaChartArea";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.Legend = "Legend1";
-            series3.Name = "OndaSeries";
-            this.chartT2.Series.Add(series3);
+            series8.ChartArea = "OndaChartArea";
+            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series8.Legend = "Legend1";
+            series8.Name = "OndaSeries";
+            this.chartT2.Series.Add(series8);
             this.chartT2.Size = new System.Drawing.Size(288, 172);
             this.chartT2.TabIndex = 6;
             this.chartT2.Text = "Treinamento";
@@ -185,14 +185,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 456);
+            this.ClientSize = new System.Drawing.Size(629, 456);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.groupBoxT1);
             this.Controls.Add(this.groupBoxT2);
             this.Controls.Add(this.groupBoxQRS2);
             this.Controls.Add(this.groupBoxQRS1);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FDetalhaOndas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalhes das ondas";
             this.groupBoxQRS1.ResumeLayout(false);
             this.groupBoxQRS2.ResumeLayout(false);

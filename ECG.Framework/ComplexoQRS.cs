@@ -8,7 +8,7 @@ namespace ECG.Framework
 {
     public class ComplexoQRS
     {
-        const int QRSSize = 50;
+        const int QRSSize = 60;
         double[] vetor = new double[QRSSize];
 
         /// <summary>

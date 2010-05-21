@@ -61,15 +61,15 @@ namespace ECG
                 qrs.Salvar(onda.Id);
             }
 
-            MessageBox.Show("Onda salva com sucesso!");
-
-            this.Close();
-
-            /*
             foreach (OndaT t in onda.OndasT)
             {
                 t.Diagnostico = patologias.EncontrarSaidaPorNome(comboBoxT.SelectedItem.ToString(), "T");
-            }*/
+                t.Salvar(onda.Id);
+            }
+
+            MessageBox.Show("Onda salva com sucesso!");
+
+            this.Close();
         }
     }
 }

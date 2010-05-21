@@ -283,7 +283,14 @@ namespace ECG.Framework
 
             for(int i = 0; i < lenght; i++)
             {
-                subvetor[i] = vetor[i + inicio];
+                if ((i + inicio) >= vetor.Length)
+                {
+                    subvetor[i] = subvetor[i - 1];
+                }
+                else
+                {
+                    subvetor[i] = vetor[i + inicio];
+                }
             }
 
             return subvetor;
@@ -300,54 +307,61 @@ namespace ECG.Framework
             int[] extremosQRS = ExtremosQRS(picoQRS);
             int[] extremosT = new int[2];
             int length = onda.Length;
-            int cursor = extremosQRS[1];
-            int inicio = cursor;
+            int index = extremosQRS[1];
+            int inicio = index;
             int fim = onda.Length;
             double media = 0.0;
             double proxcount = 0.0;
             int count = 0;
             int flag = 0;
 
-            while (onda[cursor] < 0)
+            Console.WriteLine("extremo qrs {0}", extremosQRS[1]);
+
+            while (onda[index] < 0)
             {
-                cursor++;
+                index++;
             }
 
-            inicio = cursor;
+            inicio = index;
 
             // Calcular a média dos pontos após o complexo QRS para tentar detectar
             // a presença de uma onda T
-            while (count < 50)
+            while (count < 70)
             {
-                if ((cursor + 1) > length)
+                if ((index + 1) > length)
                     break;
 
-                proxcount += onda[cursor++];
+                proxcount += onda[index++];
                 count++;
             }
 
             media = proxcount / count;
 
+            Console.WriteLine(media);
+
             // Checar se existe onda T positiva ou negativa, ou ainda se a onda
             // T é inexistente, comparando-se a média dos pontos após o fim do complexo QRS
-            if ((media > -0.15) && (media < 0.15))
+            if ((media > -0.05) && (media < 0.05))
             {
                 flag = 0;
+                Console.WriteLine("FLAG 0");
             }
-            else if (media > 0.15)
+            else if (media > 0.05)
             {
                 flag = 1;
+                Console.WriteLine("FLAG 1");
             }
-            else if(media < -0.15)
+            else if (media < -0.05)
             {
                 flag = -1;
+                Console.WriteLine("FLAG -1");
             }
 
-            // FLAG 0 => Onda T INEXISTENTE, retorna os próximos 40 pontos sem qualquer 
+            // FLAG 0 => Onda T INEXISTENTE, retorna os próximos 50 pontos sem qualquer 
             // tratamento de início ou fim
             if (flag == 0)
             {
-                fim = inicio + 39;
+                fim = inicio + 69;
                 extremosT[0] = inicio;
                 extremosT[1] = fim;
             }
@@ -355,14 +369,115 @@ namespace ECG.Framework
             // FLAG 1 => Onda T existe e é POSITIVA, precisa-se encontrar seu início e fim
             if (flag == 1)
             {
+                // Encontra o fim da onda T
+                bool walking = true;
+                bool descendo = false;
+
+                index = inicio + 10;
+
+                while (walking)
+                {
+                    if (((onda[index + 1] +
+                        onda[index + 2] +
+                        onda[index + 3] +
+                        onda[index + 4] +
+                        onda[index + 5]) / 5) <= ((onda[index]) * 0.9))
+                    {
+                        descendo = true;
+                    }
+
+                    if ((descendo == true) &&
+                        ((onda[index + 1] +
+                        onda[index + 2] +
+                        onda[index + 3] +
+                        onda[index + 4] +
+                        onda[index + 5]) / 5) * 1.1 >= (onda[index]))
+                    {
+                        index++;
+                        walking = false;
+                    }
+
+                    index++;
+                }
+
+                fim = index;
+                Console.WriteLine("Fim  em {0}", fim);
+
+                // Encontra o início da onda T
+                walking = true;
+                index = inicio;
+
+                while (walking)
+                {
+                    if (((onda[index + 1] +
+                        onda[index + 2] +
+                        onda[index + 3] +
+                        onda[index + 4] +
+                        onda[index + 5]) / 5) > ((onda[index]) * 1.1))
+                    {
+                        inicio = index;
+                        break;
+                    }
+                    /*
+                    if ((subindo == false) && (onda[index] == 0))
+                    {
+                        index--;
+                        walking = false;
+                    }
+
+                    if ((subindo == false) &&
+                        (((onda[index - 1] +
+                        onda[index - 2] +
+                        onda[index - 3] +
+                        onda[index - 4] +
+                        onda[index - 5]) / 5) * 1.1 >= (onda[index])))
+                    {
+                        index--;
+                        walking = false;
+                    }
+
+                    index--;
+                     * */
+                    index++;
+                }
+
+                //inicio = index;
+                Console.WriteLine("Início em {0}", inicio);
+
+                extremosT[0] = inicio;
+                extremosT[1] = fim;
             }
 
             // FLAG -1 => Onda T existe e é NEGATIVA, precisa-se encontrar seu início e fim
             if (flag == 1)
             {
+                // Encontra o fim da onda T
+                bool walking = true;
+
+                index = inicio;
+
+                while (walking)
+                {
+                    if (((onda[index + 1] +
+                        onda[index + 2] +
+                        onda[index + 3] +
+                        onda[index + 4] +
+                        onda[index + 5]) / 5) <= (onda[index] * 1.1))
+                    {
+                        index++;
+                        walking = false;
+                    }
+
+                    index++;
+                }
+
+                fim = index;
+
+                // Encontra o início da onda T
             }
 
-            return null;
+
+            return extremosT;
         }
 
         /// <summary>

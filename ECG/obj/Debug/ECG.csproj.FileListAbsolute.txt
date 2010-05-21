@@ -10,6 +10,7 @@ D:\Projetos\ECG\ECG\ECG\obj\Debug\ResolveAssemblyReference.cache
 D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.FAjudaSobre.resources
 D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.FConfigBancoDados.resources
 D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.FConfigRedeNeuronal.resources
+D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.FDetalhaOndas.resources
 D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.FECGAbrirExame.resources
 D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.FECGIniciarTreinamento.resources
 D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.FECGSalvarExame.resources
@@ -19,4 +20,3 @@ D:\Projetos\ECG\ECG\ECG\obj\Debug\ResGen.read.1.tlog
 D:\Projetos\ECG\ECG\ECG\obj\Debug\ResGen.write.1.tlog
 D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.exe
 D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.pdb
-D:\Projetos\ECG\ECG\ECG\obj\Debug\ECG.FDetalhaOndas.resources

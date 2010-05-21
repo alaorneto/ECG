@@ -7,7 +7,7 @@ namespace ECG.Framework
 {
     public class OndaT
     {
-        const int TSize = 30;
+        const int TSize = 70;
         double[] vetor = new double[TSize];
 
         /// <summary>

@@ -38,13 +38,13 @@ namespace ECG
         {
             if (comboBoxOnda.SelectedItem == "Complexo QRS")
             {
-                //TreinarQRS();
                 Thread worker = new Thread(new ThreadStart(TreinarQRS));
                 worker.Start();
             }
             if (comboBoxOnda.SelectedItem == "Onda T")
             {
-                TreinarT();
+                Thread worker = new Thread(new ThreadStart(TreinarT));
+                worker.Start();
             }
         }
 
@@ -79,7 +79,7 @@ namespace ECG
 
                     treinamentoChart.Invoke(this.chartDelegate, coeficiente);
                     
-                    Console.WriteLine("Coeficiente: {0}", coeficiente);
+                    //Console.WriteLine("Taxa de erro: {0}", coeficiente);
                 }
             }
 
@@ -95,10 +95,59 @@ namespace ECG
             RedeServices services = new RedeServices();
 
             services.Salvar(abp.Rede, RedeServices.Tipo.Ativacao, "QRS");
+
+            MessageBox.Show("Treinamento concluído com sucesso!\nRede salva no banco de dados");
         }
 
         private void TreinarT()
         {
+            DatabaseEntities entities = new DatabaseEntities();
+            List<OndaT> tlist = new List<OndaT>();
+            double erro = 1;
+            double taxaerro = double.Parse(textBoxTaxaErro.Text);
+            int count = 0;
+
+            var query = from q in entities.T
+                        select q;
+
+            foreach (T t in query)
+            {
+                tlist.Add(new OndaT(t));
+            }
+
+            AprendizadoBackPropagation abp = new AprendizadoBackPropagation(ECGConfig.RedeT());
+
+            double coeficiente = taxaerro;
+
+            while (coeficiente >= taxaerro)
+            {
+                foreach (OndaT t in tlist)
+                {
+                    erro += abp.Executar(t.Vetor, t.Diagnostico);
+                    count++;
+
+                    coeficiente = erro / count;
+
+                    treinamentoChart.Invoke(this.chartDelegate, coeficiente);
+
+                    //Console.WriteLine("Taxa de erro: {0}", coeficiente);
+                }
+            }
+
+            RedeAtivacao rede = abp.Rede;
+
+            foreach (OndaT t in tlist)
+            {
+                double[] saida = Utils.AproximarDiagnostico(rede.Calcular(t.Vetor));
+
+                Console.WriteLine("Saída da rede treinada: {0}-{1}-{2}-{3}", saida[0], saida[1], saida[2], saida[3]);
+            }
+
+            RedeServices services = new RedeServices();
+
+            services.Salvar(abp.Rede, RedeServices.Tipo.Ativacao, "T");
+
+            MessageBox.Show("Treinamento concluído com sucesso!\nRede salva no banco de dados");
         }
 
         private void AtualizarChart(double taxaErro)

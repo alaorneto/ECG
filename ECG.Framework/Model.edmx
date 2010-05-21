@@ -54,9 +54,9 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="bigint" Nullable="false" />
+          <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="vetor" Type="ntext" Nullable="false" />
-          <Property Name="length" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="length" Type="int" Nullable="false" />
           <Property Name="diag" Type="ntext" />
           <Property Name="onda" Type="bigint" />
         </EntityType>

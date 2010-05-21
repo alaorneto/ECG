@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBoxConfig = new System.Windows.Forms.GroupBox();
             this.comboBoxOnda = new System.Windows.Forms.ComboBox();
             this.labelOnda = new System.Windows.Forms.Label();
@@ -41,7 +41,12 @@
             this.groupBoxChart = new System.Windows.Forms.GroupBox();
             this.treinamentoChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.buttonOK = new System.Windows.Forms.Button();
+            this.labelIteracoes = new System.Windows.Forms.Label();
+            this.labelTxErro = new System.Windows.Forms.Label();
+            this.labelQtdeIteracoesResult = new System.Windows.Forms.Label();
+            this.labelTxErroResult = new System.Windows.Forms.Label();
             this.groupBoxConfig.SuspendLayout();
+            this.groupBoxInfo.SuspendLayout();
             this.groupBoxChart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.treinamentoChart)).BeginInit();
             this.SuspendLayout();
@@ -110,6 +115,10 @@
             // 
             // groupBoxInfo
             // 
+            this.groupBoxInfo.Controls.Add(this.labelTxErroResult);
+            this.groupBoxInfo.Controls.Add(this.labelQtdeIteracoesResult);
+            this.groupBoxInfo.Controls.Add(this.labelTxErro);
+            this.groupBoxInfo.Controls.Add(this.labelIteracoes);
             this.groupBoxInfo.Location = new System.Drawing.Point(12, 88);
             this.groupBoxInfo.Name = "groupBoxInfo";
             this.groupBoxInfo.Size = new System.Drawing.Size(749, 70);
@@ -129,18 +138,18 @@
             // 
             // treinamentoChart
             // 
-            chartArea2.Name = "OndaChartArea";
-            this.treinamentoChart.ChartAreas.Add(chartArea2);
-            legend2.Enabled = false;
-            legend2.Name = "Legend1";
-            this.treinamentoChart.Legends.Add(legend2);
+            chartArea1.Name = "OndaChartArea";
+            this.treinamentoChart.ChartAreas.Add(chartArea1);
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.treinamentoChart.Legends.Add(legend1);
             this.treinamentoChart.Location = new System.Drawing.Point(6, 22);
             this.treinamentoChart.Name = "treinamentoChart";
-            series2.ChartArea = "OndaChartArea";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Legend = "Legend1";
-            series2.Name = "OndaSeries";
-            this.treinamentoChart.Series.Add(series2);
+            series1.ChartArea = "OndaChartArea";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "OndaSeries";
+            this.treinamentoChart.Series.Add(series1);
             this.treinamentoChart.Size = new System.Drawing.Size(737, 237);
             this.treinamentoChart.TabIndex = 3;
             this.treinamentoChart.Text = "Treinamento";
@@ -154,6 +163,42 @@
             this.buttonOK.Text = "OK";
             this.buttonOK.UseVisualStyleBackColor = true;
             this.buttonOK.Click += new System.EventHandler(this.buttonOK_Click);
+            // 
+            // labelIteracoes
+            // 
+            this.labelIteracoes.AutoSize = true;
+            this.labelIteracoes.Location = new System.Drawing.Point(6, 21);
+            this.labelIteracoes.Name = "labelIteracoes";
+            this.labelIteracoes.Size = new System.Drawing.Size(144, 15);
+            this.labelIteracoes.TabIndex = 0;
+            this.labelIteracoes.Text = "Quantidade de Iterações:";
+            // 
+            // labelTxErro
+            // 
+            this.labelTxErro.AutoSize = true;
+            this.labelTxErro.Location = new System.Drawing.Point(6, 46);
+            this.labelTxErro.Name = "labelTxErro";
+            this.labelTxErro.Size = new System.Drawing.Size(77, 15);
+            this.labelTxErro.TabIndex = 1;
+            this.labelTxErro.Text = "Taxa de Erro:";
+            // 
+            // labelQtdeIteracoesResult
+            // 
+            this.labelQtdeIteracoesResult.AutoSize = true;
+            this.labelQtdeIteracoesResult.Location = new System.Drawing.Point(156, 21);
+            this.labelQtdeIteracoesResult.Name = "labelQtdeIteracoesResult";
+            this.labelQtdeIteracoesResult.Size = new System.Drawing.Size(14, 15);
+            this.labelQtdeIteracoesResult.TabIndex = 2;
+            this.labelQtdeIteracoesResult.Text = "0";
+            // 
+            // labelTxErroResult
+            // 
+            this.labelTxErroResult.AutoSize = true;
+            this.labelTxErroResult.Location = new System.Drawing.Point(156, 46);
+            this.labelTxErroResult.Name = "labelTxErroResult";
+            this.labelTxErroResult.Size = new System.Drawing.Size(24, 15);
+            this.labelTxErroResult.TabIndex = 3;
+            this.labelTxErroResult.Text = "0.0";
             // 
             // FECGIniciarTreinamento
             // 
@@ -175,6 +220,8 @@
             this.Load += new System.EventHandler(this.FECGIniciarTreinamento_Load);
             this.groupBoxConfig.ResumeLayout(false);
             this.groupBoxConfig.PerformLayout();
+            this.groupBoxInfo.ResumeLayout(false);
+            this.groupBoxInfo.PerformLayout();
             this.groupBoxChart.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.treinamentoChart)).EndInit();
             this.ResumeLayout(false);
@@ -193,5 +240,9 @@
         private System.Windows.Forms.ComboBox comboBoxOnda;
         private System.Windows.Forms.Label labelOnda;
         private System.Windows.Forms.Button buttonTreinar;
+        private System.Windows.Forms.Label labelTxErroResult;
+        private System.Windows.Forms.Label labelQtdeIteracoesResult;
+        private System.Windows.Forms.Label labelTxErro;
+        private System.Windows.Forms.Label labelIteracoes;
     }
 }

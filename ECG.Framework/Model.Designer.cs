@@ -11,7 +11,7 @@
 [assembly: global::System.Data.Objects.DataClasses.EdmSchemaAttribute()]
 
 // Original file name:
-// Generation date: 16/05/2010 17:49:16
+// Generation date: 21/05/2010 18:51:47
 namespace ECG.Framework
 {
     
