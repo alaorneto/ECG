@@ -32,6 +32,7 @@ namespace ECG.Framework.IA
             ativacao = new RedeAtivacao(new BipolarSigmoideFuncaoAtivacao(), entradas, neuronios);
 
             ativacao = Utils.SetupPesos(ativacao, fromdb.pesos);
+            ativacao = Utils.SetupThreshold(ativacao, fromdb.threshold);
             ativacao.Descricao = descricao;
 
             return ativacao;
@@ -61,6 +62,7 @@ namespace ECG.Framework.IA
             fromdb.entradas = rede.NumeroEntradas;
             fromdb.neuronios = Utils.NeuroniosToString(rede);
             fromdb.pesos = Utils.PesosParaString((RedeAtivacao)rede);
+            fromdb.threshold = Utils.ThresholdParaString((RedeAtivacao)rede);
             fromdb.descricao = rede.Descricao;
 
             entities.SaveChanges();

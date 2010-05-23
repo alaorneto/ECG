@@ -13,6 +13,8 @@
     <EntitySetMapping Name="REDE">
       <EntityTypeMapping TypeName="DatabaseModel.REDE">
         <MappingFragment StoreEntitySet="REDE">
+          <ScalarProperty Name="threshold" ColumnName="threshold" />
+          <ScalarProperty Name="saidas" ColumnName="saidas" />
           <ScalarProperty Name="entradas" ColumnName="entradas" />
           <ScalarProperty Name="descricao" ColumnName="descricao" />
           <ScalarProperty Name="pesos" ColumnName="pesos" />

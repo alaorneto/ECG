@@ -59,7 +59,7 @@ namespace ECG.Framework.IA
 
             soma += _threshold;
 
-            return (_saida = _funcao.Funcao(soma));
+            return (_saida = _funcao.Funcao((double)soma));
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace ECG.Framework.IA
             double d = randRange.Length;
 
             for (int i = 0; i < _numeroEntradas; i++)
-                _pesos[i] = aleatorio.NextDouble() * d + randRange.Min;
+                _pesos[i] = (aleatorio.NextDouble() * d + randRange.Min);
         }
     }
 }

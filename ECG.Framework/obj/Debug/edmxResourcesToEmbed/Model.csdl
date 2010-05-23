@@ -26,6 +26,8 @@
     <Property Type="String" Name="pesos" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Type="String" Name="descricao" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Type="Int32" Name="entradas" Nullable="false" />
+    <Property Type="String" Name="saidas" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="threshold" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="CONFIG">
     <Key>

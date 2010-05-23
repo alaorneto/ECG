@@ -150,7 +150,7 @@ namespace ECG.Framework.IA
 
                     for (int k = 0; k < proximaCamada.NumeroNeuronios; k++)
                     {
-                        soma += proximosErros[k] * proximaCamada[k][i];
+                        soma += proximosErros[k] * (double)proximaCamada[k][i];
                     }
 
                     erros[i] = soma * funcao.Derivada2(camada[i].Saida);

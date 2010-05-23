@@ -44,6 +44,8 @@
     <Property Name="camadas" Type="int" Nullable="false" />
     <Property Name="neuronios" Type="ntext" Nullable="false" />
     <Property Name="pesos" Type="ntext" />
+    <Property Name="saidas" Type="ntext" />
+    <Property Name="threshold" Type="ntext" />
   </EntityType>
   <EntityType Name="T">
     <Key>

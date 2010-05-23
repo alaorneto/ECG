@@ -114,7 +114,7 @@ namespace ECG.Framework.IA
             double d = randRange.Length;
 
             for (int i = 0; i < _numeroEntradas; i++)
-                this._pesos[i] = aleatorio.NextDouble() * d + randRange.Min;
+                this._pesos[i] = (aleatorio.NextDouble() * d + randRange.Min);
         }
     }
 }
