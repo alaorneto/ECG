@@ -418,26 +418,7 @@ namespace ECG.Framework
                         inicio = index;
                         break;
                     }
-                    /*
-                    if ((subindo == false) && (onda[index] == 0))
-                    {
-                        index--;
-                        walking = false;
-                    }
 
-                    if ((subindo == false) &&
-                        (((onda[index - 1] +
-                        onda[index - 2] +
-                        onda[index - 3] +
-                        onda[index - 4] +
-                        onda[index - 5]) / 5) * 1.1 >= (onda[index])))
-                    {
-                        index--;
-                        walking = false;
-                    }
-
-                    index--;
-                     * */
                     index++;
                 }
 

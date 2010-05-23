@@ -207,7 +207,7 @@ namespace ECG.Framework.Graphics
 
             for (int x = 0; x < _imagem.Height; ++x)
             {
-                for (int y = _imagem.Width - 1; y >= 0; --y)
+                for (int y = 0; y < _imagem.Width; y++)
                 {
                     Console.Write(_matriz[y, x]);
                 }

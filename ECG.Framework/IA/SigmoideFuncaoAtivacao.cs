@@ -13,15 +13,15 @@ namespace ECG.Framework.IA
         /// <summary>
         /// 
         /// </summary>
-        protected double _alfa = 2;
+        protected double alfa = 2;
 
         /// <summary>
         /// 
         /// </summary>
         public double Alfa
         {
-            get { return this._alfa; }
-            set { this._alfa = value; }
+            get { return this.alfa; }
+            set { this.alfa = value; }
         }
 
         /// <summary>
@@ -35,7 +35,7 @@ namespace ECG.Framework.IA
         /// <param name="alfa"></param>
         public SigmoideFuncaoAtivacao(double alfa)
         {
-            this._alfa = alfa;
+            this.alfa = alfa;
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace ECG.Framework.IA
         /// <returns></returns>
         public double Funcao(double x)
         {
-            double exp = Math.Exp(-_alfa * x);
+            double exp = Math.Exp(-alfa * x);
             double saida = (1 / (1 + exp));
             return saida;
         }
@@ -59,7 +59,7 @@ namespace ECG.Framework.IA
         {
             double y = Funcao(x);
 
-            return (this._alfa * y * (1 - y));
+            return (this.alfa * y * (1 - y));
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace ECG.Framework.IA
         /// <returns></returns>
         public double Derivada2(double y)
         {
-            return (this._alfa * y * (1 - y));
+            return (this.alfa * y * (1 - y));
         }
 
     }

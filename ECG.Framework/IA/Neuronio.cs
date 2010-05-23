@@ -13,17 +13,17 @@ namespace ECG.Framework.IA
         /// <summary>
         /// 
         /// </summary>
-        protected int _numeroEntradas = 0;
+        protected int numeroEntradas = 0;
 
         /// <summary>
         /// 
         /// </summary>
-        protected double[] _pesos = null;
+        protected double[] pesos = null;
 
         /// <summary>
         /// 
         /// </summary>
-        protected double _saida = 0;
+        protected double saida = 0;
 
         /// <summary>
         /// 
@@ -37,8 +37,8 @@ namespace ECG.Framework.IA
 
         public Neuronio(int numeroEntradas)
         {
-            this._numeroEntradas = Math.Max(1, numeroEntradas);
-            this._pesos = new double[numeroEntradas];
+            this.numeroEntradas = Math.Max(1, numeroEntradas);
+            this.pesos = new double[numeroEntradas];
             this.Aleatorizar();
         }
 
@@ -77,7 +77,7 @@ namespace ECG.Framework.IA
         /// </summary>
         public int NumeroEntradas
         {
-            get { return this._numeroEntradas; }
+            get { return this.numeroEntradas; }
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace ECG.Framework.IA
         /// </summary>
         public double Saida
         {
-            get { return this._saida; }
+            get { return this.saida; }
         }
 
         /// <summary>
@@ -95,8 +95,8 @@ namespace ECG.Framework.IA
         /// <returns>O peso associado à entrada</returns>
         public double this[int index]
         {
-            get { return this._pesos[index]; }
-            set { this._pesos[index] = value; }
+            get { return this.pesos[index]; }
+            set { this.pesos[index] = value; }
         }
 
         /// <summary>
@@ -113,8 +113,8 @@ namespace ECG.Framework.IA
         {
             double d = randRange.Length;
 
-            for (int i = 0; i < _numeroEntradas; i++)
-                this._pesos[i] = (aleatorio.NextDouble() * d + randRange.Min);
+            for (int i = 0; i < numeroEntradas; i++)
+                this.pesos[i] = (aleatorio.NextDouble() * d + randRange.Min);
         }
     }
 }

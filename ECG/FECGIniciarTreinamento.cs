@@ -16,6 +16,10 @@ namespace ECG
     {
         public delegate void AtualizarChartDelegate(double taxaErro);
         public AtualizarChartDelegate chartDelegate;
+        public delegate void AtualizarIteracoesDelegate(string it);
+        public AtualizarIteracoesDelegate itDelegate;
+        public delegate void AtualizarTaxaErroDelegate(string taxaErro);
+        public AtualizarTaxaErroDelegate txErroDelegate;
 
         public FECGIniciarTreinamento()
         {
@@ -30,6 +34,8 @@ namespace ECG
         private void FECGIniciarTreinamento_Load(object sender, EventArgs e)
         {
             chartDelegate = new AtualizarChartDelegate(AtualizarChart);
+            itDelegate = new AtualizarIteracoesDelegate(AtualizarIteracoes);
+            txErroDelegate = new AtualizarTaxaErroDelegate(AtualizarTaxaErro);
 
             comboBoxOnda.SelectedItem = "Complexo QRS";
         }
@@ -78,8 +84,8 @@ namespace ECG
                     coeficiente = erro / count;
 
                     treinamentoChart.Invoke(this.chartDelegate, coeficiente);
-                    
-                    //Console.WriteLine("Taxa de erro: {0}", coeficiente);
+                    labelQtdeIteracoesResult.Invoke(this.itDelegate, count.ToString());
+                    labelTxErroResult.Invoke(this.txErroDelegate, coeficiente.ToString());
                 }
             }
 
@@ -129,8 +135,8 @@ namespace ECG
                     coeficiente = erro / count;
 
                     treinamentoChart.Invoke(this.chartDelegate, coeficiente);
-
-                    //Console.WriteLine("Taxa de erro: {0}", coeficiente);
+                    labelQtdeIteracoesResult.Invoke(this.itDelegate, count.ToString());
+                    labelTxErroResult.Invoke(this.txErroDelegate, coeficiente.ToString());
                 }
             }
 
@@ -153,6 +159,16 @@ namespace ECG
         private void AtualizarChart(double taxaErro)
         {
             treinamentoChart.Series[0].Points.Add(taxaErro);
+        }
+
+        private void AtualizarIteracoes(string it)
+        {
+            labelQtdeIteracoesResult.Text = it;
+        }
+
+        private void AtualizarTaxaErro(string taxaErro)
+        {
+            labelTxErroResult.Text = taxaErro;
         }
     }
 }

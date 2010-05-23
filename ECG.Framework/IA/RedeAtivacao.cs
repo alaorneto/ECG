@@ -14,7 +14,7 @@ namespace ECG.Framework.IA
         /// <returns></returns>
         public new CamadaAtivacao this[int index]
         {
-            get { return ((CamadaAtivacao)_camadas[index]); }
+            get { return ((CamadaAtivacao)camadas[index]); }
         }
 
         /// <summary>
@@ -26,9 +26,9 @@ namespace ECG.Framework.IA
         public RedeAtivacao(IFuncaoAtivacao funcaoAtivacao, int numeroEntradas, params int[] numeroNeuronios) 
             : base(numeroEntradas, numeroNeuronios.Length)
         {
-            for (int i = 0; i < _numeroCamadas; i++)
+            for (int i = 0; i < numeroCamadas; i++)
             {
-                _camadas[i] = new CamadaAtivacao((i == 0) ? numeroEntradas : numeroNeuronios[i - 1],
+                camadas[i] = new CamadaAtivacao((i == 0) ? numeroEntradas : numeroNeuronios[i - 1],
                                                     numeroNeuronios[i],
                                                     funcaoAtivacao);
             }

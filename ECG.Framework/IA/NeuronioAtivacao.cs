@@ -49,17 +49,17 @@ namespace ECG.Framework.IA
         /// <returns></returns>
         public override double Calcular(double[] entradas)
         {
-            if (entradas.Length != this._numeroEntradas)
+            if (entradas.Length != this.numeroEntradas)
                 throw new ArgumentException();
 
             double soma = 0.0;
 
-            for (int i = 0; i < _numeroEntradas; i++)
-                soma += _pesos[i] * entradas[i];
+            for (int i = 0; i < numeroEntradas; i++)
+                soma += pesos[i] * entradas[i];
 
             soma += _threshold;
 
-            return (_saida = _funcao.Funcao((double)soma));
+            return (saida = _funcao.Funcao((double)soma));
         }
 
         /// <summary>
@@ -69,8 +69,8 @@ namespace ECG.Framework.IA
         {
             double d = randRange.Length;
 
-            for (int i = 0; i < _numeroEntradas; i++)
-                _pesos[i] = (aleatorio.NextDouble() * d + randRange.Min);
+            for (int i = 0; i < numeroEntradas; i++)
+                pesos[i] = (aleatorio.NextDouble() * d + randRange.Min);
         }
     }
 }

@@ -13,27 +13,27 @@ namespace ECG.Framework.IA
         /// <summary>
         /// 
         /// </summary>
-        protected string _descricao;
+        protected string descricao;
 
         /// <summary>
         /// 
         /// </summary>
-        protected int _numeroEntradas;
+        protected int numeroEntradas;
 
         /// <summary>
         /// 
         /// </summary>
-        protected int _numeroCamadas;
+        protected int numeroCamadas;
 
         /// <summary>
         /// 
         /// </summary>
-        protected double[] _saida;
+        protected double[] saida;
 
         /// <summary>
         /// 
         /// </summary>
-        protected Camada[] _camadas;
+        protected Camada[] camadas;
 
         /// <summary>
         /// 
@@ -42,10 +42,10 @@ namespace ECG.Framework.IA
         /// <param name="numeroCamadas">Número de camadas da rede</param>
         public Rede(int numeroEntradas, int numeroCamadas)
         {
-            this._numeroEntradas = Math.Max(1, numeroEntradas);
-            this._numeroCamadas = Math.Max(1, numeroCamadas);
+            this.numeroEntradas = Math.Max(1, numeroEntradas);
+            this.numeroCamadas = Math.Max(1, numeroCamadas);
 
-            this._camadas = new Camada[this.NumeroCamadas];
+            this.camadas = new Camada[this.NumeroCamadas];
         }
 
         /// <summary>
@@ -55,13 +55,13 @@ namespace ECG.Framework.IA
         /// <returns></returns>
         public Camada this[int index]
         {
-            get { return this._camadas[index]; }
+            get { return this.camadas[index]; }
         }
 
         public string Descricao
         {
-            get { return this._descricao; }
-            set { this._descricao = value; }
+            get { return this.descricao; }
+            set { this.descricao = value; }
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace ECG.Framework.IA
         /// </summary>
         public int NumeroEntradas
         {
-            get { return this._numeroEntradas; }
+            get { return this.numeroEntradas; }
         }
 
         /// <summary>
@@ -77,7 +77,7 @@ namespace ECG.Framework.IA
         /// </summary>
         public int NumeroCamadas
         {
-            get { return this._numeroCamadas; }
+            get { return this.numeroCamadas; }
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace ECG.Framework.IA
         /// </summary>
         public double[] Saida
         {
-            get { return this._saida; }
+            get { return this.saida; }
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace ECG.Framework.IA
         {
             double[] saidas = entradas;
 
-            foreach (Camada camada in _camadas)
+            foreach (Camada camada in camadas)
                 saidas = camada.Calcular(saidas);
 
             return saidas;
@@ -108,7 +108,7 @@ namespace ECG.Framework.IA
         /// </summary>
         public virtual void Aleatorizar()
         {
-            foreach (Camada camada in _camadas)
+            foreach (Camada camada in camadas)
                 camada.Aleatorizar();
         }
     }
